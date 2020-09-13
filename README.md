@@ -1,4 +1,4 @@
-#Program működése
+# Program működése
 
 A program bekeri ket unit nevet,hp-jat,damage-et.
 
