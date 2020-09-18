@@ -1,5 +1,4 @@
 #include "units.h"
-#include "games.h"
 #include <iostream>
 
 void listUnitAttributes(Unit& unit1,Unit& unit2){	
@@ -7,23 +6,36 @@ void listUnitAttributes(Unit& unit1,Unit& unit2){
 	std::cout << unit2.getName() << ":HP:" <<unit2.getHp() << ",DMG:" <<unit2.getDamage() << std::endl;
 }
 void damageLog(Unit& unit1, Unit& unit2) {
-	if (unit1.getHp() != 0){
 		unit1.dealDamageTo(unit2);
 		std::cout << unit1.getName() << "->" << unit2.getName() << std::endl;
-	}
-	else {
-		std::cout << unit1.getName() << " died." << unit2.getName() << " wins." << std::endl;
-	}
 }
 
-void gamePlay(Unit& unit1, Unit& unit2){	
-	while(Fight::endGame(unit1,unit2)){
+void gamePlay(Unit& unit1, Unit& unit2){
+	listUnitAttributes(unit1, unit2);
+	bool gameEnd=false;
+	while(!gameEnd){
 		//Az első unit támad
-		listUnitAttributes(unit1, unit2);	
-		damageLog(unit1, unit2);
+		if(unit1.getHp() != 0)
+		{
+			damageLog(unit1, unit2);
+			listUnitAttributes(unit1, unit2);
+		}
+		else{
+			std::cout << unit1.getName() << " died." << unit2.getName() << " wins." << std::endl;
+			gameEnd = true;
+			break;
+		}
 		//A második unit támad
-		listUnitAttributes(unit1, unit2);
-		damageLog(unit2, unit1);
+		if (unit2.getHp() != 0)
+		{
+			damageLog(unit2, unit1);
+			listUnitAttributes(unit1, unit2);
+		}
+		else
+		{
+			std::cout << unit2.getName() << " died." << unit1.getName() << " wins." << std::endl;
+			gameEnd = true;
+		}
 	}
 }
 int main(int argc,char* argv[])
