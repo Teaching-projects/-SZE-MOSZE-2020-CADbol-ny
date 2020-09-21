@@ -14,21 +14,17 @@ void gamePlay(Unit& unit1, Unit& unit2){
 	listUnitAttributes(unit1, unit2);
 	while(unit1.getHp()!=0 && unit2.getHp()!=0){
 		//Az első unit támad
-		if(unit1.getHp() != 0){
-			damageLog(unit1, unit2);
-			listUnitAttributes(unit1, unit2);
-		}
-		else{
-			std::cout << unit1.getName() << " died." << unit2.getName() << " wins." << std::endl;
+		damageLog(unit1, unit2);
+		listUnitAttributes(unit1, unit2);
+		if(unit2.getHp() == 0){
+			std::cout << unit2.getName() << " died." << unit1.getName() << " wins." << std::endl;
 			break;
 		}
 		//A második unit támad
-		if (unit2.getHp() != 0){
-			damageLog(unit2, unit1);
-			listUnitAttributes(unit1, unit2);
-		}
-		else{
-			std::cout << unit2.getName() << " died." << unit1.getName() << " wins." << std::endl;
+		damageLog(unit2, unit1);
+		listUnitAttributes(unit1, unit2);
+		if (unit1.getHp() == 0){
+			std::cout << unit1.getName() << " died." << unit2.getName() << " wins." << std::endl;
 		}
 	}
 }
