@@ -13,3 +13,8 @@
 - [x] Kimenet tárolás
 - [x] Egységek ütköztetése
 - [x] GitHub Action Pipeline-ban tesztelés
+
+##Működés
+
+Egy egységeket tároló könyvtárban lévő három egységet ütköztet,
+Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
