@@ -3,9 +3,9 @@
 ## Első rész
 
 - [x] parseUnit függvény ami vár fájl nevet
-- [ ] Ha nem található a fájl akkor exception dobás
+- [X] Ha nem található a fájl akkor exception dobás
 - [x] Parancssori argumentumban két fájl nevet vár
-- [ ] Megfelelő output készítés
+- [X] Megfelelő output készítés
 
 ## Egyéb
 

@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
+#include <fstream>
+
 class Unit {
 private:
 	mutable std::string m_name;
 	int m_hp;
 	mutable int m_damage;
 public:
-	Unit() {};
+	Unit():m_name(""),m_hp(0),m_damage(0) {};
 	Unit(std::string, int, int);
 	std::string getName() const { return m_name; }
 	int getHp() const { return m_hp; }
