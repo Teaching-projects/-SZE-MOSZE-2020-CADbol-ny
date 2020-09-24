@@ -9,7 +9,7 @@
 
 ## Egyéb
 
-- [ ] Könyvtár
+- [X] Könyvtár
 - [ ] Kimenet tárolás
 - [ ] Egységek ütköztetése
 - [ ] GitHub Action Pipeline-ban tesztelés
