@@ -1,5 +1,4 @@
 #include "units.h"
-#include <iostream>
 
 void gamePlay(Unit& unit1, Unit& unit2){
 	while(unit1.getHp()!=0 && unit2.getHp()!=0){
@@ -21,10 +20,10 @@ int main(int argc,char* argv[])
 	if (argc !=3){
 		//Tesztelésre
 		/*Unit unit1, unit2;
-		Unit::parseUnit("unit1.txt", unit1);
-		Unit::parseUnit("unit2.txt", unit2);
+		Unit::parseUnit("units/unit3.txt", unit1);
+		Unit::parseUnit("units/unit2.txt", unit2);
 		gamePlay(unit1, unit2);*/
-		std::cout << "A proper input example: ./a.out Maple 150 10 Sally 45 30" << std::endl;
+		std::cout << "A proper input example: ./a.out file1 file2" << std::endl;
 	}
 	else{
 		try {
