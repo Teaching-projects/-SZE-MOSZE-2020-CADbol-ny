@@ -1,0 +1,11 @@
+name: Feladat2 workflow
+
+on:
+  push
+jobs:
+  bulid-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: g++ -Wall Main.cpp units.cpp
+      - run: ./run_test.sh 
