@@ -8,10 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build application
-      - run: g++ -std=c++17 *.cpp
+        run: g++ -std=c++17 *.cpp
       - name: Give permission to script
-      - run: chmod +x ./run_test.sh
+        run: chmod +x ./run_test.sh
       - name: Run test
-      - run: ./run_test.sh 
+        run: ./run_test.sh 
       - name: Check output
-      - run: diff output.txt good_output.txt
+        run: diff output.txt good_output.txt
