@@ -1,6 +1,11 @@
 #!/bin/bash
 
+IFS=$`\n`
+
 rm output.txt
-while read -r line ; do
-	echo `./a.out $line` >> output.txt
-done<"input.txt"
+echo `./a.out units/unit1.txt units/unit2.txt` >> output.txt
+echo `./a.out units/unit1.txt units/unit3.txt` >> output.txt
+echo `./a.out units/unit2.txt units/unit1.txt` >> output.txt
+echo `./a.out units/unit2.txt units/unit3.txt` >>output.txt
+echo` ./a.out units/unit3.txt units/unit2.txt` >>output.txt
+echo `./a.out units/unit3.txt units/unit1.txt` >> output.txt

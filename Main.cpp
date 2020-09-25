@@ -37,5 +37,4 @@ int main(int argc,char* argv[])
 			std::cout << "The file doesn't exist,error number:" << x << std::endl;
 		}
 	}
-	std::cin.get();
 }
