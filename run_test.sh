@@ -1,8 +1,6 @@
 #!/bin/bash
 
 rm output.txt
-IFS=$' '
-
-while read line line2 ; do
-./a.out $line $line2>> output.txt
-done < input.txt
+while read -r line ; do
+	echo `./a.out $line` >> output.txt
+done<"input.txt"
