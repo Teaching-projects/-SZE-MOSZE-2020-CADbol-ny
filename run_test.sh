@@ -3,6 +3,13 @@
 rm output.txt
 IFS=$' '
 
-while read line line2 ; do
-./a.out $line $line2 >> output.txt;
-done < input.txt
+for unit1 in units/*
+do
+  for unit2 in units/*
+  do
+    if [ $unit1 != $unit2 ]
+    then
+	./a.out $unit1 $unit2>> output.txt
+    fi
+   done
+done

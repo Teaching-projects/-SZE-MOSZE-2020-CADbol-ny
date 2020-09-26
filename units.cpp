@@ -16,4 +16,5 @@ void Unit::parseUnit(std::string fileName,Unit& unit){
 		fileStream>>unit.m_name>>unit.m_hp>>unit.m_damage;
 	}
 	fileStream.close();
+
 }

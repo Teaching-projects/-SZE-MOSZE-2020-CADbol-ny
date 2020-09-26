@@ -18,3 +18,4 @@
 
 Egy egységeket tároló könyvtárban lévő három egységet ütköztet.
 Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
+
