@@ -1,8 +1,15 @@
-# Program működése
+# Feladat#2
 
-A program bekeri ket unit nevet,hp-jat,damage-et.
+## Első rész
 
-A ket unit addig tamadja egymast mig egyikuk nem gyozedelmeskedik.
+- [x] parseUnit függvény ami vár fájl nevet
+- [x] Ha nem található a fájl akkor exception dobás
+- [x] Parancssori argumentumban két fájl nevet vár
+- [x] Megfelelő output készítés
 
-A vegen kiirja, hogy ki lett a gyoztes.
+## Egyéb
 
+- [x] Könyvtár
+- [x] Kimenet tárolás
+- [x] Egységek ütköztetése
+- [x] GitHub Action Pipeline-ban tesztelés
