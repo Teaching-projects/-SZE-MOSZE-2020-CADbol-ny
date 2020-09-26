@@ -1,5 +1,4 @@
 #include "units.h"
-#include <fstream>
 
 Unit::Unit(std::string name, int hp, int damage) :m_name(name), m_hp(hp), m_damage(damage) {}
 
@@ -11,12 +10,10 @@ void Unit::parseUnit(std::string fileName,Unit& unit)
 {
 	std::ifstream fileStream;
 	fileStream.open(fileName);
-	if(fileStream.fail())
-	{
-		exit(1);
+	if(fileStream.fail()){
+		throw 1;
 	}
-	while(!fileStream.eof())
-	{
+	while(!fileStream.eof()){
 		fileStream >> unit.m_name>>unit.m_hp>>unit.m_damage;
 	}
 	fileStream.close();
