@@ -1,20 +1,21 @@
 # Feladat#2
 
-## Első rész
+### Első rész
 
 - [x] parseUnit függvény ami vár fájl nevet
-- [x] Ha nem található a fájl akkor exception dobás
+- [X] Ha nem található a fájl akkor exception dobás
 - [x] Parancssori argumentumban két fájl nevet vár
-- [x] Megfelelő output készítés
+- [X] Megfelelő output készítés
 
-## Egyéb
+### Egyéb
 
-- [x] Könyvtár
-- [x] Kimenet tárolás
-- [x] Egységek ütköztetése
-- [x] GitHub Action Pipeline-ban tesztelés
+- [X] Könyvtár
+- [X] Kimenet tárolás
+- [X] Egységek ütköztetése
+- [X] GitHub Action Pipeline-ban tesztelés
 
-##Működés
+## Működés
 
-Egy egységeket tároló könyvtárban lévő három egységet ütköztet,
+Egy egységeket tároló könyvtárban lévő három egységet ütköztet.
 Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
+
