@@ -12,9 +12,13 @@ void Unit::parseUnit(std::string fileName,Unit& unit){
 	if(fileStream.fail()){
 		throw 1;
 	}
-	while(!fileStream.eof()){
-		fileStream>>unit.m_name>>unit.m_hp>>unit.m_damage;
+	std::string line;
+	std::vector <std::string> lines;
+	while(std::getline(fileStream,line)){
+		lines.push_back(line);
 	}
+	unit.m_name = lines[1].substr(lines[1].find(':')+3, lines[1].find(',') - lines[1].find(':')-4);
+	unit.m_hp=std::stoi(lines[2].substr(lines[2].find(':') + 2, lines[2].find(',') - lines[1].find(':')));
+	unit.m_damage=std::stoi(lines[3].substr(lines[3].find(':') + 2, lines[3].size() - lines[1].find(':')));
 	fileStream.close();
-
 }
