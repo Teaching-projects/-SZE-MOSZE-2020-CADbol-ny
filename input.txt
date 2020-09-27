@@ -1,6 +1,0 @@
-units/unit1.txt units/unit2.txt
-units/unit1.txt units/unit3.txt
-units/unit2.txt units/unit1.txt 
-units/unit2.txt units/unit3.txt 
-units/unit3.txt units/unit2.txt 
-units/unit3.txt units/unit1.txt
