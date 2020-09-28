@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm output.txt
+rm -f output.txt
 IFS=$' '
 
 for unit1 in units/*
