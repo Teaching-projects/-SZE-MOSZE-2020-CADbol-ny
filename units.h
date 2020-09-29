@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+
 class Unit {
 private:
 	const std::string m_name;
@@ -11,5 +12,7 @@ public:
 	int getHp() const { return m_hp; }
 	int getDamage() const { return m_damage; }
 	void dealDamageTo(Unit&);
+	static Unit* parseUnit(const std::string&);
 	~Unit() {}
 };
+

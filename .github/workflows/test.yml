@@ -1,0 +1,17 @@
+name: Feladat2 workflow
+
+on:
+  push
+jobs:
+  bulid_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build application
+        run: g++ -std=c++17 *.cpp
+      - name: Give permission to script
+        run: chmod +x ./run_test.sh
+      - name: Run test
+        run: ./run_test.sh 
+      - name: Check output
+        run: diff output.txt good_output.txt
