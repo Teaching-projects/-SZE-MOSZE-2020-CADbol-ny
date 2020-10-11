@@ -5,7 +5,11 @@ class Unit {
 private:
 	const std::string m_name;
 	int m_hp;
-	const int m_damage;
+	int m_damage;
+	int m_xp;
+	int m_level;
+	int m_maxHP;
+
 public:
 	Unit(std::string, int, int);
 	std::string getName() const { return m_name; }

@@ -1,10 +1,21 @@
 #include "units.h"
 #include <fstream>
+#include <cmath>
 
-Unit::Unit(std::string name, int hp, int damage) :m_name(name), m_hp(hp), m_damage(damage) {}
+Unit::Unit(std::string name, int hp, int damage) :m_name(name), m_hp(hp), m_damage(damage), m_xp(0), m_level(1), m_maxHP(m_hp) {}
 
 void Unit::dealDamageTo(Unit& damagedUnit){
-	damagedUnit.m_hp = damagedUnit.getHp() - this->getDamage() < 0 ? 0 : damagedUnit.getHp() - this->getDamage();
+	int damageDone = getDamage() > damagedUnit.getHp() ? damagedUnit.getHp(): getDamage();
+	damagedUnit.m_hp = damagedUnit.getHp() - damageDone;
+	m_xp += damageDone;
+
+	while(m_xp >= 100){
+		 m_level +=1;
+		 m_xp -= 100;
+		 m_maxHP = std::round(1.1*m_maxHP);
+		 m_hp = m_maxHP;
+		 m_damage = std::round(1.1*m_damage);
+	}
 }
 
 Unit* Unit::parseUnit(const std::string& fileName){
