@@ -1,20 +1,8 @@
-# Feladat#2
+# Feladat#3
 
-## Első rész
+## Elvárás
 
-- [x] parseUnit függvény ami vár fájl nevet
-- [x] Ha nem található a fájl akkor exception dobás
-- [x] Parancssori argumentumban két fájl nevet vár
-- [x] Megfelelő output készítés
+Egy jsonparser branchen keszuljon el egy altalanosabb JSON parser, mely 3 kulonbozo formaban kaphat JSON bemenetet: fajlnev, istream, string. Ezek mindegyikere legyen kepes egy egyszeru, "1 szintes" JSON-t beolvasni a kulcsok sorrendjetol es a whitespace-ektol fuggetlenul. Maskepp megfogalmazva, egy egy szintu dictionary-t, map-et (kinek hogy tetszik) kell tudni beolvasni JSON formatumban, ahol a kulcs mindig egy "-al hatarolt szoveg, az ertek pedig vagy ugyanilyen string, vagy egy egesz / lebegopontos szam. A masodik heten megirt statikus parser fuggveny ezek utan mar ezt a parzolo osztalyt hasznalja.
+Ezek utan keszuljon 3 unit teszt erre az uj parserre.
 
-## Egyéb
-
-- [x] Könyvtár
-- [x] Kimenet tárolás
-- [x] Egységek ütköztetése
-- [x] GitHub Action Pipeline-ban tesztelés
-
-##Működés
-
-Egy egységeket tároló könyvtárban lévő három egységet ütköztet,
-Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
+## Elkészült
