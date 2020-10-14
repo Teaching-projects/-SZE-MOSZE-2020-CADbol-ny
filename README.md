@@ -6,3 +6,6 @@ Egy jsonparser branchen keszuljon el egy altalanosabb JSON parser, mely 3 kulonb
 Ezek utan keszuljon 3 unit teszt erre az uj parserre.
 
 ## Elkészült
+
+- [x] 3 függvény elkészítve
+- [x] 3 unit teszt
