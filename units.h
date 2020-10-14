@@ -55,7 +55,6 @@ public:
 	void Fight(Unit*, Unit*);
 	/// This is the function for reading the units from a file.
 	/// 
-	/// Elmagyarazni
 	/// @param fileName This is the file which contains the unit attributes in .json format.
 	/// <returns> It returns a unit.
 	static Unit* parseUnit(const std::string&);
