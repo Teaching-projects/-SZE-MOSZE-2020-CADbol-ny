@@ -14,7 +14,7 @@
 - [x] Egységek ütköztetése
 - [x] GitHub Action Pipeline-ban tesztelés
 
-##Működés
+## Működés
 
 Egy egységeket tároló könyvtárban lévő három egységet ütköztet,
 Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
