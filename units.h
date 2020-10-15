@@ -11,7 +11,7 @@ private:
 	int m_maxHP;
 
 public:
-	Unit( std::string, int, int);
+	Unit(const std::string&, int, int);
 	std::string getName() const { return m_name; }
 	int getHp() const { return m_hp; }
 	int getDamage() const { return m_damage; }
