@@ -15,7 +15,9 @@ jobs:
         run: ./run_test.sh 
       - name: Check output
         run: diff output.txt good_output.txt
-      - name: run static check
-        run: cppcheck main.cpp --enable=warning --output-file=errors.txt
-      - name: check results
+      - name: install cppcheck
+        run: sudo apt-get install cppcheck
+      - name: run cppcheck
+        run: cppcheck *.cpp --enable=warning --output-file=errors.txt
+      - name: check cppcheck result
         run: ./static_check.sh
