@@ -10,8 +10,12 @@ jobs:
       - name: Build application
         run: g++ -std=c++17 *.cpp
       - name: Give permission to script
-        run: chmod +x ./run_test.sh
+        run: chmod +x ./run_test.sh ./static_check.sh
       - name: Run test
         run: ./run_test.sh 
       - name: Check output
         run: diff output.txt good_output.txt
+      - name: run static check
+        run: cppcheck main.cpp --enable=warning --output-file=errors.txt
+      - name: check results
+        run: ./static_check.sh
