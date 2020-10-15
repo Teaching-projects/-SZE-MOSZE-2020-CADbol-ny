@@ -21,3 +21,10 @@ jobs:
         run: cppcheck *.cpp --enable=warning --output-file=errors.txt
       - name: check cppcheck result
         run: ./static_check.sh
+      - name:  Checking for style and performance
+        run: cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
+      - name: Artifact 
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: artifact.txt
