@@ -52,7 +52,7 @@ public:
 	/// hit each other until one of them dies.
 	/// <param name="unit1" This is the unit which attacks first, and the so called "agressor".
 	/// <param name="unit2" This is the unit which "defends".
-	void Fight(Unit*, Unit*);
+	static void Fight(Unit*, Unit*);
 	/// This is the function for reading the units from a file.
 	/// 
 	/// @param fileName This is the file which contains the unit attributes in .json format.

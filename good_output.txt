@@ -1,6 +1,6 @@
-Maple wins.Remaining HP:90.
-Maple wins.Remaining HP:70.
-Sally wins.Remaining HP:15.
 Sally wins.Remaining HP:25.
-Maple wins.Remaining HP:10.
 Elfie wins.Remaining HP:10.
+Sally wins.Remaining HP:35.
+Sally wins.Remaining HP:33.
+Elfie wins.Remaining HP:30.
+Sally wins.Remaining HP:9.

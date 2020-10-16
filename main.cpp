@@ -7,7 +7,7 @@
  * 
 */
 void gamePlay(Unit* unit1, Unit* unit2) {
-	unit1->Fight(unit1, unit2);
+	Unit::Fight(unit1, unit2);
 	if (unit2->getHp() == 0) {
 		std::cout << unit1->getName() << " wins.Remaining HP:" << unit1->getHp() << '.' << std::endl; 
 	}
