@@ -1,7 +1,7 @@
 #include "units.h"
 #include <fstream>
 
-Unit::Unit(std::string name, int damage, int hp, float attackspeed) :m_name(name), m_damage(damage), m_hp(hp), m_attackspeed(attackspeed) {}
+Unit::Unit(std::string name, int hp, int damage, float attackspeed) :m_name(name),  m_hp(hp), m_damage(damage), m_attackspeed(attackspeed) {}
 
 void Unit::dealDamageTo(Unit& damagedUnit){
 	damagedUnit.m_hp = damagedUnit.getHp() - this->getDamage() < 0 ? 0 : damagedUnit.getHp() - this->getDamage();
