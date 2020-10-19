@@ -1,62 +1,51 @@
 #include "jsonparser.h"
 #include <sstream>
 
-std::map<std::string,std::string> JsonParser::ParseFile(const std::string& filename){
-	std::map<std::string, std::string> unit;
-	std::ifstream input;
-	input.open(filename);
-	if (input.fail()){
+std::map<std::string,std::string> JsonParser::ParseFile(const std::string& unitfile){
+	std::map<std::string, std::string> unitmap;
+	std::ifstream inputunit;
+	inputunit.open(unitfile);
+	if (inputunit.fail()){
 		throw 1;
 	}
-	unit = JsonParser::ParseIstream(input);
-	input.close();
+	unitmap = JsonParser::ParseIstream(inputunit);
+	inputunit.close();
+	return unitmap;
+}
+std::map< std::string, std::string> JsonParser::ParseIstream(std::ifstream& inputunit) {
+	return JsonParser::Parser(inputunit);
+}
+std::map< std::string, std::string> JsonParser::ParseString(std::string& text){
+	std::istringstream iss(text);
+	return JsonParser::Parser(iss);
+}
+template<typename T>
+std::map< std::string, std::string> JsonParser::Parser(T& parsed)
+{
+	std::map<std::string, std::string> unit;
+	std::string line, key, value;
+	unsigned int i = 0;
+	while (parsed){
+		key = "", value = "", i = 0;
+		std::getline(parsed, line);
+		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos) {
+			while (line[i] == ' ' || line[i] == ',' || line[i] == ':' || line[i] == '\n' || line[i] == '\r' || line[i] == '\"') {
+				i++;
+			}
+			while (line[i] != ' ' && line[i] != ',' && line[i] != ':' && line[i] != '\n' && line[i] != '\r' && line[i] != '\"') {
+				key += line[i];
+				i++;
+			}
+			for (unsigned int j = i + 1; j < line.size(); j++) {
+				if (line[j] != ' ' && line[j] != ',' && line[j] != ':' && line[j] != '\n' && line[j] != '\r' && line[j] != '\"') {
+					value += line[j];
+				}
+			}
+			unit.insert({ key,value });
+		}
+	}
 	return unit;
 }
 
-std::map< std::string, std::string> JsonParser::ParseIstream(std::ifstream& fileCont) {
-	std::map<std::string, std::string> unit;
-	std::string line, line1, line2;
-	while (fileCont){
-		line1 = "", line2 = "";
-		std::getline(fileCont, line);
-		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos){
-			for (unsigned int i = 0; i < line.find(':'); i++){
-				if (line[i] != ' ' && line[i] != '"'){
-					line1 += line[i];
-				}
-			}
-			for (unsigned int i = line.find(':') + 1; i < line.size(); i++){
-				if (line[i] != ' ' && line[i] != '"' && line[i] != ',' && line[i]!='\n' && line[i] !='\r'){
-					line2 += line[i];
-				}
-			}
-			unit.insert({ line1,line2 });
-		}
-	}
-	return unit;
-}
-std::map< std::string, std::string> JsonParser::ParseString(std::string& text){
-	std::map<std::string, std::string> unit;
-	std::string line,line1 = "", line2 = "";
-	std::istringstream iss(text);
-	while (iss){
-		line1 = "", line2 = "";
-		std::getline(iss, line);
-		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos){
-			for (unsigned int i = 0; i < line.find(':'); i++){
-				if (line[i] != ' ' && line[i] != '"'){
-					line1 += line[i];
-				}
-			}
-			for (unsigned int i = line.find(':') + 1; i < line.size(); i++){
-				if (line[i] != ' ' && line[i] != '"' && line[i] != ','){
-					line2 += line[i];
-				}
-			}
-			unit.insert({ line1,line2 });
-		}
-	}
-	return unit;
-}
 
 
