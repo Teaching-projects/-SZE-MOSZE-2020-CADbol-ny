@@ -7,18 +7,18 @@ void Unit::dealDamageTo(Unit& damagedUnit){
 	damagedUnit.m_hp = damagedUnit.getHp() - this->getDamage() < 0 ? 0 : damagedUnit.getHp() - this->getDamage();
 }
 
-Unit* Unit::parseUnit(const std::string& filename){
+Unit* Unit::parseUnit(const std::string& unitfilename){
 	//Istream
-	std::ifstream input;
-	input.open(filename);
-	if (input.fail())
+	std::ifstream inputunit;
+	inputunit.open(unitfilename);
+	if (inputunit.fail())
 	{
 		throw 1;
 	}
-	std::map<std::string, std::string> values = JsonParser::ParseIstream(input);
-	input.close();
+	std::map<std::string, std::string> values = JsonParser::ParseIstream(inputunit);
+	inputunit.close();
 	//File
-	//std::map<std::string,std::string> values=JsonParser::ParseFile(filename);
+	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
 	Unit* unit=new Unit(values["name"],std::stoi(values["hp"]), std::stoi(values["dmg"]));
 	return unit;
 }
