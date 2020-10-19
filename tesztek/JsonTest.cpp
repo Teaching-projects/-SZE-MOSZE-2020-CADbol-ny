@@ -29,7 +29,7 @@ TEST(MultTest,stringparse)
 	expected["name"]="Maple";
 	expected["hp"]="150";
 	expected["dmg"]="10";
-	std::string input="{\n \"name\" : \"Maple\",\n \"hp\" : 150,\n \"dmg\": 10 \n}";
+	std::string input="{\n name : \"Maple\",\n \"hp\"  150,\n \"dmg\": 10 \n}";
 	std::map<std::string,std::string> output=JsonParser::ParseString(input);
     EXPECT_EQ(output,expected);
 }
