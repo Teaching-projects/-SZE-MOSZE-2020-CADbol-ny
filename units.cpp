@@ -1,5 +1,6 @@
 #include "units.h"
 #include "jsonparser.h"
+#include <exception>
 
 Unit::Unit(std::string name, int hp, int damage) :m_name(name), m_hp(hp), m_damage(damage) {}
 

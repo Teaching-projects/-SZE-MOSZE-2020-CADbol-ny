@@ -1,5 +1,6 @@
 #include "units.h"
 #include <iostream>
+#include <exception>
 
 void gamePlay(Unit* unit1, Unit* unit2){
 	while(unit1->getHp()!=0 && unit2->getHp()!=0){

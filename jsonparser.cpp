@@ -1,5 +1,6 @@
 #include "jsonparser.h"
 #include <sstream>
+#include <exception>
 
 std::map<std::string,std::string> JsonParser::ParseFile(const std::string& unitfile){
 	std::map<std::string, std::string> unitmap;
