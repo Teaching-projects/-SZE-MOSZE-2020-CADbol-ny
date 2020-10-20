@@ -32,7 +32,7 @@ int main(int argc,char* argv[])
 			delete unit1;
 			delete unit2;
 		}
-		catch (std::exception& e)
+		catch (std::runtime_error& e)
 		{
 			std::cout << e.what()<< std::endl;
 		}
