@@ -8,6 +8,7 @@ TEST(MultTest,fileparse)
 	expected["name"]="Maple";
 	expected["hp"]="150";
 	expected["dmg"]="10";
+	expected["attackcooldown"]=6;
 	std::map<std::string,std::string> output=JsonParser::ParseFile("units/unit1.json");
     EXPECT_EQ(output,expected);
 }
@@ -17,6 +18,7 @@ TEST(MultTest,istreamparse)
 	expected["name"]="Maple";
 	expected["hp"]="150";
 	expected["dmg"]="10";
+	expected["attackcooldown"]=6;
 	std::ifstream input;
 	input.open("units/unit1.json");
 	std::map<std::string,std::string> output=JsonParser::ParseIstream(input);
