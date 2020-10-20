@@ -13,7 +13,7 @@ Unit* Unit::parseUnit(const std::string& unitfilename){
 	inputunit.open(unitfilename);
 	if (inputunit.fail())
 	{
-		throw 1;
+		throw std::exception("Couldn't open file,the file doesn't exist.");
 	}
 	std::map<std::string, std::string> values = JsonParser::ParseIstream(inputunit);
 	inputunit.close();

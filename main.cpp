@@ -31,9 +31,9 @@ int main(int argc,char* argv[])
 			delete unit1;
 			delete unit2;
 		}
-		catch (int x)
+		catch (std::exception& e)
 		{
-			std::cout << "The file doesn't exist,error number:" << x << std::endl;
+			std::cout << e.what()<< std::endl;
 		}
 	}
 	std::cin.get();

@@ -6,7 +6,7 @@ std::map<std::string,std::string> JsonParser::ParseFile(const std::string& unitf
 	std::ifstream inputunit;
 	inputunit.open(unitfile);
 	if (inputunit.fail()){
-		throw 1;
+		throw std::exception("Couldn't open file,the file doesn't exist.");
 	}
 	unitmap = JsonParser::ParseIstream(inputunit);
 	inputunit.close();
