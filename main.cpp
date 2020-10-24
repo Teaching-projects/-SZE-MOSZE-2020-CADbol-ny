@@ -1,5 +1,7 @@
 #include "units.h"
 #include <iostream>
+#include <exception>
+
 /**
  *  This function calls the game with 2 units who fight each other.
  * 
@@ -39,9 +41,9 @@ int main(int argc,char* argv[])
 			delete unit1;
 			delete unit2;
 		}
-		catch (int x)
+		catch (std::runtime_error& e)
 		{
-			std::cout << "The file doesn't exist,error number:" << x << std::endl;
+			std::cout << e.what()<< std::endl;
 		}
 	}
 	std::cin.get();

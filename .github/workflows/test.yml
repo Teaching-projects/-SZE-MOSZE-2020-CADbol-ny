@@ -1,4 +1,4 @@
-name: Feladat2 workflow
+name: Output tesztek
 
 on:
   push

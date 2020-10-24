@@ -1,5 +1,6 @@
 #include "units.h"
-#include <fstream>
+#include "jsonparser.h"
+#include <exception>
 
 Unit::Unit(std::string name, int hp, int damage, float attackspeed) :m_name(name),  m_hp(hp), m_damage(damage), m_attackspeed(attackspeed) {}
 
@@ -22,26 +23,18 @@ void Unit::Fight(Unit* unit1, Unit* unit2) {
 		}
 	}
 }
-
-Unit* Unit::parseUnit(const std::string& fileName){
-	std::ifstream fileStream;
-	std::string name;
-	int hp, damage;
-	float attackspeed;
-	fileStream.open(fileName);
-	if(fileStream.fail()){
-		throw 1;
+Unit* Unit::parseUnit(const std::string& unitfilename){
+	//Istream
+	std::ifstream inputunit;
+	inputunit.open(unitfilename);
+	if (inputunit.fail())
+	{
+		throw std::runtime_error("Couldn't open file,the file doesn't exist.");
 	}
-	std::string lines [6];
-	int i = 0;
-	while (std::getline(fileStream, lines[i])) {
-		i++;
-	}
-	name = lines[1].substr(lines[1].find(':') + 3, lines[1].find(',') - lines[1].find(':') - 4);
-	hp = std::stoi(lines[2].substr(lines[2].find(':') + 2, lines[2].find(',') - lines[1].find(':')));
-	damage = std::stoi(lines[3].substr(lines[3].find(':') + 2, lines[3].find(',') - lines[2].find(':')));
-	attackspeed = std::stof(lines[4].substr(lines[4].find(':') + 2, lines[4].size() - lines[4].find(':')));
-	Unit* unit=new Unit(name, hp, damage, attackspeed);
-	fileStream.close();
+	std::map<std::string, std::string> values = JsonParser::ParseIstream(inputunit);
+	inputunit.close();
+	//File
+	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
+	Unit* unit=new Unit(values["name"],std::stoi(values["hp"]), std::stoi(values["dmg"]),std::stof(values["attackcooldown"]));
 	return unit;
 }
