@@ -12,7 +12,7 @@ private:
 
 public:
 	Unit(const std::string&, int, int);
-	const std::string getName() const { return m_name; }
+	const std::string &getName() const { return m_name; }
 	int getHp() const { return m_hp; }
 	int getDamage() const { return m_damage; }
 	void dealDamageTo(Unit&);
