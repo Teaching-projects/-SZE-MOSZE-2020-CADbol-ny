@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build application
-        run: g++ -std=c++17 *.cpp
+        run: g++ -Wall -I -std=c++17 *.cpp units.h -o a
       - name: Give permission to script
         run: chmod +x ./run_test.sh ./static_check.sh
       - name: Run test
@@ -28,3 +28,6 @@ jobs:
         with:
           name: artifact
           path: artifact.txt
+      - name: Valgrind install, memory check
+        run: sudo apt install cppcheck valgrin
+        run: valgrind --leak-check=full --error-exitcode=1 ./a units/unit1.json units/unit2.json
