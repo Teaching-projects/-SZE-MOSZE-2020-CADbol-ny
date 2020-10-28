@@ -5,7 +5,7 @@
 #include <exception>
 
 
-Unit::Unit(const std::string& name, int hp, int damage, float attackspeed) :m_name(name), m_hp(hp), m_damage(damage), m_xp(0), m_attackspeed(attackspeed), m_level(1), m_maxHP(m_hp) {}
+Unit::Unit(const std::string& name, int hp, int damage, float attackspeed) :m_name(name), m_hp(hp), m_damage(damage), m_attackspeed(attackspeed), m_xp(0), m_level(1), m_maxHP(m_hp) {}
 
 void Unit::dealDamageTo(Unit& damagedUnit){
 	int damageDone = getDamage() > damagedUnit.getHp() ? damagedUnit.getHp(): getDamage();
