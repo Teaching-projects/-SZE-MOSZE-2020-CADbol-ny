@@ -15,9 +15,9 @@ private:
 
 	const std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
-	const int m_damage;///<This is the unit's default damage.
+	int m_damage;///<This is the unit's default damage.
 	float m_attackspeed;///<This is the unit's attackcooldown.
-  int m_xp;///<This is the unit's current experience
+  	int m_xp;///<This is the unit's current experience
 	int m_level;///<This is the unit's level
 	int m_maxHP;///<This is the unit's HP after levelups
 public:
