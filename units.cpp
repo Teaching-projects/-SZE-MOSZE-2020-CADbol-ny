@@ -18,6 +18,7 @@ void Unit::dealDamageTo(Unit& damagedUnit){
 		 m_maxHP = std::round(1.1*m_maxHP);
 		 m_hp = m_maxHP;
 		 m_damage = std::round(1.1*m_damage);
+		 m_attackspeed = 1.1*m_attackspeed;
 	}
 }
 

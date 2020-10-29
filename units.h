@@ -24,7 +24,7 @@ public:
 	/// This is the constructor for the units.
 	///
 	///We get the constructor parameters from the file, which is in .json format.
-	Unit(const std::string&, int, int, float);
+	Unit(const std::string& name, int hp, int damage, float attackspeed);
 	///	Getter for the units name.
 	/// 
 	/// This is a simple getter function.
