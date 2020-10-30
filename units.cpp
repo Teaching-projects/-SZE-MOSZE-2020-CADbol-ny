@@ -5,7 +5,7 @@
 #include <exception>
 
 
-Unit::Unit(const std::string& name, int hp, int damage, float attackspeed) :m_name(name), m_hp(hp), m_damage(damage), m_attackspeed(attackspeed), m_xp(0), m_level(1), m_maxHP(m_hp) {}
+Unit::Unit(const std::string& name, int hp, int damage, float attackCooldown) :m_name(name), m_hp(hp), m_damage(damage), m_attackCooldown(attackCooldown), m_xp(0), m_level(1), m_maxHP(m_hp) {}
 
 void Unit::dealDamageTo(Unit& damagedUnit){
 	int damageDone = getDamage() > damagedUnit.getHp() ? damagedUnit.getHp(): getDamage();
@@ -18,7 +18,7 @@ void Unit::dealDamageTo(Unit& damagedUnit){
 		 m_maxHP = std::round(1.1*m_maxHP);
 		 m_hp = m_maxHP;
 		 m_damage = std::round(1.1*m_damage);
-		 m_attackspeed = 1.1*m_attackspeed;
+		 m_attackCooldown = 0.9*m_attackCooldown;
 	}
 }
 

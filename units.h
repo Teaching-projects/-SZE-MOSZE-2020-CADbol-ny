@@ -16,7 +16,7 @@ private:
 	const std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
 	int m_damage;///<This is the unit's default damage.
-	float m_attackspeed;///<This is the unit's attackcooldown.
+	float m_attackCooldown;///<This is the unit's attackcooldown.
   	int m_xp;///<This is the unit's current experience
 	int m_level;///<This is the unit's level
 	int m_maxHP;///<This is the unit's HP after levelups
@@ -24,7 +24,7 @@ public:
 	/// This is the constructor for the units.
 	///
 	///We get the constructor parameters from the file, which is in .json format.
-	Unit(const std::string& name, int hp, int damage, float attackspeed);
+	Unit(const std::string& name, int hp, int damage, float attackCooldown);
 	///	Getter for the units name.
 	/// 
 	/// This is a simple getter function.
@@ -44,7 +44,7 @@ public:
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The unit's current damage.
-	float getAttackspeed() const { return m_attackspeed; }
+	float getAttackspeed() const { return m_attackCooldown; }
 	/// This is the function for dealing damage.
 	/// 
 	/// Units can use this function to lower the other unit healt points.
