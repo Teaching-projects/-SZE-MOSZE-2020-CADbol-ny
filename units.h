@@ -22,8 +22,6 @@ private:
 	int m_maxHP;///<This is the unit's HP after levelups
 public:
 	/// This is the constructor for the units.
-	///
-	///We get the constructor parameters from the file, which is in .json format.
 	Unit(const std::string& name, int hp, int damage, float attackCooldown);
 	///	Getter for the units name.
 	/// 
@@ -43,7 +41,7 @@ public:
 	/// Getter for the units attackspeed.
 	/// 
 	/// This is a simple getter function.
-	/// <returns>The unit's current damage.
+	/// <returns>The unit's current attackspeed cooldown
 	float getAttackspeed() const { return m_attackCooldown; }
 	/// This is the function for dealing damage.
 	/// 
