@@ -9,7 +9,7 @@ do
   do
     if [ $unit1 != $unit2 ]
     then
-	./a.out $unit1 $unit2>> output.txt
+	./$1 $unit1 $unit2>> output.txt
     fi
    done
 done
