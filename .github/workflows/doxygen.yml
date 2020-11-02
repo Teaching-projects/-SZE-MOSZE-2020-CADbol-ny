@@ -3,17 +3,18 @@ name: Doxygen workflow
 on:
   push:
     branches:
+      - master
       - attackspeed
       - gh-pages
 
 jobs:
-  doxygen:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - run: sudo apt-get install doxygen
       - run: sudo apt-get install graphviz
-      - run: doxygen doxyconfig
+      - run: make documentation
       - name: Push git subdir as branch
         uses: s0/git-publish-subdir-action@v2.4.0
 

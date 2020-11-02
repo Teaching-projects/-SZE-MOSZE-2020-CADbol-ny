@@ -37,6 +37,10 @@ static-code-analysis:
 memory-leak-check:
 	sudo apt install valgrind
 	valgrind --leak-check=full --error-exitcode=1 ./game units/unit1.json units/unit2.json
+
+documentation:
+	doxygen doxyconfig
+
 clean:
 	rm *.o game tesztek/cmake_install.cmake tesztek/CMakeCache.txt tesztek/Makefile tesztek/runTests
 	rm -r tesztek/CMakeFiles
