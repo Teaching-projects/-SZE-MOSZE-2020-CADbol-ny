@@ -73,10 +73,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff0377f5fa594751366b34205f0c0bb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#aff0377f5fa594751366b34205f0c0bb5">Unit</a> (std::string, int, int, float)</td></tr>
-<tr class="separator:aff0377f5fa594751366b34205f0c0bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0497994e384db5c080ec78e9b645fa40"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a0497994e384db5c080ec78e9b645fa40">getName</a> () const</td></tr>
-<tr class="separator:a0497994e384db5c080ec78e9b645fa40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2f4686c57c97e45db79f1e3ce749ad"><td class="memItemLeft" align="right" valign="top"><a id="a2f2f4686c57c97e45db79f1e3ce749ad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad">Unit</a> (const std::string &amp;name, int hp, int damage, float attackCooldown)</td></tr>
+<tr class="memdesc:a2f2f4686c57c97e45db79f1e3ce749ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the constructor for the units. <br /></td></tr>
+<tr class="separator:a2f2f4686c57c97e45db79f1e3ce749ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07c9e071e7ba300f13077c743169929"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#aa07c9e071e7ba300f13077c743169929">getName</a> () const</td></tr>
+<tr class="separator:aa07c9e071e7ba300f13077c743169929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7677f90871510afc7b31c739bb7589a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a7677f90871510afc7b31c739bb7589a2">getHp</a> () const</td></tr>
 <tr class="separator:a7677f90871510afc7b31c739bb7589a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a0062c5fab5677c6b47e1d881b4dcc53c">getDamage</a> () const</td></tr>
@@ -98,48 +100,6 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the class that represents the units in the game. The units have name,healt points,attack damage and attackcooldown. They can attack each other back and forth, until one of them dies. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aff0377f5fa594751366b34205f0c0bb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff0377f5fa594751366b34205f0c0bb5">&#9670;&nbsp;</a></span>Unit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Unit::Unit </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>hp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>damage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>attackspeed</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This is the constructor for the units.</p>
-<p>We get the constructor parameters from the file, which is in .json format. </p>
-
-</div>
-</div>
 <a id="a6353fc4c0a329997ad4abcf0dcb4eb27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6353fc4c0a329997ad4abcf0dcb4eb27">&#9670;&nbsp;</a></span>~Unit()</h2>
 
@@ -248,7 +208,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Getter for the units attackspeed.</p>
-<p>This is a simple getter function. </p><dl class="section return"><dt>Returns</dt><dd>The unit's current damage. </dd></dl>
+<p>This is a simple getter function. </p><dl class="section return"><dt>Returns</dt><dd>The unit's current attackspeed cooldown </dd></dl>
 
 </div>
 </div>
@@ -306,8 +266,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0497994e384db5c080ec78e9b645fa40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0497994e384db5c080ec78e9b645fa40">&#9670;&nbsp;</a></span>getName()</h2>
+<a id="aa07c9e071e7ba300f13077c743169929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07c9e071e7ba300f13077c743169929">&#9670;&nbsp;</a></span>getName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +276,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Unit::getName </td>
+          <td class="memname">const std::string&amp; Unit::getName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -346,7 +306,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_unit.html">Unit</a> * Unit::parseUnit </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramname"><em>unitfilename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

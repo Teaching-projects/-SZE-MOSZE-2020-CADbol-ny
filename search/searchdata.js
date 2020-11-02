@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
-  0: "dfgpu~",
-  1: "u",
+  0: "dfgjpu~",
+  1: "ju",
   2: "dfgpu~",
   3: "f"
 };
