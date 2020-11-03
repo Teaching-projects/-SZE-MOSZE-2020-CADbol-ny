@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build application
-        run: g++ -Wall -I -std=c++17 *.cpp units.h
+        run: g++-8 -Wall -I -std=c++17 *.cpp units.h
       - name: Give permission to script
         run: chmod +x ./run_test.sh ./static_check.sh
       - name: Run test
