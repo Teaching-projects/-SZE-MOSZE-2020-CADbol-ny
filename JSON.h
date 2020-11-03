@@ -2,15 +2,22 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <exception>
 
-class JsonParser {
+class JSON : public std::map<std::string, std::string>{
 public:
-	static std::map< std::string, std::string> ParseFile(const std::string&);
+	static JSON parseFromFile(const std::string&);
 
-	static std::map< std::string, std::string> ParseIstream(std::ifstream&);
+	static JSON parseFromIstream(std::ifstream&);
 	
-	static std::map< std::string, std::string> ParseString(std::string&);
+	static JSON parseFromString(std::string&);
 	
 	template<typename T>
-	static std::map<std::string, std::string> Parser(T&);
+	static JSON parse(T&);
+
+	class ParseException : public std::runtime_error
+	{
+	public:
+		ParseException(const char* what) : runtime_error(what) {}
+	};
 };

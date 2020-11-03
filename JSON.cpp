@@ -1,29 +1,28 @@
 #include "JSON.h"
 #include <sstream>
-#include <exception>
 
-std::map<std::string,std::string> JsonParser::ParseFile(const std::string& unitfile){
-	std::map<std::string, std::string> unitmap;
+JSON JSON::parseFromFile(const std::string& unitfile){
+	JSON unitmap;
 	std::ifstream inputunit;
 	inputunit.open(unitfile);
 	if (inputunit.fail()){
-		throw std::runtime_error("Couldn't open file,the file doesn't exist.");
+		throw ParseException("Couldn't open file,the file doesn't exist.");
 	}
-	unitmap = JsonParser::ParseIstream(inputunit);
+	unitmap = JSON::parseFromIstream(inputunit);
 	inputunit.close();
 	return unitmap;
 }
-std::map< std::string, std::string> JsonParser::ParseIstream(std::ifstream& inputunit) {
-	return JsonParser::Parser(inputunit);
+JSON JSON::parseFromIstream(std::ifstream& inputunit) {
+	return JSON::parse(inputunit);
 }
-std::map< std::string, std::string> JsonParser::ParseString(std::string& text){
+JSON JSON::parseFromString(std::string& text){
 	std::istringstream iss(text);
-	return JsonParser::Parser(iss);
+	return JSON::parse(iss);
 }
 template<typename T>
-std::map< std::string, std::string> JsonParser::Parser(T& parsed)
+JSON JSON::parse(T& parsed)
 {
-	std::map<std::string, std::string> unit;
+	JSON unit;
 	std::string line, key, value;
 	unsigned int i = 0;
 	while (parsed){
