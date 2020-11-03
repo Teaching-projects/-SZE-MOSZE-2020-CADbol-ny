@@ -1,7 +1,7 @@
 #include "units.h"
 #include <fstream>
 #include <cmath>
-#include "jsonparser.h"
+#include "JSON.h"
 #include <exception>
 
 
