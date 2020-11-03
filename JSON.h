@@ -15,6 +15,9 @@ public:
 	template<typename T>
 	static JSON parse(T&);
 
+	template<typename T>
+	T& get(const std::string&);
+
 	class ParseException : public std::runtime_error
 	{
 	public:

@@ -47,5 +47,11 @@ JSON JSON::parse(T& parsed)
 	return unit;
 }
 
+template<typename T>
+T& JSON::get(const std::string& key)
+{
+	return at(key);
+}
+
 
 

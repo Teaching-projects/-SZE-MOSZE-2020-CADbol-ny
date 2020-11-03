@@ -8,8 +8,8 @@
 Unit::Unit(const std::string& name, int hp, int damage, float attackCooldown) :m_name(name), m_hp(hp), m_damage(damage), m_attackCooldown(attackCooldown), m_xp(0), m_level(1), m_maxHP(m_hp) {}
 
 void Unit::dealDamageTo(Unit& damagedUnit){
-	int damageDone = getDamage() > damagedUnit.getHp() ? damagedUnit.getHp(): getDamage();
-	damagedUnit.m_hp = damagedUnit.getHp() - damageDone;
+	int damageDone = getDamage() > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): getDamage();
+	damagedUnit.m_hp = damagedUnit.getHealthPoints() - damageDone;
 	m_xp += damageDone;
 
 	while(m_xp >= 100){
@@ -24,31 +24,35 @@ void Unit::dealDamageTo(Unit& damagedUnit){
 
 void Unit::Fight(Unit* unit1, Unit* unit2) {
 	unit1->dealDamageTo(*unit2);
-	float nextattackunit1 = unit1->getAttackspeed();
-	float nextattackunit2 = unit2->getAttackspeed();
-	while (unit1->getHp() != 0 && unit2->getHp() != 0) {
+	float nextattackunit1 = unit1->getAttackCoolDown();
+	float nextattackunit2 = unit2->getAttackCoolDown();
+	while (unit1->getHealthPoints() != 0 && unit2->getHealthPoints() != 0) {
 		if (nextattackunit1 <= nextattackunit2) {
 			unit1->dealDamageTo(*unit2);
-			nextattackunit1 += unit1->getAttackspeed();
+			nextattackunit1 += unit1->getAttackCoolDown();
 		}
 		else {
 			unit2->dealDamageTo(*unit1);
-			nextattackunit2 += unit2->getAttackspeed();
+			nextattackunit2 += unit2->getAttackCoolDown();
 		}
 	}
 }
-Unit* Unit::parseUnit(const std::string& unitfilename){
+
+void Unit::fightTilDeath(Unit enemy) {
+	Unit::Fight(this, &enemy);
+}
+
+Unit Unit::parse(const std::string& unitfilename){
 	//Istream
 	std::ifstream inputunit;
 	inputunit.open(unitfilename);
 	if (inputunit.fail())
 	{
-		throw std::runtime_error("Couldn't open file,the file doesn't exist.");
+		throw JSON::ParseException("Couldn't open file,the file doesn't exist.");
 	}
-	std::map<std::string, std::string> values = JsonParser::ParseIstream(inputunit);
+	std::map<std::string, std::string> values = JSON::parseFromIstream(inputunit);
 	inputunit.close();
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
-	Unit* unit=new Unit(values["name"],std::stoi(values["hp"]), std::stoi(values["dmg"]),std::stof(values["attackcooldown"]));
-	return unit;
+	return Unit(values["name"],std::stoi(values["hp"]), std::stoi(values["dmg"]),std::stof(values["attackcooldown"]));
 }

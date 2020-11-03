@@ -32,7 +32,10 @@ public:
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The unit's current hp.
-	int getHp() const { return m_hp; }
+	int getHealthPoints() const { return m_hp; }
+
+
+	int getMaxHealthPoints() const { return m_maxHP; }
 	/// Getter for the units damage.
 	/// 
 	/// This is a simple getter function.
@@ -42,7 +45,15 @@ public:
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The unit's current attackspeed cooldown
-	float getAttackspeed() const { return m_attackCooldown; }
+	float getAttackCoolDown() const { return m_attackCooldown; }
+
+	
+
+	bool isAlive() const { return m_hp>0; }
+
+
+
+	int getLevel() const { return m_level;}
 	/// This is the function for dealing damage.
 	/// 
 	/// Units can use this function to lower the other unit healt points.
@@ -55,11 +66,15 @@ public:
 	/// <param name="unit1" This is the unit which attacks first, and the so called "agressor".
 	/// <param name="unit2" This is the unit which "defends".
 	static void Fight(Unit*, Unit*);
+
+
+
+	void fightTilDeath(Unit);
 	/// This is the function for reading the units from a file.
 	/// 
 	/// @param fileName This is the file which contains the unit attributes in .json format.
 	/// <returns> It returns a unit.
-	static Unit* parseUnit(const std::string&);
+	static Unit parse(const std::string&);
 	///This is the destructor
 	/// 
 	/// 
