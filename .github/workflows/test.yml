@@ -10,7 +10,7 @@ jobs:
       - name: Build application
         run: make build-game
       - name: Give permission to script
-        run: make permission
+        run: chmod +x ./run_test.sh ./static_check.sh
       - name: Run test
         run: make output-tests 
       - name: Check output

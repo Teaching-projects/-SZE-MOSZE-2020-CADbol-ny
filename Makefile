@@ -4,17 +4,14 @@ COMP := g++ -Wall -std=c++17
 build-game: $(OBJECTS)
 	$(COMP) -o game $(OBJECTS)
 
-main.o: main.cpp
+main.o: main.cpp units.h jsonparser.h
 	$(COMP) -c main.cpp
 
-jsonparser.o: jsonparser.cpp
+jsonparser.o: jsonparser.cpp jsonparser.h
 	$(COMP) -c jsonparser.cpp
 
-units.o: units.cpp
+units.o: units.cpp units.h jsonparser.h
 	$(COMP) -c units.cpp
-
-permission:
-	chmod +x ./run_test.sh ./static_check.sh
 
 output-tests:
 	./run_test.sh game
