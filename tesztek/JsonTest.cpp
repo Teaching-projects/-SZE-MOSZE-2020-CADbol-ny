@@ -1,4 +1,5 @@
-#include "../jsonparser.h"
+#include "../JSON.h"
+#include "../units.h"
 #include <sstream>
 #include <gtest/gtest.h>
 
@@ -9,8 +10,8 @@ TEST(MultTest,fileparse)
 	expected["hp"]="150";
 	expected["dmg"]="10";
 	expected["attackcooldown"]="6";
-	std::map<std::string,std::string> output=JsonParser::ParseFile("units/unit1.json");
-    EXPECT_EQ(output,expected);
+	JSON output=JSON::parseFromFile("units/unit1.json");
+    	EXPECT_EQ(output,expected);
 }
 TEST(MultTest,istreamparse)
 {
@@ -21,9 +22,9 @@ TEST(MultTest,istreamparse)
 	expected["attackcooldown"]="6";
 	std::ifstream input;
 	input.open("units/unit1.json");
-	std::map<std::string,std::string> output=JsonParser::ParseIstream(input);
+	JSON output=JSON::parseFromIstream(input);
 	input.close();
-    EXPECT_EQ(output,expected);
+    	EXPECT_EQ(output,expected);
 }
 TEST(MultTest,stringparse)
 {
@@ -32,8 +33,8 @@ TEST(MultTest,stringparse)
 	expected["hp"]="150";
 	expected["dmg"]="10";
 	std::string input="{\n name : \"Maple\",\n \"hp\"  150,\n \"dmg\": 10 \n}";
-	std::map<std::string,std::string> output=JsonParser::ParseString(input);
-    EXPECT_EQ(output,expected);
+	JSON output=JSON::parseFromString(input);
+    	EXPECT_EQ(output,expected);
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
