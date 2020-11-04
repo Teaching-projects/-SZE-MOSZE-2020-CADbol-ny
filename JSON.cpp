@@ -50,7 +50,7 @@ JSON JSON::parse(T& parsed)
 template<typename T>
 T& JSON::get(const std::string& key)
 {
-	return at(key);
+	return this->at(key);
 }
 
 
