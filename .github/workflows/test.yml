@@ -8,27 +8,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build application
-        run: g++ -Wall -I -std=c++17 *.cpp units.h
+        run: make build-game
       - name: Give permission to script
         run: chmod +x ./run_test.sh ./static_check.sh
       - name: Run test
-        run: ./run_test.sh 
+        run: make output-tests 
       - name: Check output
-        run: diff output.txt good_output.txt
-      - name: install cppcheck
-        run: sudo apt-get install cppcheck
-      - name: run cppcheck
-        run: cppcheck *.cpp --enable=warning --output-file=errors.txt
-      - name: check cppcheck result
-        run: ./static_check.sh
-      - name:  Checking for style and performance
-        run: cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
+        run: make io-diff-tests
+      - name: cppcheck
+        run: make static-code-analysis
       - name: Artifact 
         uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: artifact.txt
-      - name: Valgrind install
-        run: sudo apt install valgrind
       - name: memory check
-        run: valgrind --leak-check=full --error-exitcode=1 ./a.out units/unit1.json units/unit2.json
+        run: make memory-leak-check
