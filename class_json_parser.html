@@ -67,23 +67,134 @@ $(function() {
 <div class="title">JsonParser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="jsonparser_8h_source.html">jsonparser.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a644c1ef71d663f5d990df15f8fa89702"><td class="memItemLeft" align="right" valign="top"><a id="a644c1ef71d663f5d990df15f8fa89702"></a>
-static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ParseFile</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:a644c1ef71d663f5d990df15f8fa89702"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_parser.html#a644c1ef71d663f5d990df15f8fa89702">ParseFile</a> (const std::string &amp;)</td></tr>
 <tr class="separator:a644c1ef71d663f5d990df15f8fa89702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c2ad1198e66902c5d2ce2d19bfacbcd"><td class="memItemLeft" align="right" valign="top"><a id="a1c2ad1198e66902c5d2ce2d19bfacbcd"></a>
-static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ParseIstream</b> (std::ifstream &amp;)</td></tr>
+<tr class="memitem:a1c2ad1198e66902c5d2ce2d19bfacbcd"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_parser.html#a1c2ad1198e66902c5d2ce2d19bfacbcd">ParseIstream</a> (std::ifstream &amp;)</td></tr>
 <tr class="separator:a1c2ad1198e66902c5d2ce2d19bfacbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb84337e7271ce33b17095a657d1e03b"><td class="memItemLeft" align="right" valign="top"><a id="abb84337e7271ce33b17095a657d1e03b"></a>
-static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ParseString</b> (std::string &amp;)</td></tr>
+<tr class="memitem:abb84337e7271ce33b17095a657d1e03b"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_json_parser.html#abb84337e7271ce33b17095a657d1e03b">ParseString</a> (std::string &amp;)</td></tr>
 <tr class="separator:abb84337e7271ce33b17095a657d1e03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad677d628b38b52d31d885bb0768b2656"><td class="memTemplParams" colspan="2"><a id="ad677d628b38b52d31d885bb0768b2656"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad677d628b38b52d31d885bb0768b2656"><td class="memTemplItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Parser</b> (T &amp;)</td></tr>
+<tr class="memitem:ad677d628b38b52d31d885bb0768b2656"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad677d628b38b52d31d885bb0768b2656"><td class="memTemplItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_json_parser.html#ad677d628b38b52d31d885bb0768b2656">Parser</a> (T &amp;)</td></tr>
 <tr class="separator:ad677d628b38b52d31d885bb0768b2656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This is the class that handles the .json files, which contains our units. In these inputs, ones data is written in a specific order. This class can read from files, istream and string. It can handle missing whitespaces or semicolons. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a644c1ef71d663f5d990df15f8fa89702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644c1ef71d663f5d990df15f8fa89702">&#9670;&nbsp;</a></span>ParseFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::ParseFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>unitfile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function handles the input if its a file. </p>
+
+</div>
+</div>
+<a id="a1c2ad1198e66902c5d2ce2d19bfacbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c2ad1198e66902c5d2ce2d19bfacbcd">&#9670;&nbsp;</a></span>ParseIstream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::ParseIstream </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>inputunit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function handles the input if its istream. </p>
+
+</div>
+</div>
+<a id="ad677d628b38b52d31d885bb0768b2656"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad677d628b38b52d31d885bb0768b2656">&#9670;&nbsp;</a></span>Parser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::Parser </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>parsed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is the template for the universal istream input. </p>
+
+</div>
+</div>
+<a id="abb84337e7271ce33b17095a657d1e03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb84337e7271ce33b17095a657d1e03b">&#9670;&nbsp;</a></span>ParseString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::ParseString </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function handles the input if its a string. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
