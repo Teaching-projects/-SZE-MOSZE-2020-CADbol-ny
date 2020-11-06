@@ -13,9 +13,9 @@ Hero Hero::parse(const std::string& unitfilename){
 	{
 		throw JSON::ParseException("Couldn't open file,the file doesn't exist.");
 	}
-	std::map<std::string, std::string> values = JSON::parseFromIstream(inputunit);
+	JSON values = JSON::parseFromIstream(inputunit);
 	inputunit.close();
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
-	return Hero(values["name"],std::stoi(values["hp"]), std::stoi(values["dmg"]),std::stof(values["attackcooldown"]));
+	return Hero(values.get<std::string>("name"),values.get<int>("base_health_points"), values.get<int>("base_damage"),values.get<float>("base_attack_cooldown"));
 }

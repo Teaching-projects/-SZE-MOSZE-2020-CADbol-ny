@@ -2,13 +2,12 @@
 #include <sstream>
 
 JSON JSON::parseFromFile(const std::string& unitfile){
-	JSON unitmap;
 	std::ifstream inputunit;
 	inputunit.open(unitfile);
 	if (inputunit.fail()){
 		throw ParseException("Couldn't open file,the file doesn't exist.");
 	}
-	unitmap = JSON::parseFromIstream(inputunit);
+	JSON unitmap = JSON::parseFromIstream(inputunit);
 	inputunit.close();
 	return unitmap;
 }
@@ -22,36 +21,64 @@ JSON JSON::parseFromString(std::string& text){
 template<typename T>
 JSON JSON::parse(T& parsed)
 {
-	JSON unit;
+	std::map<std::string,std::any> unit;
 	std::string line, key, value;
-	unsigned int i = 0;
-	while (parsed){
-		key = "", value = "", i = 0;
+	bool floate = false;
+	unsigned int i;
+	while (parsed) {
+		i = 0;
 		std::getline(parsed, line);
-		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos) {
-			while (line[i] == ' ' || line[i] == ',' || line[i] == ':' || line[i] == '\n' || line[i] == '\r' || line[i] == '\"') {
+		if (line.size()>2) {
+		while (i<line.size()-2) {
+			key = "", value = "";
+			while (line[i] == '\"' || line[i] == ' ' || line[i]=='{') {
 				i++;
 			}
-			while (line[i] != ' ' && line[i] != ',' && line[i] != ':' && line[i] != '\n' && line[i] != '\r' && line[i] != '\"') {
+			while (line[i] != '\"' && (line[i] != ' ' && line[i + 1] != ' ')) {
 				key += line[i];
 				i++;
 			}
-			for (unsigned int j = i + 1; j < line.size(); j++) {
-				if (line[j] != ' ' && line[j] != ',' && line[j] != ':' && line[j] != '\n' && line[j] != '\r' && line[j] != '\"') {
-					value += line[j];
+			i++;
+			while (line[i] == ' ' || line[i] == ':'){
+				i++;
+			}
+			if (line[i] == '\"'){
+				i++;
+				while (line[i] != '\"' && line[i]!='\r' && line[i]!='\n'){
+					value += line[i];
+					i++;
+				}
+				unit.insert({ key,value });
+			}
+			else
+			{
+				while (line[i] != '\r' && line[i] != ',' && line[i] != '\n' && i < line.size()){
+					value += line[i];
+					if (line[i] == '.')
+					{
+						floate = true;
+					}
+					i++;
+				}
+				if (floate){
+					unit.insert({ key,std::stof(value) });
+				}
+				else{
+					unit.insert({ key,std::stoi(value) });
 				}
 			}
-			unit.insert({ key,value });
+			if (line.find(',') != std::string::npos){
+				while (line[i] != ',' && i < line.size()) {
+					i++;
+				}
+				i++;
+			}
+		}
 		}
 	}
-	return unit;
+	return JSON(unit);
 }
 
-template<typename T>
-T& JSON::get(const std::string& key)
-{
-	return at(key);
-}
 
 
 
