@@ -20,10 +20,11 @@ Hero.o: Hero.cpp Hero.h JSON.h units.h
 	$(COMP) -c Hero.cpp
 
 output-tests:
-	./run_test.sh game
+	./scenariotest.sh game
 
 io-diff-tests:
-	diff output.txt good_output.txt
+	diff testoutput1.txt output1.txt
+	diff testoutput2.txt output2.txt
 
 Unit-tests:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
