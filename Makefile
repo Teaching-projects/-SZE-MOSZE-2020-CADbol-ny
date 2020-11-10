@@ -4,7 +4,7 @@ COMP := g++ -Wall -std=c++17
 build-game: $(OBJECTS)
 	$(COMP) -o game $(OBJECTS)
 
-main.o: main.cpp units.h JSON.h
+main.o: main.cpp units.h JSON.h Hero.h Monster.h
 	$(COMP) -c main.cpp
 
 JSON.o: JSON.cpp JSON.h
