@@ -40,7 +40,7 @@ static-code-analysis:
 	
 memory-leak-check:
 	sudo apt install valgrind
-	valgrind --leak-check=full --error-exitcode=1 ./game units/unit1.json units/unit2.json
+	valgrind --leak-check=full --error-exitcode=1 ./game scenario1.json
 
 documentation:
 	doxygen doxyconfig
