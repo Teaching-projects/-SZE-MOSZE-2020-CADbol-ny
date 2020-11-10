@@ -6,7 +6,7 @@
 Ezek közül beépítve:
 - [x] Attackspeed
 - [x] jsonparser
-- [ ] levelup
+- [x] levelup
 
 ## Működés
 
