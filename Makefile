@@ -1,5 +1,5 @@
 OBJECTS := main.o JSON.o units.o Hero.o Monster.o
-COMP := g++ -Wall -std=c++17
+COMP := clang++ -Wall -std=c++17
 
 build-game: $(OBJECTS)
 	$(COMP) -o game $(OBJECTS)
