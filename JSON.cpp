@@ -21,15 +21,16 @@ JSON JSON::parseFromString(std::string& text){
 template<typename T>
 JSON JSON::parse(T& parsed)
 {
-	std::map<std::string,std::any> unit;
+	std::map<std::string, std::any> unit;
 	std::string line, key, value;
-	bool floate = false;
+	bool floate;
 	unsigned int i;
 	while (parsed) {
 		i = 0;
 		std::getline(parsed, line);
 		if (line.size()>2) {
 		while (i<line.size()-2) {
+			floate=false;
 			key = "", value = "";
 			while (line[i] == '\"' || line[i] == ' ' || line[i]=='{') {
 				i++;

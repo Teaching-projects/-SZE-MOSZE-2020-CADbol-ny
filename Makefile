@@ -1,30 +1,30 @@
-OBJECTS := main.o JSON.o units.o Monster.o Hero.o
+OBJECTS := main.o JSON.o units.o Hero.o Monster.o
 COMP := g++ -Wall -std=c++17
 
 build-game: $(OBJECTS)
 	$(COMP) -o game $(OBJECTS)
 
-main.o: main.cpp units.h JSON.h Hero.h Monster.h
+main.o: main.cpp units.h JSON.h
 	$(COMP) -c main.cpp
 
 JSON.o: JSON.cpp JSON.h
 	$(COMP) -c JSON.cpp
 
-units.o: units.cpp units.h JSON.h 
-	$(COMP) -c units.cpp 
+units.o: units.cpp units.h JSON.h
+	$(COMP) -c units.cpp
 
-Monster.o: Monster.cpp Monster.h JSON.h units.h
+Monster.o: Monster.cpp Monster.h units.h JSON.h
 	$(COMP) -c Monster.cpp
-	
-Hero.o: Hero.cpp Hero.h JSON.h units.h
+
+Hero.o: Hero.cpp Hero.h units.h JSON.h
 	$(COMP) -c Hero.cpp
 
 output-tests:
-	./scenariotest.sh game
+	./run_test.sh game
 
 io-diff-tests:
-	diff testoutput1.txt output1.txt
-	diff testoutput2.txt output2.txt
+	diff output1.txt good_output1.txt
+	diff output2.txt good_output2.txt
 
 Unit-tests:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make

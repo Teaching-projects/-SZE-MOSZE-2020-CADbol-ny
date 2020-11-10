@@ -11,15 +11,11 @@
 *
 */
 class Unit {
-private:
-
+protected:
 	const std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
 	int m_damage;///<This is the unit's default damage.
 	float m_attackCooldown;///<This is the unit's attackcooldown.
-  	int m_xp;///<This is the unit's current experience
-	int m_level;///<This is the unit's level
-	int m_maxHP;///<This is the unit's HP after levelups
 public:
 	/// This is the constructor for the units.
 	Unit(const std::string& name, int hp, int damage, float attackCooldown);
@@ -34,8 +30,7 @@ public:
 	/// <returns>The unit's current hp.
 	int getHealthPoints() const { return m_hp; }
 
-
-	int getMaxHealthPoints() const { return m_maxHP; }
+	void setHp(int newHp) { m_hp=newHp; }
 	/// Getter for the units damage.
 	/// 
 	/// This is a simple getter function.
@@ -48,32 +43,8 @@ public:
 	float getAttackCoolDown() const { return m_attackCooldown; }
 
 	
-
 	bool isAlive() const { return m_hp>0; }
 
-
-
-	int getLevel() const { return m_level;}
-	/// This is the function for dealing damage.
-	/// 
-	/// Units can use this function to lower the other unit healt points.
-	/// <param name="unit1"> This tells the function who gets "hurt".
-	void dealDamageTo(Unit&);
-	/// This function is the fight mechanics.
-	/// 
-	/// 
-	/// This function makes the units each other until one of them dies. Also, it
- 	/// gives the damage dealing unit xp according to its damage, then gives that
- 	/// amount in experience point to it. After every 100 xp the unit levels up. 
- 	/// Which means it stats gets stronger. His healtpoints and damage by 10%, and gets
- 	/// his healt points refilled to maximum. 
-	/// <param name="unit1"> This is the unit which attacks first, and the so called "agressor".
-	/// <param name="unit2"> This is the unit which "defends".
-	static void Fight(Unit*, Unit*);
-
-
-
-	void fightTilDeath(Unit);
 	/// This is the function for reading the units from a file.
 	/// 
 	/// @param fileName This is the file which contains the unit attributes in .json format.

@@ -36,6 +36,6 @@ public:
 	public:
 		ParseException(const char* what) : runtime_error(what) {}
 	};
-	JSON(std::map<std::string, std::any> cont): cont(cont)
+	JSON(std::map<std::string, std::any>cont): cont(cont)
 	{}
 };
