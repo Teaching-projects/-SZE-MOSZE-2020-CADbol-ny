@@ -1,23 +1,30 @@
-OBJECTS := main.o jsonparser.o units.o
-COMP := g++ -Wall -std=c++17
+OBJECTS := main.o JSON.o units.o Hero.o Monster.o
+COMP := clang++ -Wall -std=c++17
 
 build-game: $(OBJECTS)
 	$(COMP) -o game $(OBJECTS)
 
-main.o: main.cpp units.h jsonparser.h
+main.o: main.cpp units.h JSON.h Hero.h Monster.h
 	$(COMP) -c main.cpp
 
-jsonparser.o: jsonparser.cpp jsonparser.h
-	$(COMP) -c jsonparser.cpp
+JSON.o: JSON.cpp JSON.h
+	$(COMP) -c JSON.cpp
 
-units.o: units.cpp units.h jsonparser.h
+units.o: units.cpp units.h JSON.h
 	$(COMP) -c units.cpp
+
+Monster.o: Monster.cpp Monster.h units.h JSON.h
+	$(COMP) -c Monster.cpp
+
+Hero.o: Hero.cpp Hero.h units.h JSON.h
+	$(COMP) -c Hero.cpp
 
 output-tests:
 	./run_test.sh game
 
 io-diff-tests:
-	diff output.txt good_output.txt
+	diff output1.txt good_output1.txt
+	diff output2.txt good_output2.txt
 
 Unit-tests:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
@@ -33,7 +40,7 @@ static-code-analysis:
 	
 memory-leak-check:
 	sudo apt install valgrind
-	valgrind --leak-check=full --error-exitcode=1 ./game units/unit1.json units/unit2.json
+	valgrind --leak-check=full --error-exitcode=1 ./game scenario1.json
 
 documentation:
 	doxygen doxyconfig

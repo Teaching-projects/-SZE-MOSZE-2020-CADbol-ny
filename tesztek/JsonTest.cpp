@@ -1,148 +1,121 @@
-#include "../jsonparser.h"
+#include "../JSON.h"
 #include "../units.h"
+#include "../Hero.h"
+#include "../Monster.h"
 #include <sstream>
 #include <gtest/gtest.h>
 
 TEST(MultTest,defaultfileparse)
 {
-	std::map<std::string,std::string> expected;
-	expected["name"]="Maple";
-	expected["hp"]="150";
-	expected["dmg"]="10";
-	expected["attackcooldown"]="6";
-	std::map<std::string,std::string> output=JsonParser::ParseFile("units/unit1.json");
-    EXPECT_EQ(output,expected);
+	std::string expected_name="Fallen";
+	int expected_hp=4;
+	int expected_dmg=2;
+	float expected_attackcooldown=1.6f;
+	JSON output=JSON::parseFromFile("../Fallen.json");
+    ASSERT_EQ(output.get<std::string>("name"),expected_name);
+	ASSERT_EQ(output.get<int>("health_points"),expected_hp);
+	ASSERT_EQ(output.get<int>("damage"),expected_dmg);
+	ASSERT_EQ(output.get<float>("attack_cooldown"),expected_attackcooldown);
+
 }
 TEST(MultTest,istreamparse)
 {
-	std::map<std::string,std::string> expected;
-	expected["name"]="Sally";
-	expected["hp"]="45";
-	expected["dmg"]="30";
-	expected["attackcooldown"]="2";
+	std::string expected_name="Zombie";
+	int expected_hp=10;
+	int expected_dmg=1;
+	float expected_attackcooldown=2.8f;
 	std::ifstream input;
-	input.open("units/unit2.json");
-	std::map<std::string,std::string> output=JsonParser::ParseIstream(input);
+	input.open("../Zombie.json");
+	JSON output=JSON::parseFromIstream(input);
 	input.close();
-    EXPECT_EQ(output,expected);
+    ASSERT_EQ(output.get<std::string>("name"),expected_name);
+	ASSERT_EQ(output.get<int>("health_points"),expected_hp);
+	ASSERT_EQ(output.get<int>("damage"),expected_dmg);
+	ASSERT_EQ(output.get<float>("attack_cooldown"),expected_attackcooldown);
 }
 TEST(MultTest,stringparse)
 {
-	std::map<std::string,std::string> expected;
-	expected["name"]="Maple";
-	expected["hp"]="150";
-	expected["dmg"]="10";
-	std::string input="{\n \"name\" : \"Maple\",\n \"hp\" : 150,\n \"dmg\": 10 \n}";
-	std::map<std::string,std::string> output=JsonParser::ParseString(input);
-    EXPECT_EQ(output,expected);
+	std::string expected_name="Maple";
+	int expected_hp=150;
+	int expected_dmg=10;
+	std::string input="{\n \"name\" : \"Maple\",\n \"hp\"  150,\n \"dmg\": 10 \n}";
+	JSON output=JSON::parseFromString(input);
+    ASSERT_EQ(output.get<std::string>("name"),expected_name);
+	ASSERT_EQ(output.get<int>("hp"),expected_hp);
+	ASSERT_EQ(output.get<int>("dmg"),expected_dmg);
 }
 TEST(MultTest,additionalWhitespaceParse)
 {
-	std::map<std::string,std::string> expected;
-	expected["name"]="Maple";
-	expected["hp"]="150";
-	expected["dmg"]="10";
-	std::string input="{\n name :      \"Maple\",\n \"hp\"  150,\n \"dmg\": 10 \n}";
-	std::map<std::string,std::string> output=JsonParser::ParseString(input);
-    EXPECT_EQ(output,expected);
+	std::string expected_name="Maple";
+	int expected_hp=150;
+	int expected_dmg=10;
+	std::string input="{\n \"name\" :      \"Maple\",\n \"hp\"  150,\n \"dmg\": 10 \n}";
+	JSON output=JSON::parseFromString(input);
+    ASSERT_EQ(output.get<std::string>("name"),expected_name);
+	ASSERT_EQ(output.get<int>("hp"),expected_hp);
+	ASSERT_EQ(output.get<int>("dmg"),expected_dmg);
 }
 TEST(MultTest,changedKeyOrderParse)
 {
-	std::map<std::string,std::string> expected;
-	expected["name"]="Maple";
-	expected["hp"]="150";
-	expected["dmg"]="10";
+	std::string expected_name="Maple";
+	int expected_hp=150;
+	int expected_dmg=10;
 	std::string input="{\n \"hp\" : 150,\n \"dmg\" : 10,\n \"name\": \"Maple\" \n}";
-	std::map<std::string,std::string> output=JsonParser::ParseString(input);
-    EXPECT_EQ(output,expected);
+	JSON output=JSON::parseFromString(input);
+    ASSERT_EQ(output.get<std::string>("name"),expected_name);
+	ASSERT_EQ(output.get<int>("hp"),expected_hp);
+	ASSERT_EQ(output.get<int>("dmg"),expected_dmg);
 }
-TEST(MultTest,GameplayTest1)
+TEST(MultTest,getterAndMonserparserTest1)
 {
-	std::string expected ="Sally wins.Remaining HP:50.\n";
-	Unit* unit1 = Unit::parseUnit("units/unit1.json");
-	Unit* unit2 = Unit::parseUnit("units/unit2.json");
-	Unit::Fight(unit1, unit2);
-	testing::internal::CaptureStdout();
-	if (unit2->getHp() == 0) {
-		std::cout << unit1->getName() << " wins.Remaining HP:" << unit1->getHp() << '.' << std::endl; 
-	}
-	if (unit1->getHp() == 0) {
-		std::cout << unit2->getName() << " wins.Remaining HP:" << unit2->getHp() << '.' << std::endl; 
-	}
-	std::string output = testing::internal::GetCapturedStdout();
-	delete unit1;
-	delete unit2;
-	EXPECT_EQ(output,expected);
+	Monster unit = Monster::parse("../Zombie.json");
+	EXPECT_EQ(unit.getName(),"Zombie");
+	EXPECT_EQ(unit.getHealthPoints(),10);
+	EXPECT_EQ(unit.getDamage(),1);
+	EXPECT_FLOAT_EQ(unit.getAttackCoolDown(),2.8f);
 }
-TEST(MultTest,GameplayTest2)
+TEST(MultTest,getterAndHeroparserTest2)
 {
-	std::string expected ="Elfie wins.Remaining HP:90.\n";
-	Unit* unit1 = Unit::parseUnit("units/unit1.json");
-	Unit* unit2 = Unit::parseUnit("units/unit3.json");
-	Unit::Fight(unit1, unit2);
-	testing::internal::CaptureStdout();
-	if (unit2->getHp() == 0) {
-		std::cout << unit1->getName() << " wins.Remaining HP:" << unit1->getHp() << '.' << std::endl; 
-	}
-	if (unit1->getHp() == 0) {
-		std::cout << unit2->getName() << " wins.Remaining HP:" << unit2->getHp() << '.' << std::endl; 
-	}
-	std::string output = testing::internal::GetCapturedStdout();
-	delete unit1;
-	delete unit2;
-	EXPECT_EQ(output,expected);
-}
-TEST(MultTest,getterAndUnitparserTest1)
-{
-	Unit* unit = Unit::parseUnit("units/unit1.json");
-	EXPECT_EQ(unit->getName(),"Maple");
-	EXPECT_EQ(unit->getHp(),150);
-	EXPECT_EQ(unit->getDamage(),10);
-	EXPECT_FLOAT_EQ(unit->getAttackspeed(),6.0f);
-}
-TEST(MultTest,getterAndUnitparserTest2)
-{
-	Unit* unit = Unit::parseUnit("units/unit2.json");
-	EXPECT_EQ(unit->getName(),"Sally");
-	EXPECT_EQ(unit->getHp(),45);
-	EXPECT_EQ(unit->getDamage(),30);
-	EXPECT_FLOAT_EQ(unit->getAttackspeed(),2.0f);
+	Hero unit = Hero::parse("../Dark_Wanderer.json");
+	EXPECT_EQ(unit.getName(),"Prince Aidan of Khanduras");
+	EXPECT_EQ(unit.getHealthPoints(),30);
+	EXPECT_EQ(unit.getDamage(),3);
+	EXPECT_FLOAT_EQ(unit.getAttackCoolDown(),1.1f);
 }
 TEST(MultTest,FightTest1)
 {
-	Unit* unit1 = Unit::parseUnit("units/unit1.json");
-	Unit* unit2 = Unit::parseUnit("units/unit2.json");
-	Unit::Fight(unit1,unit2);
-	EXPECT_EQ(unit1->getHp(),0);
+	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
+	Monster unit2 =Monster::parse("../Fallen.json");
+	unit1.fightTilDeath(unit2);
+	EXPECT_EQ(unit1.getHealthPoints(),28);
 }
 TEST(MultTest,FightTest2)
 {
-	Unit* unit1 = Unit::parseUnit("units/unit2.json");
-	Unit* unit2 = Unit::parseUnit("units/unit1.json");
-	Unit::Fight(unit1,unit2);
-	EXPECT_EQ(unit2->getHp(),0);
+	Hero unit1 =Hero::parse("../Dark_Wanderer.json");
+	Monster unit2 = Monster::parse("../Zombie.json");
+	unit1.fightTilDeath(unit2);
+	EXPECT_EQ(unit2.getHealthPoints(),0);
 }
 TEST(MultTest,dealDamageToTest1)
 {
-	Unit* unit1 = Unit::parseUnit("units/unit1.json");
-	Unit* unit2 = Unit::parseUnit("units/unit2.json");
-	unit1->dealDamageTo(*unit2);
-	EXPECT_EQ(unit2->getHp(),35);
+	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
+	Monster unit2 =Monster::parse("../Fallen.json");
+	unit1.dealDamageTo(unit2);
+	EXPECT_EQ(unit2.getHealthPoints(),1);
 }
 TEST(MultTest,dealDamageToTest2)
 {
-	Unit* unit1 = Unit::parseUnit("units/unit2.json");
-	Unit* unit2 = Unit::parseUnit("units/unit1.json");
-	unit1->dealDamageTo(*unit2);
-	EXPECT_EQ(unit2->getHp(),120);
+	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
+	Monster unit2 =Monster::parse("../Fallen.json");
+	unit1.dealDamageTo(unit2);
+	EXPECT_EQ(unit2.getHealthPoints(),1);
 }
 TEST(MultTest,exceptionTest1)
 {
 	std::string expected="Couldn't open file,the file doesn't exist.\n";
 	testing::internal::CaptureStdout();
 	try {
-		Unit* unit1 = Unit::parseUnit("unit/uni2.json");
-		delete unit1;
+		Unit unit1 = Unit::parse("unit/uni2.json");
 	}
 	catch (std::runtime_error& e)
 	{
@@ -156,8 +129,7 @@ TEST(MultTest,exceptionTest2)
 	std::string expected="Couldn't open file,the file doesn't exist.\n";
 	testing::internal::CaptureStdout();
 	try {
-		Unit* unit1 = Unit::parseUnit("units/unit22.json");
-		delete unit1;
+		Unit unit1 = Unit::parse("units/unit22.json");
 	}
 	catch (std::runtime_error& e)
 	{

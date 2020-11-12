@@ -1,6 +1,0 @@
-Sally wins.Remaining HP:50.
-Elfie wins.Remaining HP:90.
-Sally wins.Remaining HP:40.
-Sally wins.Remaining HP:50.
-Elfie wins.Remaining HP:90.
-Elfie wins.Remaining HP:10.
