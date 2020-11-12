@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eunit',['~Unit',['../class_unit.html#a6353fc4c0a329997ad4abcf0dcb4eb27',1,'Unit']]]
+  ['json',['JSON',['../class_j_s_o_n.html',1,'JSON'],['../class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8',1,'JSON::JSON()']]]
 ];

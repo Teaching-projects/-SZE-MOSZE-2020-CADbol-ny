@@ -63,6 +63,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_unit-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Unit Class Reference</div>  </div>
@@ -70,6 +71,15 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="units_8h_source.html">units.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Unit:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_unit__inherit__graph.png" border="0" usemap="#_unit_inherit__map" alt="Inheritance graph"/></div>
+<map name="_unit_inherit__map" id="_unit_inherit__map">
+<area shape="rect" id="node2" href="class_hero.html" title="This is the class for the Hero unit. " alt="" coords="5,80,56,107"/>
+<area shape="rect" id="node3" href="class_monster.html" title="This is the class for the Monsters. " alt="" coords="80,80,149,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -79,26 +89,47 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2f2f4686c57c97e45db79f1e3ce749ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa07c9e071e7ba300f13077c743169929"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#aa07c9e071e7ba300f13077c743169929">getName</a> () const</td></tr>
 <tr class="separator:aa07c9e071e7ba300f13077c743169929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7677f90871510afc7b31c739bb7589a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a7677f90871510afc7b31c739bb7589a2">getHp</a> () const</td></tr>
-<tr class="separator:a7677f90871510afc7b31c739bb7589a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba">getHealthPoints</a> () const</td></tr>
+<tr class="separator:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9031a08c41c95b9f283a965812c45a8f"><td class="memItemLeft" align="right" valign="top"><a id="a9031a08c41c95b9f283a965812c45a8f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a9031a08c41c95b9f283a965812c45a8f">setHp</a> (int newHp)</td></tr>
+<tr class="memdesc:a9031a08c41c95b9f283a965812c45a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a simple setter for the unit's healt. <br /></td></tr>
+<tr class="separator:a9031a08c41c95b9f283a965812c45a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a0062c5fab5677c6b47e1d881b4dcc53c">getDamage</a> () const</td></tr>
 <tr class="separator:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a570cd9e5c13b9e60f8bba3edf3722c1e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a570cd9e5c13b9e60f8bba3edf3722c1e">getAttackspeed</a> () const</td></tr>
-<tr class="separator:a570cd9e5c13b9e60f8bba3edf3722c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800a4496202e167bd235205fae76a845"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a800a4496202e167bd235205fae76a845">dealDamageTo</a> (<a class="el" href="class_unit.html">Unit</a> &amp;)</td></tr>
-<tr class="separator:a800a4496202e167bd235205fae76a845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c81a6d95853dd444895d9c93a3569f8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a6c81a6d95853dd444895d9c93a3569f8">getAttackCoolDown</a> () const</td></tr>
+<tr class="separator:a6c81a6d95853dd444895d9c93a3569f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9245732ec5afbdb44b9942ae8ea98cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ad9245732ec5afbdb44b9942ae8ea98cc">isAlive</a> () const</td></tr>
+<tr class="separator:ad9245732ec5afbdb44b9942ae8ea98cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6353fc4c0a329997ad4abcf0dcb4eb27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a6353fc4c0a329997ad4abcf0dcb4eb27">~Unit</a> ()</td></tr>
 <tr class="separator:a6353fc4c0a329997ad4abcf0dcb4eb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acbf43f93d52679ff1f86b1a8041c18e8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#acbf43f93d52679ff1f86b1a8041c18e8">Fight</a> (<a class="el" href="class_unit.html">Unit</a> *, <a class="el" href="class_unit.html">Unit</a> *)</td></tr>
-<tr class="separator:acbf43f93d52679ff1f86b1a8041c18e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96453a6d675a0e8e5a90caf671ae416d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a96453a6d675a0e8e5a90caf671ae416d">parseUnit</a> (const std::string &amp;)</td></tr>
-<tr class="separator:a96453a6d675a0e8e5a90caf671ae416d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f65ab65c0daa87377667e4e8f59e392"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a4f65ab65c0daa87377667e4e8f59e392">parse</a> (const std::string &amp;)</td></tr>
+<tr class="separator:a4f65ab65c0daa87377667e4e8f59e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ad65879da6664fb6d800d62c79730c97d"><td class="memItemLeft" align="right" valign="top"><a id="ad65879da6664fb6d800d62c79730c97d"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ad65879da6664fb6d800d62c79730c97d">m_name</a></td></tr>
+<tr class="memdesc:ad65879da6664fb6d800d62c79730c97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the unit's name. <br /></td></tr>
+<tr class="separator:ad65879da6664fb6d800d62c79730c97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7b1bab3895721166f8cb013c363931"><td class="memItemLeft" align="right" valign="top"><a id="abc7b1bab3895721166f8cb013c363931"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#abc7b1bab3895721166f8cb013c363931">m_hp</a></td></tr>
+<tr class="memdesc:abc7b1bab3895721166f8cb013c363931"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the unit's default healt points. <br /></td></tr>
+<tr class="separator:abc7b1bab3895721166f8cb013c363931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0deed63d92c813a70fb104f6c9e47b"><td class="memItemLeft" align="right" valign="top"><a id="a6d0deed63d92c813a70fb104f6c9e47b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a6d0deed63d92c813a70fb104f6c9e47b">m_damage</a></td></tr>
+<tr class="memdesc:a6d0deed63d92c813a70fb104f6c9e47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the unit's default damage. <br /></td></tr>
+<tr class="separator:a6d0deed63d92c813a70fb104f6c9e47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d55a87cadab41633cbe002cc23e5def"><td class="memItemLeft" align="right" valign="top"><a id="a9d55a87cadab41633cbe002cc23e5def"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a9d55a87cadab41633cbe002cc23e5def">m_attackCooldown</a></td></tr>
+<tr class="memdesc:a9d55a87cadab41633cbe002cc23e5def"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the unit's attackcooldown. <br /></td></tr>
+<tr class="separator:a9d55a87cadab41633cbe002cc23e5def"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is the class that represents the units in the game. The units have name,healt points,attack damage, attackcooldown and a level up system with experience points. They can attack each other back and forth, until one of them dies. </p>
+<div class="textblock"><p>This is the class that represents the units in the game. The units have name,healt points,attack damage, attackcooldown. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6353fc4c0a329997ad4abcf0dcb4eb27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6353fc4c0a329997ad4abcf0dcb4eb27">&#9670;&nbsp;</a></span>~Unit()</h2>
@@ -127,33 +158,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a800a4496202e167bd235205fae76a845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a800a4496202e167bd235205fae76a845">&#9670;&nbsp;</a></span>dealDamageTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Unit::dealDamageTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_unit.html">Unit</a> &amp;&#160;</td>
-          <td class="paramname"><em>damagedUnit</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This is the function for dealing damage.</p>
-<p>Units can use this function to lower the other unit healt points. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit1</td><td>This tells the function who gets "hurt". </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acbf43f93d52679ff1f86b1a8041c18e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbf43f93d52679ff1f86b1a8041c18e8">&#9670;&nbsp;</a></span>Fight()</h2>
+<a id="a6c81a6d95853dd444895d9c93a3569f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c81a6d95853dd444895d9c93a3569f8">&#9670;&nbsp;</a></span>getAttackCoolDown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,56 +168,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Unit::Fight </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_unit.html">Unit</a> *&#160;</td>
-          <td class="paramname"><em>unit1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_unit.html">Unit</a> *&#160;</td>
-          <td class="paramname"><em>unit2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function is the fight mechanics.</p>
-<p>This function makes the units each other until one of them dies. Also, it gives the damage dealing unit xp according to its damage, then gives that amount in experience point to it. After every 100 xp the unit levels up. Which means it stats gets stronger. His healtpoints and damage by 10%, and gets his healt points refilled to maximum. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit1</td><td>This is the unit which attacks first, and the so called "agressor". <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">unit2</td><td>This is the unit which "defends". </td></tr>
-  </table>
-  </dd>
-</dl>
-</td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a570cd9e5c13b9e60f8bba3edf3722c1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a570cd9e5c13b9e60f8bba3edf3722c1e">&#9670;&nbsp;</a></span>getAttackspeed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Unit::getAttackspeed </td>
+          <td class="memname">float Unit::getAttackCoolDown </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -255,8 +212,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7677f90871510afc7b31c739bb7589a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7677f90871510afc7b31c739bb7589a2">&#9670;&nbsp;</a></span>getHp()</h2>
+<a id="ad5296f2ce5cb21eb323d5eb0bc104eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5296f2ce5cb21eb323d5eb0bc104eba">&#9670;&nbsp;</a></span>getHealthPoints()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +222,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Unit::getHp </td>
+          <td class="memname">int Unit::getHealthPoints </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -309,8 +266,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a96453a6d675a0e8e5a90caf671ae416d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96453a6d675a0e8e5a90caf671ae416d">&#9670;&nbsp;</a></span>parseUnit()</h2>
+<a id="ad9245732ec5afbdb44b9942ae8ea98cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9245732ec5afbdb44b9942ae8ea98cc">&#9670;&nbsp;</a></span>isAlive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -319,7 +276,48 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_unit.html">Unit</a> * Unit::parseUnit </td>
+          <td class="memname">bool Unit::isAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is a boolean function to check units healt points.</p>
+<p>This function returns true or false according to the units healt. </p><dl class="section return"><dt>Returns</dt><dd>True: If the unit is alive. <dl class="section return"><dt>Returns</dt><dd>False: If the unit is dead. </dd></dl>
+</dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_unit_ad9245732ec5afbdb44b9942ae8ea98cc_cgraph.png" border="0" usemap="#class_unit_ad9245732ec5afbdb44b9942ae8ea98cc_cgraph" alt=""/></div>
+<map name="class_unit_ad9245732ec5afbdb44b9942ae8ea98cc_cgraph" id="class_unit_ad9245732ec5afbdb44b9942ae8ea98cc_cgraph">
+<area shape="rect" id="node2" href="class_unit.html#a4f65ab65c0daa87377667e4e8f59e392" title="Unit::parse" alt="" coords="147,56,233,83"/>
+<area shape="rect" id="node3" href="class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream. " alt="" coords="281,5,453,32"/>
+<area shape="rect" id="node6" href="class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units. " alt="" coords="328,56,407,83"/>
+<area shape="rect" id="node7" href="class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba" title="This function returns the key. " alt="" coords="325,107,409,133"/>
+<area shape="rect" id="node4" href="class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function. " alt="" coords="501,5,600,32"/>
+<area shape="rect" id="node5" href="class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8" title="This is the constructor for the JSON class. " alt="" coords="648,5,751,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4f65ab65c0daa87377667e4e8f59e392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f65ab65c0daa87377667e4e8f59e392">&#9670;&nbsp;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_unit.html">Unit</a> Unit::parse </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>unitfilename</em></td><td>)</td>
@@ -340,6 +338,18 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_unit_a4f65ab65c0daa87377667e4e8f59e392_cgraph.png" border="0" usemap="#class_unit_a4f65ab65c0daa87377667e4e8f59e392_cgraph" alt=""/></div>
+<map name="class_unit_a4f65ab65c0daa87377667e4e8f59e392_cgraph" id="class_unit_a4f65ab65c0daa87377667e4e8f59e392_cgraph">
+<area shape="rect" id="node2" href="class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream. " alt="" coords="140,5,312,32"/>
+<area shape="rect" id="node5" href="class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units. " alt="" coords="187,56,265,83"/>
+<area shape="rect" id="node6" href="class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba" title="This function returns the key. " alt="" coords="184,107,268,133"/>
+<area shape="rect" id="node3" href="class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function. " alt="" coords="360,5,459,32"/>
+<area shape="rect" id="node4" href="class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8" title="This is the constructor for the JSON class. " alt="" coords="507,5,609,32"/>
+</map>
+</div>
 
 </div>
 </div>

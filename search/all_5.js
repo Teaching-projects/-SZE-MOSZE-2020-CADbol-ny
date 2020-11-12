@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unit',['Unit',['../class_unit.html',1,'Unit'],['../class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad',1,'Unit::Unit()']]]
+  ['isalive',['isAlive',['../class_unit.html#ad9245732ec5afbdb44b9942ae8ea98cc',1,'Unit']]]
 ];

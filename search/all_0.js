@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dealdamageto',['dealDamageTo',['../class_unit.html#a800a4496202e167bd235205fae76a845',1,'Unit']]]
+  ['count',['count',['../class_j_s_o_n.html#ae22df5aa0a6f852cc9073de6c04fd9e2',1,'JSON']]]
 ];
