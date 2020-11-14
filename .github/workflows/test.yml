@@ -5,6 +5,7 @@ on:
 jobs:
   bulid_and_test:
     runs-on: ubuntu-latest
+    container: dobaybalazs/cadboleny_doxyandtests:latest
     steps:
       - uses: actions/checkout@v2
       - name: Build application

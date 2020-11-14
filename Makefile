@@ -33,13 +33,11 @@ Unit-tests:
 	cd tesztek && ./runTests
 
 static-code-analysis:
-	sudo apt-get install cppcheck
 	cppcheck *.cpp --enable=warning --output-file=errors.txt
 	./static_check.sh
 	cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
 	
 memory-leak-check:
-	sudo apt install valgrind
 	valgrind --leak-check=full --error-exitcode=1 ./game scenario1.json
 
 documentation:
