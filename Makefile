@@ -27,7 +27,6 @@ io-diff-tests:
 	diff output2.txt good_output2.txt
 
 Unit-tests:
-	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
 	cd tesztek && cmake CMakeLists.txt
 	cd tesztek && make
 	cd tesztek && ./runTests
