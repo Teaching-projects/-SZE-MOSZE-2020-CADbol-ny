@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['feladat_233',['Feladat#3',['../autotoc_md0.html',1,'']]],
-  ['fighttildeath',['fightTilDeath',['../class_hero.html#af0a78bb54937df6cb0075d86a921f7bd',1,'Hero']]]
+  ['fighttildeath_2',['fightTilDeath',['../class_hero.html#af0a78bb54937df6cb0075d86a921f7bd',1,'Hero']]],
+  ['feladat_235_3',['Feladat#5',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

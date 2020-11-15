@@ -1,7 +1,8 @@
 <map id="Unit::parse" name="Unit::parse">
-<area shape="rect" id="node2" href="$class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream. " alt="" coords="140,5,312,32"/>
-<area shape="rect" id="node5" href="$class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units. " alt="" coords="187,56,265,83"/>
-<area shape="rect" id="node6" href="$class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba" title="This function returns the key. " alt="" coords="184,107,268,133"/>
-<area shape="rect" id="node3" href="$class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function. " alt="" coords="360,5,459,32"/>
-<area shape="rect" id="node4" href="$class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8" title="This is the constructor for the JSON class. " alt="" coords="507,5,609,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,99,83"/>
+<area shape="rect" id="node2" href="$class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba" title="This function returns the key." alt="" coords="196,5,279,32"/>
+<area shape="rect" id="node3" href="$class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream." alt="" coords="147,56,328,83"/>
+<area shape="rect" id="node6" href="$class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units." alt="" coords="195,107,279,133"/>
+<area shape="rect" id="node4" href="$class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function." alt="" coords="376,56,475,83"/>
+<area shape="rect" id="node5" href="$class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8" title="This is the constructor for the JSON class." alt="" coords="523,56,617,83"/>
 </map>

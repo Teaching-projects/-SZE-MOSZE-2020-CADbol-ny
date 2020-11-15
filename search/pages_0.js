@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feladat_233',['Feladat#3',['../autotoc_md0.html',1,'']]]
+  ['feladat_235_60',['Feladat#5',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

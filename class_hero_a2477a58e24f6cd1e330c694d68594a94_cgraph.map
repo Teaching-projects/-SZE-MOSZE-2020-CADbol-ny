@@ -1,9 +1,0 @@
-<map id="Hero::getXp" name="Hero::getXp">
-<area shape="rect" id="node2" href="$class_hero.html#af0a78bb54937df6cb0075d86a921f7bd" title="Hero::fightTilDeath" alt="" coords="145,81,277,107"/>
-<area shape="rect" id="node5" href="$class_hero.html#a726b38e32ba562d891e89924c61db536" title="This is the function to deal damage to the Monster class. " alt="" coords="337,131,484,158"/>
-<area shape="rect" id="node3" href="$class_unit.html#a6c81a6d95853dd444895d9c93a3569f8" title="Unit::getAttackCoolDown" alt="" coords="325,81,496,107"/>
-<area shape="rect" id="node4" href="$class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba" title="Unit::getHealthPoints" alt="" coords="544,30,691,57"/>
-<area shape="rect" id="node8" href="$class_monster.html#a0ca0d6b7585e023d2153817f73df8096" title="This is the function to attack back at the Hero class. " alt="" coords="328,30,493,57"/>
-<area shape="rect" id="node6" href="$class_unit.html#a0062c5fab5677c6b47e1d881b4dcc53c" title="Unit::getDamage" alt="" coords="557,81,678,107"/>
-<area shape="rect" id="node7" href="$class_unit.html#a9031a08c41c95b9f283a965812c45a8f" title="This is a simple setter for the unit&#39;s healt. " alt="" coords="573,131,662,158"/>
-</map>

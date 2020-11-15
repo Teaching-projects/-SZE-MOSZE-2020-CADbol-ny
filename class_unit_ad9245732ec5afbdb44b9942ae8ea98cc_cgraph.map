@@ -1,8 +1,0 @@
-<map id="Unit::isAlive" name="Unit::isAlive">
-<area shape="rect" id="node2" href="$class_unit.html#a4f65ab65c0daa87377667e4e8f59e392" title="Unit::parse" alt="" coords="147,56,233,83"/>
-<area shape="rect" id="node3" href="$class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream. " alt="" coords="281,5,453,32"/>
-<area shape="rect" id="node6" href="$class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units. " alt="" coords="328,56,407,83"/>
-<area shape="rect" id="node7" href="$class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba" title="This function returns the key. " alt="" coords="325,107,409,133"/>
-<area shape="rect" id="node4" href="$class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function. " alt="" coords="501,5,600,32"/>
-<area shape="rect" id="node5" href="$class_j_s_o_n.html#a99cfa80f3e180c58a38ec8e082807df8" title="This is the constructor for the JSON class. " alt="" coords="648,5,751,32"/>
-</map>
