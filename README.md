@@ -1,17 +1,13 @@
-# Feladat#3
+# Feladat#5
 
 ## Elvárás
 
-3 különböző fejlesztés párhuzamos elkészítése.
-Ezek közül beépítve:
-- [x] Attackspeed
-- [x] jsonparser
-- [x] levelup
+Docker image elkészítése:
+- [x] Elkészítve.
 
 ## Működés
 
-Egy egységeket tároló könyvtárban lévő három egységet ütköztet,
-Kiírja a küzdelem eredményét és összehasonlítja a várt eredménnyel.
+Adott hős szörnyekkel küzd, kiírja az egyes ellenfeleket majd a küzdelmek végeredményét illetve a hős statjait.
 
 ## Dokumentáció link
 
