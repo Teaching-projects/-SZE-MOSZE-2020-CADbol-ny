@@ -3,6 +3,8 @@
 #include <string>
 #include <fstream>
 #include <exception>
+#include <list>
+#include <variant>
 #include <any>
 /**
  * \class JSON
@@ -13,7 +15,7 @@
 */
 class JSON{
 private:
-	std::map<std::string, std::any> cont;///<This is the std::map for the class.
+	std::map<std::string,std::any> cont;///<This is the std::map for the class.
 public:
 	///This function handles the input file.
 	static JSON parseFromFile(const std::string&);
@@ -46,6 +48,8 @@ public:
 	 * 
 	 * This class handles the file opening error.
 	*/
+	class list : public std::list<std::variant<std::string,int,float>>{
+	};
 	class ParseException : public std::runtime_error
 	{
 	public:
