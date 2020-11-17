@@ -31,21 +31,21 @@ public:
 	/// This function returns the key.
 	template <typename T>
 	typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type
-    get(const std::string& key)
-    {
+    	get(const std::string& key)
+    	{
 			list jlist;
 			std::istringstream values(std::get<std::string>(cont[key]));
 			std::copy(std::istream_iterator<std::string>(values),
 			std::istream_iterator<std::string>(),
 			std::back_inserter(jlist));
 			return jlist;
-    }
+    	}
 	template <typename T> 
 	typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type
 	get(const std::string& key)
 	{
  		return std::get<T>(cont[key]);
-    }
+    	}
 	/// This function checks for the key.
 	unsigned int count(const std::string& key){
 		if(cont.find(key)==cont.end()){
