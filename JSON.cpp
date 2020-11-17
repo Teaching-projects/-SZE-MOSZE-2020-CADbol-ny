@@ -21,7 +21,7 @@ JSON JSON::parseFromString(std::string& text){
 template<typename T>
 JSON JSON::parse(T& parsed)
 {
-	std::map<std::string, std::any> unit;
+	std::map<std::string, std::variant<std::string,int,float>> unit;
 	std::string line, key, value;
 	bool floate;
 	unsigned int i;
@@ -52,6 +52,7 @@ JSON JSON::parse(T& parsed)
 			}
 			else if (line.find('[') != std::string::npos && line.find(']') == std::string::npos)
 			{
+				std::string slist="";
 				key = "";
 				while (line[i] == '\"' || line[i] == ' ' || line[i] == '{') {
 					i++;
@@ -60,7 +61,6 @@ JSON JSON::parse(T& parsed)
 					key += line[i];
 					i++;
 				}
-				JSON::list values;
 				while (line.find(']') == std::string::npos)
 				{
 					value = "",i=0;
@@ -76,10 +76,10 @@ JSON JSON::parse(T& parsed)
 							value += line[i];
 							i++;
 						}
-						values.push_back(value);
+						slist+=value;
 					}
 				}
-				unit.insert({ key,values });
+				unit.insert({ key, slist });
 			}
 			else {
 				while (i < line.size() - 2) {

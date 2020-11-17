@@ -4,7 +4,7 @@
 
 ### JSON upgrade
 - [x] Parser felkészítve listákra
-- [ ] Variantból fakadó probléma megoldása
+- [x] Variantból fakadó probléma megoldása
 
 ## Működés
 

@@ -5,7 +5,8 @@
 #include <exception>
 #include <list>
 #include <variant>
-#include <any>
+#include <sstream>
+#include <iterator>
 /**
  * \class JSON
  * 
@@ -15,8 +16,9 @@
 */
 class JSON{
 private:
-	std::map<std::string,std::any> cont;///<This is the std::map for the class.
+	std::map<std::string,std::variant<std::string,int,float>> cont;///<This is the std::map for the class.
 public:
+	typedef std::list<std::variant<std::string,int,float>> list;
 	///This function handles the input file.
 	static JSON parseFromFile(const std::string&);
 	///This function handles the input ifstream.
@@ -27,10 +29,23 @@ public:
 	template<typename T>
 	static JSON parse(T&);
 	/// This function returns the key.
-	template<typename T>
-	T get(const std::string& key){
-		return std::any_cast<T>(cont[key]);
-	}
+	template <typename T>
+	typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type
+    get(const std::string& key)
+    {
+			list jlist;
+			std::istringstream values(std::get<std::string>(cont[key]));
+			std::copy(std::istream_iterator<std::string>(values),
+			std::istream_iterator<std::string>(),
+			std::back_inserter(jlist));
+			return jlist;
+    }
+	template <typename T> 
+	typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type
+	get(const std::string& key)
+	{
+ 		return std::get<T>(cont[key]);
+    }
 	/// This function checks for the key.
 	unsigned int count(const std::string& key){
 		if(cont.find(key)==cont.end()){
@@ -48,8 +63,6 @@ public:
 	 * 
 	 * This class handles the file opening error.
 	*/
-	class list : public std::list<std::variant<std::string,int,float>>{
-	};
 	class ParseException : public std::runtime_error
 	{
 	public:
@@ -57,6 +70,6 @@ public:
 		ParseException(const char* what) : runtime_error(what) {}
 	};
 	/// This is the constructor for the JSON class.
-	JSON(std::map<std::string, std::any>cont): cont(cont)
+	JSON(std::map<std::string, std::variant<std::string,int,float>>cont): cont(cont)
 	{}
 };
