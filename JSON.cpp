@@ -76,7 +76,7 @@ JSON JSON::parse(T& parsed)
 							value += line[i];
 							i++;
 						}
-						slist+=value;
+						slist+=value+'\r';
 					}
 				}
 				unit.insert({ key, slist });
