@@ -1,10 +1,12 @@
-# Feladat#6
+# Feladat#7
 
 ## Elvárás
 
-### JSON upgrade
-- [x] Parser felkészítve listákra
-- [x] Variantból fakadó probléma megoldása
+### Játék és játékmenet változtatások
+- [x] Map elkészítése
+- [ ] Game elkészítése
+- [ ] Block beépítése
+- [ ] Damage struktúra beépítése
 
 ## Működés
 
