@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get_36',['get',['../class_j_s_o_n.html#aebfe4eae3134bdc249f9695c6406bdba',1,'JSON']]],
+  ['get_36',['get',['../class_j_s_o_n.html#a437b5cd773c3ad6c5761ff29ebd76a8c',1,'JSON']]],
   ['getattackcooldown_37',['getAttackCoolDown',['../class_unit.html#a6c81a6d95853dd444895d9c93a3569f8',1,'Unit']]],
   ['getdamage_38',['getDamage',['../class_unit.html#a0062c5fab5677c6b47e1d881b4dcc53c',1,'Unit']]],
   ['gethealthpoints_39',['getHealthPoints',['../class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba',1,'Unit']]],
