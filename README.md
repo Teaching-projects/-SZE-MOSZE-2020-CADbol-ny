@@ -1,9 +1,10 @@
-# Feladat#5
+# Feladat#6
 
 ## Elvárás
 
-Docker image elkészítése:
-- [x] Elkészítve.
+### JSON upgrade
+- [x] Parser felkészítve listákra
+- [x] Variantból fakadó probléma megoldása
 
 ## Működés
 
