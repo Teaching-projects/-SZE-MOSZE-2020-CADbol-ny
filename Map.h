@@ -19,5 +19,13 @@ public:
 		public:	WrongIndexException(const char* e) : std::logic_error(e) {}
 	};
 
-	inline void setMapField(char chr,int x,int y){ map[x][y]=chr;}
+	char getMapField(int x,int y) const { return map[x][y];}
+
+	int getMapSize() const { return map.size();}
+
+	int getRowSize(int x) const { return map[x].size();}
+
+	void setMapField(char chr,int x,int y){ map[x][y]=chr;}
+
+	bool mapIsEmpty() { return map.empty();}
 };

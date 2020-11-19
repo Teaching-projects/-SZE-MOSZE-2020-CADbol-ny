@@ -9,13 +9,19 @@
 *	The units have name,healt points,attack damage, attackcooldown.
 *
 */
-class Unit {
+struct position {
+		int x=-1,y=-1;
+	};
+class Unit:public position {
 protected:
 	const std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
 	int m_damage;///<This is the unit's default damage.
 	float m_attackCooldown;///<This is the unit's attackcooldown.
+	position pos;
+	
 public:
+	
 	/// This is the constructor for the units.
 	Unit(const std::string& name, int hp, int damage, float attackCooldown);
 	///	Getter for the units name.
@@ -54,6 +60,8 @@ public:
 	///This is the destructor
 	/// 
 	/// 
+	void setUnitPosition(int newx,int newy) { pos.x=newx;pos.y=newy;}
+
 	~Unit() {}
 };
 
