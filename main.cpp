@@ -10,15 +10,14 @@
 #include "JSON.h"
 #include "Hero.h"
 #include "Monster.h"
+#include "Game.h"
  
  
  
  
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },
-    { 2 , "The provided scenario file is not accessible." },
-    { 3 , "The provided scenario file is invalid." },
-    { 4 , "JSON parsing error." }
+    { 2 , "The provided scenario file is not accessible." }
 };
  
 void bad_exit(int exitcode){
@@ -44,7 +43,8 @@ int main(int argc, char** argv){
                 monster_files.push_back(std::get<std::string>(monster_file));
         }
     } catch (const JSON::ParseException& e) {bad_exit(4);}
- 
+    
+
     try { 
         Hero hero{Hero::parse(hero_file)};
         std::list<Monster> monsters;

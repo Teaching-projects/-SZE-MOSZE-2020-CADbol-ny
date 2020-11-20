@@ -1,12 +1,14 @@
 #pragma once
 
 #include <string>
+#include <list>
 
 #include "Map.h"
 #include "Monster.h"
 #include "Hero.h"
+#include "JSON.h"
 
-class Game:public Map {
+class Game:public Map{
 	Map gamemap;
 public:
 	Game(std::string);
@@ -17,7 +19,9 @@ public:
 
 	void putMonster(Monster monster, int, int);
 
-	void run();
+	bool heroIsPresent();
+
+	static void run();
 
 	class OccupiedException: std::logic_error{
 		public: OccupiedException(const char * what): std::logic_error(what){}

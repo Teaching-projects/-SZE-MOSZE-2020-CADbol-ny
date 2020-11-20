@@ -62,6 +62,10 @@ public:
 	/// 
 	void setUnitPosition(int newx,int newy) { pos.x=newx;pos.y=newy;}
 
+	int getUnitPositionX()const { return pos.x;} 
+
+	int getUnitPositionY()const { return pos.y;} 
+
 	~Unit() {}
 };
 
