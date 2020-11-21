@@ -15,7 +15,7 @@ void Game::setMap(Map defmap){
 	gamemap=defmap;
 }
 
-void Game::putHero(Hero hero, int x, int y) {
+void Game::putHero(Hero& hero, int x, int y) {
 	for(int i=0;i<gamemap.getMapSize();i++){
 		for(int j=0;j<gamemap.getRowSize(i);j++){
 			if(gamemap.getMapField(i,j)=='h'){
@@ -35,7 +35,7 @@ void Game::putHero(Hero hero, int x, int y) {
 	
 }
 
-void Game::putMonster(Monster monster, int x, int y) {
+void Game::putMonster(Monster& monster, int x, int y) {
 	if(gamemap.get(x,y)==Wall)
 	{
 		throw OccupiedException("The given field is not free");
@@ -82,7 +82,6 @@ void Game::run(){
 	}
 	else {
 		try {
-			_setmode(_fileno(stdout), _O_U16TEXT);
 			Hero hero{ Hero::parse(hero_file) };
 			std::list<Monster> monsters;
 			for (const auto& monster_file : monster_files)
@@ -95,7 +94,7 @@ void Game::run(){
 			}
 			catch (Game::OccupiedException& e) { std::cerr << e.what(); }
 			try {
-				for (const auto& monster : monsters) {
+				for (auto& monster : monsters) {
 					putMonster(monster, 1, 2);
 				}
 			}
@@ -103,22 +102,22 @@ void Game::run(){
 			std::string input = "";
 			int mult;
 			while (hero.isAlive() && !monsters.empty()) {
-				std::wcout << L"\u2554";
-				for (int i = 0; i < gamemap.getRowSize(0); i++)
+				std::cout << "╔";
+				for (int i = 0; i < gamemap.getRowSize(0)-1; i++)
 				{
-					std::wcout << L"\u2550\u2550";
+					std::cout << "══";
 				}
-				std::wcout << L"\u2557" << std::endl;
+				std::cout << "╗" << std::endl;
 				for (int i = 0; i < gamemap.getMapSize(); i++) {
-					std::wcout << L"\u2551";
+					std::cout << "║";
 					for (int j = 0; j < gamemap.getRowSize(i); j++) {
 						switch (gamemap.getMapField(i, j)) {
 						case 'h':
-							std::wcout << L"\u2520\u2525";
+							std::cout << "┣┫";
 							hero.setUnitPosition(i, j);
 							break;
 						case '#':
-							std::wcout << L"\u2588\u2588";
+							std::cout << "██";
 							break;
 						case 'm':
 							mult = 0;
@@ -130,26 +129,26 @@ void Game::run(){
 								}
 							}
 							if (mult > 1) {
-								std::wcout << "MM";
+								std::cout << "MM";
 							}
 							else {
-								std::wcout << L"M\u2592";
+								std::cout << "M░";
 							}
 							break;
 						case ' ':
-							std::wcout << L"\u2592\u2592";
+							std::cout << "░░";
 							break;
 						}
 					}
-					std::wcout << L"\u2551\n";
+					std::cout << "║\n";
 				}
-				std::wcout << L"\u255A";
-				for (int i = 0; i < gamemap.getRowSize(0); i++)
+				std::cout << "╚";
+				for (int i = 0; i < gamemap.getRowSize(0)-1; i++)
 				{
-					std::wcout << L"\u2550\u2550";
+					std::cout << "══";
 				}
-				std::wcout << L"\u255D" << std::endl;
-				std::wcout << "Set input direction:";
+				std::cout << "╝" << std::endl;
+				std::cout << "Set input direction:";
 				std::cin >> input;
 				if (input == "north") {
 					if (gamemap.getMapField(hero.getUnitPositionX()- 1,hero.getUnitPositionY()) == ' ')
@@ -159,7 +158,7 @@ void Game::run(){
 					}
 					else
 					{
-						std::wcout << "Wrong input";
+						std::cout << "Wrong input\n";
 					}
 				}
 				else if (input == "south") {
@@ -170,7 +169,7 @@ void Game::run(){
 					}
 					else
 					{
-						std::wcout << "Wrong input";
+						std::cout << "Wrong input\n";
 					}
 				}
 				else if (input == "west") {
@@ -181,7 +180,7 @@ void Game::run(){
 					}
 					else
 					{
-						std::wcout << "Wrong input";
+						std::cout << "Wrong input\n";
 					}
 				}
 				else if (input == "east") {
@@ -192,10 +191,9 @@ void Game::run(){
 					}
 					else
 					{
-						std::wcout << "Wrong input";
+						std::cout << "Wrong input\n";
 					}
 				}
-				system("cls");
 			}
 		}catch(const JSON::ParseException& e) { std::cerr << e.what(); }
 	}

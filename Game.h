@@ -7,8 +7,6 @@
 #include "Monster.h"
 #include "Hero.h"
 #include "JSON.h"
-#include <fcntl.h>
-#include <io.h>
 
 class Game:public Map{
 	Map gamemap;
@@ -19,9 +17,9 @@ public:
 
 	void setMap(Map);
 
-	void putHero(Hero hero, int, int);
+	void putHero(Hero& hero, int, int);
 
-	void putMonster(Monster monster, int, int);
+	void putMonster(Monster& monster, int, int);
 
 	bool heroIsPresent();
 
