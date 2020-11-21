@@ -7,9 +7,13 @@
 #include "Monster.h"
 #include "Hero.h"
 #include "JSON.h"
+#include <fcntl.h>
+#include <io.h>
 
 class Game:public Map{
 	Map gamemap;
+	std::string hero_file="";
+	std::list<std::string> monster_files = {};
 public:
 	Game(std::string);
 
@@ -21,21 +25,23 @@ public:
 
 	bool heroIsPresent();
 
-	static void run();
+	void run();
 
-	class OccupiedException: std::logic_error{
+	void init(const std::string&);
+
+	class OccupiedException:public std::logic_error{
 		public: OccupiedException(const char * what): std::logic_error(what){}
 	};
 
-	class AlreadyHasHeroException: std::logic_error{
+	class AlreadyHasHeroException:public std::logic_error{
 		public: AlreadyHasHeroException(const char * what): std::logic_error(what){}
 	};
 
-	class AlreadyHasUnitException: std::logic_error{
+	class AlreadyHasUnitException:public std::logic_error{
 		public: AlreadyHasUnitException(const char * what): std::logic_error(what){}
 	};
 
-	class NotInitializedException: std::logic_error{
+	class NotInitializedException:public std::logic_error{
 		public: NotInitializedException(const char * what): std::logic_error(what){}
 	};
 };
