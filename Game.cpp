@@ -76,19 +76,31 @@ void Game::init(const std::string& arg) {
 }
 
 void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y) {
-	for(auto monster: monsters)
-	{
-		if(monster.getUnitPositionX()==x && monster.getUnitPositionY()==y){
-			std::cout 
-				<< hero.getName() << "(" << hero.getLevel()<<")"
-				<< " vs "
-				<< monster.getName()
-				<<std::endl;
-			hero.fightTilDeath(monster);
-			monsters.remove(monster);
-			monstercount--;
+	if(monstercount>1){
+		for(auto monster: monsters)
+		{
+			if(monster.getUnitPositionX()==x && monster.getUnitPositionY()==y){
+				std::cout 
+					<< hero.getName() << "(" << hero.getLevel()<<")"
+					<< " vs "
+					<< monster.getName()
+					<<std::endl;
+				hero.fightTilDeath(monster);
+				monsters.remove(monster);
+				monstercount--;
+			}
 		}
 	}
+	else{
+		std::cout 
+		<< hero.getName() << "(" << hero.getLevel()<<")"
+		<< " vs "
+		<< monsters.front().getName()
+		<<std::endl;
+		hero.fightTilDeath(monsters.front());
+		monstercount--;
+	}
+
 }
 
 void Game::run(){
@@ -105,7 +117,7 @@ void Game::run(){
 			monstercount=monsters.size();
 			try {
 				try {
-					putHero(hero, 0, 0);
+					putHero(hero, 4, 3);
 				}
 				catch (Game::AlreadyHasHeroException& e) { std::cerr << e.what()<<std::endl;exit(0); }
 			}
@@ -175,7 +187,7 @@ void Game::run(){
 				std::cout << "Set input direction:";
 				std::cin >> input;
 				if (input == "north") {
-					if (hero.getUnitPositionX() - 1 <= 0) {
+					if (hero.getUnitPositionX() - 1 < 0) {
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else {
@@ -199,7 +211,7 @@ void Game::run(){
 						}
 						else
 						{
-							std::cout << "Wrong input\n";
+							std::cout << "Wrong input.\n";
 						}
 					}
 				}
@@ -228,12 +240,12 @@ void Game::run(){
 						}
 						else
 						{
-							std::cout << "Wrong input\n";
+							std::cout << "Wrong input.\n";
 						}
 					}
 				}
 				else if (input == "west") {
-					if (hero.getUnitPositionY() - 1 <= 0) {
+					if (hero.getUnitPositionY() - 1 < 0) {
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else {
@@ -257,7 +269,7 @@ void Game::run(){
 						}
 						else
 						{
-							std::cout << "Wrong input";
+							std::cout << "Wrong input.\n";
 						}
 					}
 				}
@@ -287,9 +299,12 @@ void Game::run(){
 						}
 						else
 						{
-							std::cout << "Wrong input\n";
+							std::cout << "Wrong input.\n";
 						}
 					}
+				}
+				else {
+				std::cout << "Wrong input.\n";
 				}
 			}
 			if(hero.isAlive())

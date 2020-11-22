@@ -17,15 +17,17 @@ class Hero : public Unit {
  private:
 	int m_xplevel; ///<This is the Hero's xp level.
 	int m_hpbonuslevel; ///<This is the Hero's healt points bonus per level.
-	int m_damagebonusperlevel; ///<This is the Hero's damage bonus per level.
+	int m_physicaldamagebonusperlevel; ///<This is the Hero's damage bonus per level.
+	int m_magicaldamagebonusperlevel;
+	int m_defense_bonus_per_level;
 	float m_cdmultiplier; ///<This is the Hero's attack cooldown multiplier.
 	int m_xp; ///<This is the Hero's experience points.
 	int m_maxhp; ///<This is the Hero's maximum healt points.
 	int m_level; ///<This is the Hero's level.
  public:
  	///This is the constructor for the Hero class.
-	Hero(const std::string& name, int hp, int damage, float attackCooldown,int xplevel,int hpbonuslevel,int damagebonus,float multiplier) : 
-	Unit( name, hp, damage, attackCooldown),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_damagebonusperlevel(damagebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1)
+	Hero(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,int defensebonus,float multiplier) : 
+	Unit( name, hp, fdamage,mdamage, attackCooldown,defense),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1)
 	{}
 	/// This is the parse function for the Hero class.
  	static Hero parse(const std::string&);

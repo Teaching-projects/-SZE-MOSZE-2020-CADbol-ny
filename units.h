@@ -12,18 +12,39 @@
 struct position {
 		int x=-1,y=-1;
 	};
+struct Damage{
+	int physical=0;
+    int magical=0;
+
+	inline Damage& operator +(Damage const& obj){
+		this->physical=obj.physical;
+		this->magical=obj.magical;
+		return *this;
+	}
+	inline Damage& operator +=(Damage const& obj){
+		this->physical+=obj.physical;
+		this->magical+=obj.magical;
+		return *this;
+	}
+	inline Damage& operator *=(Damage const& obj){
+		this->physical*=obj.physical;
+		this->magical*=obj.magical;
+		return *this;
+	}
+};
 class Unit:public position {
 protected:
 	const std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
-	int m_damage;///<This is the unit's default damage.
+	Damage damage;///<This is the unit's default damage.
 	float m_attackCooldown;///<This is the unit's attackcooldown.
-	position pos;
+	int m_defense;///<This is the unit's defense.
+	position pos;///<This is the unit's position.
 	
 public:
 	
 	/// This is the constructor for the units.
-	Unit(const std::string& name, int hp, int damage, float attackCooldown);
+	Unit(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense);
 	///	Getter for the units name.
 	/// 
 	/// This is a simple getter function.
@@ -40,7 +61,9 @@ public:
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The unit's current damage.
-	int getDamage() const { return m_damage; }
+	int getFDamage() const { return damage.physical; }
+
+	int getMDamage() const { return damage.magical; }
 	/// Getter for the units attackspeed.
 	/// 
 	/// This is a simple getter function.
@@ -67,10 +90,11 @@ public:
 	int getUnitPositionY()const { return pos.y;} 
 
 	inline bool operator==(const Unit& unit) const { 
-		return getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getDamage()==unit.getDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
+		return getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getFDamage()==unit.getFDamage() && getMDamage()==unit.getMDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
 		getUnitPositionX()==unit.getUnitPositionX() && getUnitPositionY()==unit.getUnitPositionY() ; 
 		}
-	
+	int getDefense() const { return m_defense; }
+
 	~Unit() {}
 
 };
