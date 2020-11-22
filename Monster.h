@@ -22,4 +22,9 @@ public:
     static Monster parse(const std::string&);
     /// This is the function to attack back at the Hero class.
     void dealDamageTo(Hero&);
+
+    inline bool operator==(const Monster& unit) const { 
+		return lore==unit.lore && getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getDamage()==unit.getDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
+		getUnitPositionX()==unit.getUnitPositionX() && getUnitPositionY()==unit.getUnitPositionY() ; 
+    }
 };

@@ -34,7 +34,7 @@ int main(int argc, char** argv){
         gameplay.init(argv[1]);
         gameplay.run();
     }
-    catch (const Game::NotInitializedException& e) { std::cerr << e.what(); }
+    catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
     /*try { 
         Hero hero{Hero::parse(hero_file)};
         std::list<Monster> monsters;

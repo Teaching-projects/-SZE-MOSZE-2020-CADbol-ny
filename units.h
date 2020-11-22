@@ -66,6 +66,12 @@ public:
 
 	int getUnitPositionY()const { return pos.y;} 
 
+	inline bool operator==(const Unit& unit) const { 
+		return getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getDamage()==unit.getDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
+		getUnitPositionX()==unit.getUnitPositionX() && getUnitPositionY()==unit.getUnitPositionY() ; 
+		}
+	
 	~Unit() {}
+
 };
 
