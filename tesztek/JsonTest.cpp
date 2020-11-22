@@ -87,7 +87,7 @@ TEST(MultTest,FightTest1)
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.fightTilDeath(unit2);
-	EXPECT_EQ(unit1.getHealthPoints(),28);
+	EXPECT_EQ(unit1.getHealthPoints(),29);
 }
 TEST(MultTest,FightTest2)
 {
@@ -101,14 +101,14 @@ TEST(MultTest,dealDamageToTest1)
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.dealDamageTo(unit2);
-	EXPECT_EQ(unit2.getHealthPoints(),1);
+	EXPECT_EQ(unit2.getHealthPoints(),2);
 }
 TEST(MultTest,dealDamageToTest2)
 {
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.dealDamageTo(unit2);
-	EXPECT_EQ(unit2.getHealthPoints(),1);
+	EXPECT_EQ(unit2.getHealthPoints(),2);
 }
 TEST(MultTest,exceptionTest1)
 {
