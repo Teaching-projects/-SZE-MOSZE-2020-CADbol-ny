@@ -10,8 +10,8 @@
 
 class Game:public Map{
 	Map gamemap;
-	std::string hero_file="";
-	std::list<std::string> monster_files = {};
+	Hero hero;
+	std::list<Monster> monsters={};
 	int monstercount=0;
 public:
 	Game(std::string);
@@ -29,6 +29,10 @@ public:
 	void init(const std::string&);
 
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
+
+	Hero& getHero() { return hero;}
+
+	std::list<Monster>& getMonster() { return monsters;}
 
 	class OccupiedException:public std::logic_error{
 		public: OccupiedException(const char * what): std::logic_error(what){}

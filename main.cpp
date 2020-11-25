@@ -32,9 +32,26 @@ int main(int argc, char** argv){
     try {
         Game gameplay("map.txt");
         gameplay.init(argv[1]);
+        try {
+            try {
+                gameplay.putHero(gameplay.getHero(),5, 5);
+            }
+            catch (Game::AlreadyHasHeroException& e) { std::cerr << e.what()<<std::endl;exit(0); }
+        }catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
+        try {
+            int k=0;
+            for (auto& monster : gameplay.getMonster()) {
+                if(k>=3){
+                gameplay.putMonster(monster, 5, 3);
+                }
+                else{
+                    gameplay.putMonster(monster, 2, 1);
+                }
+                k++;
+            }
+        }catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
         gameplay.run();
-    }
-    catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
+    }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
     /*try { 
         Hero hero{Hero::parse(hero_file)};
         std::list<Monster> monsters;

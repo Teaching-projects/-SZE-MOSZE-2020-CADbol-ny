@@ -62,6 +62,8 @@ bool Game::heroIsPresent() {
 }
 
 void Game::init(const std::string& arg) {
+	std::string hero_file="";
+	std::list<std::string> monster_files = {};
 	try {
 		JSON scenario = JSON::parseFromFile(arg);
 		if (!(scenario.count("hero") && scenario.count("monsters"))) std::cerr << "JSON parsing error";
@@ -71,6 +73,10 @@ void Game::init(const std::string& arg) {
 			for (auto monster_file : monster_file_list)
 				monster_files.push_back(std::get<std::string>(monster_file));
 		}
+		hero=Hero::parse(hero_file);
+			for (const auto& monster_file : monster_files)
+				monsters.push_back(Monster::parse(monster_file));
+			monstercount=monsters.size();
 	}
 	catch (const JSON::ParseException& e) { std::cerr <<e.what() ; }
 }
@@ -109,34 +115,27 @@ void Game::run(){
 		throw NotInitializedException("The map is not initialized or there is no hero on it.");
 	}
 	else {
-		try {
-			Hero hero{ Hero::parse(hero_file) };
-			std::list<Monster> monsters;
-			for (const auto& monster_file : monster_files)
-				monsters.push_back(Monster::parse(monster_file));
-			monstercount=monsters.size();
-			try {
-				try {
-					putHero(hero, 4, 3);
-				}
-				catch (Game::AlreadyHasHeroException& e) { std::cerr << e.what()<<std::endl;exit(0); }
-			}
-			catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
-			try {
-				int k=0;
-				for (auto& monster : monsters) {
-					if(k>=3){
-					putMonster(monster, 5, 3);
-					}
-					else{
-						putMonster(monster, 2, 1);
-					}
-					k++;
-				}
-			}
-			catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
 			std::string input = "";
 			int mult;
+			bool samefield=false;
+			for(auto& monster:monsters){
+				if(monster.getUnitPositionX()==hero.getUnitPositionX() && monster.getUnitPositionY()==hero.getUnitPositionY())
+				{
+					samefield=true;
+					break;
+				}
+			}
+			if(samefield){
+			gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY());
+				if(hero.isAlive()){
+					std::cout << "The hero won the fights on that field." << std::endl;
+					gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY());
+				}
+				else{
+					std::cout << "The hero died during the fight(s) on that field." << std::endl;
+					exit(0);
+				}
+			}
 			while (hero.isAlive() && monstercount!=0) {
 				std::cout << "╔";
 				for (int i = 0; i < gamemap.getRowSize(0)-1; i++)
@@ -311,6 +310,5 @@ void Game::run(){
 			{
 				std::cout<<hero.getName()<<" cleared the map."<<std::endl;
 			}
-		}catch(const JSON::ParseException& e) { std::cerr << e.what(); }
 	}
 }

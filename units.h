@@ -34,7 +34,7 @@ struct Damage{
 };
 class Unit:public position {
 protected:
-	const std::string m_name; ///<This is the unit's name.
+	std::string m_name; ///<This is the unit's name.
 	int m_hp;///<This is the unit's default healt points.
 	Damage damage;///<This is the unit's default damage.
 	float m_attackCooldown;///<This is the unit's attackcooldown.
@@ -42,14 +42,14 @@ protected:
 	position pos;///<This is the unit's position.
 	
 public:
-	
+	Unit(){}
 	/// This is the constructor for the units.
-	Unit(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense);
+	Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense);
 	///	Getter for the units name.
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The unit's name
-	const std::string &getName() const { return m_name; }
+	std::string getName() const { return m_name; }
 	/// Getter for the units healt points.
 	/// 
 	/// This is a simple getter function.
@@ -95,6 +95,14 @@ public:
 		}
 	int getDefense() const { return m_defense; }
 
+	inline void operator=(const Unit& unit){
+		this->m_name=unit.m_name;
+		this->m_hp=unit.m_hp;
+		this->damage.magical=unit.damage.magical;
+		this->damage.physical=unit.damage.physical;
+		this->m_attackCooldown=unit.m_attackCooldown;
+		this->m_defense=unit.m_defense;
+	}
 	~Unit() {}
 
 };

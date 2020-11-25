@@ -17,7 +17,7 @@ private:
     std::string lore;///<This is the unit's lore.
 public:
     /// This is the constructor for the class.
-    Monster(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string lore) : Unit( name, hp, fdamage,mdamage, attackCooldown,defense),lore(lore){}
+    Monster(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string lore) : Unit( name, hp, fdamage,mdamage, attackCooldown,defense),lore(lore){}
     /// This is the parse function for the Monster class.
     static Monster parse(const std::string&);
     /// This is the function to attack back at the Hero class.
