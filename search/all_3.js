@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['get_4',['get',['../class_j_s_o_n.html#a437b5cd773c3ad6c5761ff29ebd76a8c',1,'JSON']]],
-  ['getattackcooldown_5',['getAttackCoolDown',['../class_unit.html#a6c81a6d95853dd444895d9c93a3569f8',1,'Unit']]],
-  ['getdamage_6',['getDamage',['../class_unit.html#a0062c5fab5677c6b47e1d881b4dcc53c',1,'Unit']]],
-  ['gethealthpoints_7',['getHealthPoints',['../class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba',1,'Unit']]],
-  ['getlevel_8',['getLevel',['../class_hero.html#a17e77f3769e62aeb4e1807bbfc720f47',1,'Hero']]],
-  ['getmaxhealthpoints_9',['getMaxHealthPoints',['../class_hero.html#ac6a7deeb6e390a23536d622042f4c48e',1,'Hero']]],
-  ['getname_10',['getName',['../class_unit.html#aa07c9e071e7ba300f13077c743169929',1,'Unit']]],
-  ['getxp_11',['getXp',['../class_hero.html#a2477a58e24f6cd1e330c694d68594a94',1,'Hero']]]
+  ['fighttildeath_5',['fightTilDeath',['../class_hero.html#af0a78bb54937df6cb0075d86a921f7bd',1,'Hero']]],
+  ['feladat_237_6',['Feladat#7',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

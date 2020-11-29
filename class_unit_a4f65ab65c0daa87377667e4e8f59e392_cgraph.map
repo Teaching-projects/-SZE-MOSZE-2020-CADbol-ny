@@ -1,8 +1,7 @@
 <map id="Unit::parse" name="Unit::parse">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,99,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,99,57"/>
 <area shape="rect" id="node2" href="$class_j_s_o_n.html#a437b5cd773c3ad6c5761ff29ebd76a8c" title="This function returns the key." alt="" coords="196,5,279,32"/>
 <area shape="rect" id="node3" href="$class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc" title="This function handles the input ifstream." alt="" coords="147,56,328,83"/>
-<area shape="rect" id="node6" href="$class_unit.html#a2f2f4686c57c97e45db79f1e3ce749ad" title="This is the constructor for the units." alt="" coords="195,107,279,133"/>
 <area shape="rect" id="node4" href="$class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0" title="This is the parse function." alt="" coords="376,56,475,83"/>
 <area shape="rect" id="node5" href="$class_j_s_o_n.html#aee92c9fb80a5f271efa261e5b307d673" title="This is the constructor for the JSON class." alt="" coords="523,56,617,83"/>
 </map>

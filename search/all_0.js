@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['count_0',['count',['../class_j_s_o_n.html#ae22df5aa0a6f852cc9073de6c04fd9e2',1,'JSON']]]
+  ['alreadyhasheroexception_0',['AlreadyHasHeroException',['../class_game_1_1_already_has_hero_exception.html',1,'Game']]],
+  ['alreadyhasunitexception_1',['AlreadyHasUnitException',['../class_game_1_1_already_has_unit_exception.html',1,'Game']]]
 ];

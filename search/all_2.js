@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fighttildeath_2',['fightTilDeath',['../class_hero.html#af0a78bb54937df6cb0075d86a921f7bd',1,'Hero']]],
-  ['feladat_236_3',['Feladat#6',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['damage_3',['Damage',['../struct_damage.html',1,'Damage'],['../class_unit.html#aedfc783c03a714f6974323bda8e9c9e4',1,'Unit::damage()']]],
+  ['dealdamageto_4',['dealDamageTo',['../class_hero.html#a726b38e32ba562d891e89924c61db536',1,'Hero::dealDamageTo()'],['../class_monster.html#a0ca0d6b7585e023d2153817f73df8096',1,'Monster::dealDamageTo()']]]
 ];
