@@ -14,7 +14,7 @@ TEST(MultTest,defaultfileparse)
 	JSON output=JSON::parseFromFile("../Fallen.json");
     ASSERT_EQ(output.get<std::string>("name"),expected_name);
 	ASSERT_EQ(output.get<int>("health_points"),expected_hp);
-	ASSERT_EQ(output.get<int>("damage"),expected_dmg);
+	ASSERT_EQ(output.get<int>("physical_damage"),expected_dmg);
 	ASSERT_EQ(output.get<float>("attack_cooldown"),expected_attackcooldown);
 
 }
@@ -30,7 +30,7 @@ TEST(MultTest,istreamparse)
 	input.close();
     ASSERT_EQ(output.get<std::string>("name"),expected_name);
 	ASSERT_EQ(output.get<int>("health_points"),expected_hp);
-	ASSERT_EQ(output.get<int>("damage"),expected_dmg);
+	ASSERT_EQ(output.get<int>("physical_damage"),expected_dmg);
 	ASSERT_EQ(output.get<float>("attack_cooldown"),expected_attackcooldown);
 }
 TEST(MultTest,stringparse)
@@ -71,7 +71,7 @@ TEST(MultTest,getterAndMonserparserTest1)
 	Monster unit = Monster::parse("../Zombie.json");
 	EXPECT_EQ(unit.getName(),"Zombie");
 	EXPECT_EQ(unit.getHealthPoints(),10);
-	EXPECT_EQ(unit.getDamage(),1);
+	EXPECT_EQ(unit.getFDamage(),1);
 	EXPECT_FLOAT_EQ(unit.getAttackCoolDown(),2.8f);
 }
 TEST(MultTest,getterAndHeroparserTest2)
@@ -79,7 +79,7 @@ TEST(MultTest,getterAndHeroparserTest2)
 	Hero unit = Hero::parse("../Dark_Wanderer.json");
 	EXPECT_EQ(unit.getName(),"Prince Aidan of Khanduras");
 	EXPECT_EQ(unit.getHealthPoints(),30);
-	EXPECT_EQ(unit.getDamage(),3);
+	EXPECT_EQ(unit.getFDamage(),3);
 	EXPECT_FLOAT_EQ(unit.getAttackCoolDown(),1.1f);
 }
 TEST(MultTest,FightTest1)
@@ -87,7 +87,7 @@ TEST(MultTest,FightTest1)
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.fightTilDeath(unit2);
-	EXPECT_EQ(unit1.getHealthPoints(),28);
+	EXPECT_EQ(unit1.getHealthPoints(),29);
 }
 TEST(MultTest,FightTest2)
 {
@@ -101,14 +101,14 @@ TEST(MultTest,dealDamageToTest1)
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.dealDamageTo(unit2);
-	EXPECT_EQ(unit2.getHealthPoints(),1);
+	EXPECT_EQ(unit2.getHealthPoints(),2);
 }
 TEST(MultTest,dealDamageToTest2)
 {
 	Hero unit1 = Hero::parse("../Dark_Wanderer.json");
 	Monster unit2 =Monster::parse("../Fallen.json");
 	unit1.dealDamageTo(unit2);
-	EXPECT_EQ(unit2.getHealthPoints(),1);
+	EXPECT_EQ(unit2.getHealthPoints(),2);
 }
 TEST(MultTest,exceptionTest1)
 {

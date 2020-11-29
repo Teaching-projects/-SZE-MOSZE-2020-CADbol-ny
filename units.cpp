@@ -5,7 +5,10 @@
 #include <exception>
 
 
-Unit::Unit(const std::string& name, int hp, int damage, float attackCooldown) :m_name(name), m_hp(hp), m_damage(damage), m_attackCooldown(attackCooldown) {}
+Unit::Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense) :m_name(name), m_hp(hp), m_attackCooldown(attackCooldown),m_defense(defense) {
+	damage.physical=fdamage;
+	damage.magical=mdamage;
+}
 
 Unit Unit::parse(const std::string& unitfilename){
 	//Istream
@@ -19,5 +22,5 @@ Unit Unit::parse(const std::string& unitfilename){
 	inputunit.close();
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
-	return Unit(values.get<std::string>("name"),values.get<int>("hp"), values.get<int>("dmg"),values.get<float>("attackcooldown"));
+	return Unit(values.get<std::string>("name"),values.get<int>("hp"), values.get<int>("physical_dmg"), values.get<int>("magical_dmg"),values.get<float>("attackcooldown"),values.get<int>("defense"));
 }

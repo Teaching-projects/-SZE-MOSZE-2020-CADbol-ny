@@ -6,7 +6,8 @@
 
 void Monster::dealDamageTo(Hero& damagedUnit)
 {
-		int damageDone = getDamage() > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): getDamage();
+		int aktdamage = getFDamage()-damagedUnit.getDefense() >=0 ? getFDamage()-damagedUnit.getDefense() : 0;
+		int damageDone = aktdamage > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): aktdamage;
 		damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
 }
 
@@ -22,5 +23,5 @@ Monster Monster::parse(const std::string& unitfilename){
 	inputunit.close();
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
-	return Monster(values.get<std::string>("name"),values.get<int>("health_points"), values.get<int>("damage"),values.get<float>("attack_cooldown"),values.get<std::string>("lore"));
+	return Monster(values.get<std::string>("name"),values.get<int>("health_points"), values.get<int>("physical_damage"),values.get<int>("magical_damage"),values.get<float>("attack_cooldown"),values.get<int>("defense"),values.get<std::string>("lore"));
 }
