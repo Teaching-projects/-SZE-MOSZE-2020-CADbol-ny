@@ -1,16 +1,25 @@
-# Feladat#7
+# Feladat#8
 
 ## Elvárás
 
 ### Játék és játékmenet változtatások
-- [x] Map elkészítése
-- [ ] Game elkészítése
-- [ ] Block beépítése
-- [ ] Damage struktúra beépítése
+- [ ] MarkedMap elkészítése
+- [ ] PreparedGame elkészítése
+- [ ] light radius beépítése
+- [ ] SVG rendering beépítése
+- [ ] dokumentáció kiegészítése
+- [ ] unit tesztek bővítése/átformálása
+
+### Leadás előtti feladatok
+- [ ] Report.md file
+- [ ] <1 perces gameplay video
+- [ ] <2 perces meggyözés a kód jó minőségével kapcsolatban
+- [ ] Saját magunk értékelése
 
 ## Működés
 
-Adott hős szörnyekkel küzd, kiírja az egyes ellenfeleket majd a küzdelmek végeredményét illetve a hős statjait.
+Egy adott pályára rakott hős megküzd az azon lévő szörnyekkel. 
+A hős mozgatása a mappen user input által lehetséges.
 
 ## Dokumentáció link
 
