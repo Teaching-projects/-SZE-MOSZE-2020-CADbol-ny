@@ -2,12 +2,12 @@
 #include <iostream>
 
 
-Game::Game(std::string filename) : gamemap(filename) {}
+Game::Game(const std::string& filename) : gamemap(filename) {}
 
 void Game::setMap(Map defmap){
 	for(int i=0;i<defmap.getMapSize();i++){
 		for(int j=0;j<defmap.getRowSize(i);j++){
-			if(defmap.getMapField(i,j)=='h' || defmap.getMapField(i,j)=='m'){
+			if(defmap.getMapField(i,j)=='H' || defmap.getMapField(i,j)=='m'){
 				throw AlreadyHasUnitException("The map already has units, can't change it.");
 			}		
 		}
@@ -18,7 +18,7 @@ void Game::setMap(Map defmap){
 void Game::putHero(Hero& hero, int x, int y) {
 	for(int i=0;i<gamemap.getMapSize();i++){
 		for(int j=0;j<gamemap.getRowSize(i);j++){
-			if(gamemap.getMapField(i,j)=='h'){
+			if(gamemap.getMapField(i,j)=='H'){
 				throw AlreadyHasHeroException("There is already a hero on the map, can't place an other one.");
 			}
 		}
@@ -29,7 +29,7 @@ void Game::putHero(Hero& hero, int x, int y) {
 	}
 	else
 	{
-		gamemap.setMapField('h',x,y);
+		gamemap.setMapField('H',x,y);
 		hero.setUnitPosition(x,y);
 	}
 	
@@ -51,7 +51,7 @@ bool Game::heroIsPresent() {
 	bool present=false;
 	for(int i=0;i<gamemap.getMapSize();i++){
 		for(int j=0;j<gamemap.getRowSize(i);j++){
-			if(gamemap.getMapField(i,j)=='h')
+			if(gamemap.getMapField(i,j)=='H')
 			{
 				present=true;
 				break;
@@ -74,11 +74,11 @@ void Game::init(const std::string& arg) {
 				monster_files.push_back(std::get<std::string>(monster_file));
 		}
 		hero=Hero::parse(hero_file);
-			for (const auto& monster_file : monster_files)
-				monsters.push_back(Monster::parse(monster_file));
-			monstercount=monsters.size();
+		for (const auto& monster_file : monster_files)
+			monsters.push_back(Monster::parse(monster_file));
+		monstercount=monsters.size();
 	}
-	catch (const JSON::ParseException& e) { std::cerr <<e.what() ; }
+	catch (const JSON::ParseException& e) { std::cerr <<e.what()<<std::endl ; exit(0);}
 }
 
 void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y) {
@@ -111,7 +111,7 @@ void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y)
 
 void Game::run(){
 	std::string input="";
-	if(gamemap.mapIsEmpty()){ //|| !Game::heroIsPresent()){
+	if(gamemap.mapIsEmpty() || !Game::heroIsPresent()){
 		throw NotInitializedException("The map is not initialized or there is no hero on it.");
 	}
 	else {
@@ -147,9 +147,9 @@ void Game::run(){
 					std::cout << "║";
 					for (int j = 0; j < gamemap.getRowSize(i); j++) {
 						switch (gamemap.getMapField(i, j)) {
-						case 'h':
+						case 'H':
 							std::cout << "┣┫";
-							hero.setUnitPosition(i, j);
+							hero.setUnitPosition(i,j);
 							break;
 						case '#':
 							std::cout << "██";
@@ -173,6 +173,15 @@ void Game::run(){
 						case ' ':
 							std::cout << "░░";
 							break;
+						case '1':
+							std::cout << "M░";
+							break;
+						case '2':
+							std::cout << "M░";
+							break;
+						case '3':
+							std::cout << "M░";
+							break;
 						}
 					}
 					std::cout << "║\n";
@@ -190,17 +199,17 @@ void Game::run(){
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else {
-						if (gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) == ' ' || gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) == 'm')
+						if (gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) != '#')
 						{
 							if (gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) == ' '){
-								gamemap.setMapField('h', hero.getUnitPositionX() - 1, hero.getUnitPositionY());
+								gamemap.setMapField('H', hero.getUnitPositionX() - 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()-1, hero.getUnitPositionY());
 								if(hero.isAlive()){
 									std::cout << "The hero won the fights on that field." << std::endl;
-									gamemap.setMapField('h', hero.getUnitPositionX()-1, hero.getUnitPositionY());
+									gamemap.setMapField('H', hero.getUnitPositionX()-1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 								}
 								else{
@@ -219,17 +228,17 @@ void Game::run(){
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else {
-						if (gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) == ' ' || gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) == 'm')
+						if (gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) != '#')
 						{
 							if (gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) == ' '){
-								gamemap.setMapField('h', hero.getUnitPositionX() + 1, hero.getUnitPositionY());
+								gamemap.setMapField('H', hero.getUnitPositionX() + 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()+1, hero.getUnitPositionY());
 								if(hero.isAlive()){
 									std::cout << "The hero won the fights on that field." << std::endl;
-									gamemap.setMapField('h', hero.getUnitPositionX()+1, hero.getUnitPositionY());
+									gamemap.setMapField('H', hero.getUnitPositionX()+1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 								}
 								else{
@@ -248,17 +257,17 @@ void Game::run(){
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else {
-						if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) == ' ' || gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) == 'm')
+						if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) != '#')
 						{
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) == ' '){
-							gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
+							gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 							gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 								if(hero.isAlive()){
 									std::cout << "The hero won the fights on that field." << std::endl;
-									gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
+									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 								}
 								else{
@@ -273,22 +282,22 @@ void Game::run(){
 					}
 				}
 				else if (input == "east") {
-					if (hero.getUnitPositionY() + 1 >= gamemap.getRowSize(0)) {
+					if (hero.getUnitPositionY() >= gamemap.getRowSize(0)-2) {
 						std::cout << "Map border hit." << std::endl; ;
 					}
 					else
 					{
-						if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) == ' ' || gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) == 'm')
+						if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) != '#')
 						{
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) == ' ') {
-								gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
+								gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 							}
 							else {
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 								if(hero.isAlive()){
 									std::cout << "The hero won the fights on that field." << std::endl;
-									gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
+									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
 								}
 								else{

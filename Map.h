@@ -28,4 +28,5 @@ public:
 	void setMapField(char chr,int x,int y){ map[x][y]=chr;}
 
 	bool mapIsEmpty() { return map.empty();}
+
 };

@@ -72,4 +72,6 @@ public:
 	/// This is the constructor for the JSON class.
 	JSON(std::map<std::string, std::variant<std::string,int,float>>cont): cont(cont)
 	{}
+
+	JSON(){}
 };

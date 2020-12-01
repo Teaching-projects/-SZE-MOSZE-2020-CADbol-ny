@@ -1,4 +1,4 @@
-OBJECTS := main.o JSON.o units.o Hero.o Monster.o Map.o Game.o
+OBJECTS := main.o JSON.o units.o Hero.o Monster.o Map.o Game.o MarkedMap.o PreparedGame.o
 COMP := clang++ -Wall -std=c++17
 
 build-game: $(OBJECTS)
@@ -21,6 +21,12 @@ Hero.o: Hero.cpp Hero.h units.h JSON.h
 
 Map.o: Map.cpp Map.h
 	$(COMP) -c Map.cpp
+
+MarkedMap.o: MarkedMap.cpp MarkedMap.h units.h
+	$(COMP) -c MarkedMap.cpp
+
+PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h JSON.h MarkedMap.h
+	$(COMP) -c PreparedGame.cpp
 
 Game.o: Game.cpp Game.h Map.h JSON.h units.h Monster.h Hero.h
 	$(COMP) -c Game.cpp

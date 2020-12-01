@@ -3,8 +3,8 @@
 ## Elvárás
 
 ### Játék és játékmenet változtatások
-- [ ] MarkedMap elkészítése
-- [ ] PreparedGame elkészítése
+- [x] MarkedMap elkészítése
+- [x] PreparedGame elkészítése
 - [ ] light radius beépítése
 - [ ] SVG rendering beépítése
 - [ ] dokumentáció kiegészítése

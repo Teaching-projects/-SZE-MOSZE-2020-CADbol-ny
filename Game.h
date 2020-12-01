@@ -8,13 +8,16 @@
 #include "Hero.h"
 #include "JSON.h"
 
-class Game:public Map{
+class Game: public Map{
+protected:
 	Map gamemap;
 	Hero hero;
 	std::list<Monster> monsters={};
 	int monstercount=0;
-public:
-	Game(std::string);
+
+	Game(){}
+	
+	Game(const std::string&);
 
 	void setMap(Map);
 
@@ -24,8 +27,6 @@ public:
 
 	bool heroIsPresent();
 
-	void run();
-
 	void init(const std::string&);
 
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
@@ -33,6 +34,8 @@ public:
 	Hero& getHero() { return hero;}
 
 	std::list<Monster>& getMonster() { return monsters;}
+public:
+	void run();
 
 	class OccupiedException:public std::logic_error{
 		public: OccupiedException(const char * what): std::logic_error(what){}
