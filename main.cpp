@@ -13,6 +13,7 @@
 #include "Game.h"
 #include "MarkedMap.h"
 #include "PreparedGame.h"
+#include "Renderer.h"
 
  
  
@@ -56,8 +57,7 @@ int main(int argc, char** argv){
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }*/
     try{
         PreparedGame gameplay(argv[1]);
-        gameplay.init();
-        gameplay.run();
+        gameplay.run();  
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
     return 0;
 }

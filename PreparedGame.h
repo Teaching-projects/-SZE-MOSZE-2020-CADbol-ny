@@ -2,12 +2,19 @@
 #include "Game.h"
 #include "JSON.h"
 #include "MarkedMap.h"
+#include "Renderer.h"
 
 class PreparedGame: public Game,MarkedMap{
 private:
     JSON scenario;
+
+    void init();
 public:
     PreparedGame(const std::string&);
 
-    void init();
+    void registerRenderer(Renderer* rend){
+		rend->render(*this);
+	}
+
+    void run();
 };

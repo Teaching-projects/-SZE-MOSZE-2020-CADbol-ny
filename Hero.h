@@ -24,11 +24,16 @@ class Hero : public Unit {
 	int m_xp; ///<This is the Hero's experience points.
 	int m_maxhp; ///<This is the Hero's maximum healt points.
 	int m_level; ///<This is the Hero's level.
+	int m_light_radius;
+	int m_ligt_radius_bonus_per_level=1;
  public:
  Hero(){}
  	///This is the constructor for the Hero class.
-	Hero(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,int defensebonus,float multiplier) : 
-	Unit( name, hp, fdamage,mdamage, attackCooldown,defense),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1)
+	Hero(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,
+	int defensebonus,float multiplier,int lightrad,int lightradbonus) : 
+	Unit( name, hp, fdamage,mdamage, attackCooldown,defense),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),
+	m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1),
+	m_light_radius(lightrad),m_ligt_radius_bonus_per_level(lightradbonus)
 	{}
 	/// This is the parse function for the Hero class.
  	static Hero parse(const std::string&);
@@ -47,6 +52,8 @@ class Hero : public Unit {
 	/// This is a simple getter function.
 	/// <returns>The Hero's current xp.
 	int getXp() const {return m_xp;}
+
+	int getLightRadius() const { return m_light_radius;}
 	/// This function is the fight mechanics.
 	/// 
 	/// 

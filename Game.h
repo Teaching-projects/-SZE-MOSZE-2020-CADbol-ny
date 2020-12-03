@@ -31,11 +31,16 @@ protected:
 
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
 
-	Hero& getHero() { return hero;}
-
-	std::list<Monster>& getMonster() { return monsters;}
+	
 public:
-	void run();
+
+	Map& getMap() const { return const_cast<Map&>(gamemap);}
+
+	Hero& getHero() const { return const_cast<Hero&>(hero);}
+
+	std::list<Monster>& getMonster() const { return const_cast<std::list<Monster>&>(monsters);}
+	
+	virtual void run();
 
 	class OccupiedException:public std::logic_error{
 		public: OccupiedException(const char * what): std::logic_error(what){}
@@ -52,4 +57,5 @@ public:
 	class NotInitializedException:public std::logic_error{
 		public: NotInitializedException(const char * what): std::logic_error(what){}
 	};
+
 };

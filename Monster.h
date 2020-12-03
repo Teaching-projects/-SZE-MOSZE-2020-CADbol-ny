@@ -27,4 +27,8 @@ public:
 		return lore==unit.lore && getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getFDamage()==unit.getFDamage()  && getMDamage()==unit.getMDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
 		getUnitPositionX()==unit.getUnitPositionX() && getUnitPositionY()==unit.getUnitPositionY() ; 
     }
+
+    inline bool operator!=(const Monster& unit){
+      return !operator==(unit);
+    }
 };

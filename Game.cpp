@@ -82,7 +82,7 @@ void Game::init(const std::string& arg) {
 }
 
 void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y) {
-	if(monstercount>1){
+	if(monsters.size()>1){
 		for(auto monster: monsters)
 		{
 			if(monster.getUnitPositionX()==x && monster.getUnitPositionY()==y){
@@ -106,7 +106,6 @@ void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y)
 		hero.fightTilDeath(monsters.front());
 		monstercount--;
 	}
-
 }
 
 void Game::run(){
@@ -116,7 +115,6 @@ void Game::run(){
 	}
 	else {
 			std::string input = "";
-			int mult;
 			bool samefield=false;
 			for(auto& monster:monsters){
 				if(monster.getUnitPositionX()==hero.getUnitPositionX() && monster.getUnitPositionY()==hero.getUnitPositionY())
@@ -137,61 +135,6 @@ void Game::run(){
 				}
 			}
 			while (hero.isAlive() && monstercount!=0) {
-				std::cout << "╔";
-				for (int i = 0; i < gamemap.getRowSize(0)-1; i++)
-				{
-					std::cout << "══";
-				}
-				std::cout << "╗" << std::endl;
-				for (int i = 0; i < gamemap.getMapSize(); i++) {
-					std::cout << "║";
-					for (int j = 0; j < gamemap.getRowSize(i); j++) {
-						switch (gamemap.getMapField(i, j)) {
-						case 'H':
-							std::cout << "┣┫";
-							hero.setUnitPosition(i,j);
-							break;
-						case '#':
-							std::cout << "██";
-							break;
-						case 'm':
-							mult = 0;
-							for (const auto& monster : monsters)
-							{
-								if (monster.getUnitPositionX() == i && monster.getUnitPositionY() == j)
-								{
-									mult++;
-								}
-							}
-							if (mult > 1) {
-								std::cout << "MM";
-							}
-							else {
-								std::cout << "M░";
-							}
-							break;
-						case ' ':
-							std::cout << "░░";
-							break;
-						case '1':
-							std::cout << "M░";
-							break;
-						case '2':
-							std::cout << "M░";
-							break;
-						case '3':
-							std::cout << "M░";
-							break;
-						}
-					}
-					std::cout << "║\n";
-				}
-				std::cout << "╚";
-				for (int i = 0; i < gamemap.getRowSize(0)-1; i++)
-				{
-					std::cout << "══";
-				}
-				std::cout << "╝" << std::endl;
 				std::cout << "Set input direction:";
 				std::cin >> input;
 				if (input == "north") {
