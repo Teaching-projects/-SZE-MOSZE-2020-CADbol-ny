@@ -61,16 +61,16 @@ void TextRender::render(const Game& game)const{
 }
 
 void HeroTextRender::render(const Game& game)const{
-	/*int mult=0;
+	int mult=0;
 	std::cout << "╔";
-	for (int i = 0; i < game.getHero().getLightRadius()*2; i++)
+	for (int i = 0; i <game.getHero().getLightRadius()*2+1; i++)
 	{
 		std::cout << "══";
 	}
 	std::cout << "╗" << std::endl;
-	for (int i = (game.getHero().getUnitPositionX()-game.getHero().getLightRadius()<= 0 ? 0:game.getHero().getUnitPositionX()-game.getHero().getLightRadius()); i < (game.getHero().getUnitPositionX()+game.getHero().getLightRadius() >=game.getMapSize()-1 ? game.getMapSize():game.getHero().getUnitPositionX()+game.getHero().getLightRadius()); i++) {
+	for (int i = 0;i<=game.getHero().getUnitPositionX()+game.getHero().getLightRadius(); i++) {
 		std::cout << "║";
-		for (int j = 0; j < game.getMap().getRowSize(i); j++) {
+		for (int j = 0; j <= game.getHero().getUnitPositionY()+game.getHero().getLightRadius(); j++) {
 			switch (game.getMap().getMapField(i, j)) {
 			case 'H':
 				std::cout << "┣┫";
@@ -112,10 +112,9 @@ void HeroTextRender::render(const Game& game)const{
 		std::cout << "║\n";
 	}
 	std::cout << "╚";
-	for (int i = 0; i < game.getMap().getRowSize(0)-1; i++)
+	for (int i = 0; i < game.getHero().getLightRadius()*2+1; i++)
 	{
 		std::cout << "══";
 	}
-	std::cout << "╝" << std::endl;*/
-	std::cout <<game.getHero().getLightRadius() << std::endl;
+	std::cout << "╝" << std::endl;
 }

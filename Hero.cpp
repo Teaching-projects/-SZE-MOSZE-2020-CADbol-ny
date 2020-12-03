@@ -19,7 +19,7 @@ void Hero::dealDamageTo(Monster& damagedUnit)
 		 damage.physical +=m_physicaldamagebonusperlevel ;
 		 damage.magical +=m_magicaldamagebonusperlevel ;
 		 m_defense+=m_defense_bonus_per_level;
-		 m_light_radius+=m_ligt_radius_bonus_per_level;
+		 m_light_radius+=m_light_radius_bonus_per_level;
 		 m_attackCooldown *=m_cdmultiplier;
 	}
 }
@@ -54,6 +54,5 @@ Hero Hero::parse(const std::string& unitfilename){
 	return Hero(values.get<std::string>("name"),values.get<int>("base_health_points"), values.get<int>("base_physical_damage"),values.get<int>("base_magical_damage"),
 	values.get<float>("base_attack_cooldown"),values.get<int>("base_defense"),values.get<int>("experience_per_level"),values.get<int>("health_point_bonus_per_level"),
 	values.get<int>("physical_damage_bonus_per_level"),values.get<int>("magical_damage_bonus_per_level"),values.get<int>("defense_bonus_per_level"),
-	values.get<float>("cooldown_multiplier_per_level"),values.get<int>("light_radius"),values.get<int>("light_radius_bonus_per_level")
-	);
+	values.get<float>("cooldown_multiplier_per_level"),values.get<int>("light_radius"),values.get<int>("light_radius_bonus_per_level"));
 }

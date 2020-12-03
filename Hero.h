@@ -25,7 +25,7 @@ class Hero : public Unit {
 	int m_maxhp; ///<This is the Hero's maximum healt points.
 	int m_level; ///<This is the Hero's level.
 	int m_light_radius;
-	int m_ligt_radius_bonus_per_level=1;
+	int m_light_radius_bonus_per_level=1;
  public:
  Hero(){}
  	///This is the constructor for the Hero class.
@@ -33,7 +33,7 @@ class Hero : public Unit {
 	int defensebonus,float multiplier,int lightrad,int lightradbonus) : 
 	Unit( name, hp, fdamage,mdamage, attackCooldown,defense),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),
 	m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1),
-	m_light_radius(lightrad),m_ligt_radius_bonus_per_level(lightradbonus)
+	m_light_radius(lightrad),m_light_radius_bonus_per_level(lightradbonus)
 	{}
 	/// This is the parse function for the Hero class.
  	static Hero parse(const std::string&);
@@ -83,5 +83,6 @@ class Hero : public Unit {
 		this->m_maxhp=hero.m_maxhp;
 		this->pos.x=hero.pos.x;
 		this->pos.y=hero.pos.y;
+		this->m_light_radius=hero.m_light_radius;
 	}
 };
