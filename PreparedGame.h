@@ -18,8 +18,8 @@ public:
     void run();
 
     ~PreparedGame(){
-        while(!renderers.empty()){
-            renderers.pop_front();
+        for(auto renderer:renderers){
+            delete renderer;
         }
     }
 };
