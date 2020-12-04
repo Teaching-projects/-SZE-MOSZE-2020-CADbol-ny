@@ -7,6 +7,9 @@
 #include "Monster.h"
 #include "Hero.h"
 #include "JSON.h"
+#include "Renderer.h"
+
+class Renderer;
 
 class Game: public Map{
 protected:
@@ -14,6 +17,7 @@ protected:
 	Hero hero;
 	std::list<Monster> monsters={};
 	int monstercount=0;
+	std::list<Renderer*> renderers={};
 
 	Game(){}
 	
@@ -31,8 +35,8 @@ protected:
 
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
 
-	
 public:
+
 	int getGameMapSize() const { return gamemap.getMapSize();}
 
 	int getGameMapRowSize(int x) const { return gamemap.getRowSize(x);}
@@ -41,8 +45,8 @@ public:
 
 	Hero& getHero() const { return const_cast<Hero&>(hero);}
 
-	std::list<Monster>& getMonster() const { return const_cast<std::list<Monster>&>(monsters);}
-	
+	std::list<Monster>& getMonster() const { return const_cast<std::list<Monster>&>(monsters);}	
+
 	virtual void run();
 
 	class OccupiedException:public std::logic_error{

@@ -1,7 +1,7 @@
 #include "Renderer.h"
 #include <iostream>
 
-void TextRender::render(const Game& game)const{
+void ObserverTextRender::render(const Game& game)const{
 	int mult=0;
 	std::cout << "╔";
 	for (int i = 0; i < game.getMap().getRowSize(0)-1; i++)
@@ -62,7 +62,7 @@ void TextRender::render(const Game& game)const{
 void HeroTextRender::render(const Game& game)const{
 	int mult=0;
 	std::cout << "╔";
-	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0) ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
+	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0)-1 ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
 	{
 		std::cout << "══";
 	}
@@ -110,9 +110,13 @@ void HeroTextRender::render(const Game& game)const{
 		std::cout << "║\n";
 	}
 	std::cout << "╚";
-	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0) ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
+	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0)-1 ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
 	{
 		std::cout << "══";
 	}
 	std::cout << "╝" << std::endl;
+}
+
+void TextRender::setOutputStream(std::ostream& output){
+	
 }

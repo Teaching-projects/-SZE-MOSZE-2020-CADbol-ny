@@ -14,7 +14,10 @@ public:
     
     TextRender(){};
 
-    void render(const Game&) const;
+    TextRender(std::ostream&);
+    
+    void setOutputStream(std::ostream&);
+
 };
 
 class HeroTextRender:public TextRender{
@@ -27,4 +30,6 @@ public:
 class ObserverTextRender:public TextRender{
 public:
     ObserverTextRender(){};
+
+    void render(const Game&) const;
 };

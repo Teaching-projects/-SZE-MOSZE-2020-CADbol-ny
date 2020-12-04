@@ -39,7 +39,6 @@ output-tests:
 
 io-diff-tests:
 	diff output1.txt good_output1.txt
-	diff output2.txt good_output2.txt
 
 Unit-tests:
 	cd tesztek && cmake CMakeLists.txt

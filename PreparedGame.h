@@ -7,7 +7,6 @@
 class PreparedGame: public Game,MarkedMap{
 private:
     JSON scenario;
-    std::list<Renderer*> renderers={};
     void init();
 public:
     PreparedGame(const std::string&);
