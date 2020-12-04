@@ -1,6 +1,6 @@
 #!/bin/bash
 
 rm -f output.txt
-IFS=$'\n'
+IFS=$' '
 
-./$1 scenario3.json>> good_output1.txt <input.txt
+./$1 scenario2.json>> good_output1.txt <input.txt
