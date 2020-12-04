@@ -31,7 +31,7 @@ PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h JSON.h MarkedMap.h Render
 Renderer.o: Renderer.cpp Renderer.h Game.h
 	$(COMP) -c Renderer.cpp
 
-Game.o: Game.cpp Game.h Map.h JSON.h units.h Monster.h Hero.h
+Game.o: Game.cpp Game.h Map.h JSON.h units.h Monster.h Hero.h Renderer.h
 	$(COMP) -c Game.cpp
 
 output-tests:
