@@ -51,7 +51,7 @@ static-code-analysis:
 	cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
 	
 memory-leak-check:
-	valgrind --leak-check=full --error-exitcode=1 ./game scenario1.json
+	valgrind --leak-check=full --error-exitcode=1 ./game scenario2.json<input.txt
 
 documentation:
 	doxygen doxyconfig
