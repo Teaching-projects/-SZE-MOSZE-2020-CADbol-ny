@@ -17,15 +17,15 @@ class Hero : public Unit {
  private:
 	int m_xplevel; ///<This is the Hero's xp level.
 	int m_hpbonuslevel; ///<This is the Hero's healt points bonus per level.
-	int m_physicaldamagebonusperlevel; ///<This is the Hero's damage bonus per level.
-	int m_magicaldamagebonusperlevel;
-	int m_defense_bonus_per_level;
+	int m_physicaldamagebonusperlevel; ///<This is the Hero's physicaldamage bonus per level.
+	int m_magicaldamagebonusperlevel;///<This is the Hero's magicaldamage bonus per level.
+	int m_defense_bonus_per_level;///<This is the Hero's defense bonus per level.
 	float m_cdmultiplier; ///<This is the Hero's attack cooldown multiplier.
 	int m_xp; ///<This is the Hero's experience points.
 	int m_maxhp; ///<This is the Hero's maximum healt points.
 	int m_level; ///<This is the Hero's level.
-	int m_light_radius;
-	int m_light_radius_bonus_per_level=1;
+	int m_light_radius;///<This is the Hero's vision on the map.
+	int m_light_radius_bonus_per_level=1;///<This is the Hero's vision bonus per level.
  public:
  Hero(){}
  	///This is the constructor for the Hero class.
@@ -37,7 +37,7 @@ class Hero : public Unit {
 	{}
 	/// This is the parse function for the Hero class.
  	static Hero parse(const std::string&);
-	/// Getter for the Hero maximum healt points.
+	/// Getter for the Hero's maximum healt points.
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The Hero's current max hp.
@@ -47,12 +47,15 @@ class Hero : public Unit {
 	/// This is a simple getter function.
 	/// <returns>The Hero's current level.
 	int getLevel() const { return m_level;}
-	/// Getter for the Hero experience points.
+	/// Getter for the Hero's experience points.
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The Hero's current xp.
 	int getXp() const {return m_xp;}
-
+	/// Getter for the Hero's light radius.
+	/// 
+	/// This is a simple getter function.
+	/// <returns>The Hero's current light radius.
 	int getLightRadius() const { return m_light_radius;}
 	/// This function is the fight mechanics.
 	/// 
@@ -64,7 +67,7 @@ class Hero : public Unit {
 	void fightTilDeath(Monster&);
 	/// This is the function to deal damage to the Monster class.
 	void dealDamageTo(Monster&);
-
+	/// This is the overloaded assignment operator.
 	inline void operator=(const Hero& hero){
 		this->m_attackCooldown=hero.m_attackCooldown;
 		this->m_cdmultiplier=hero.m_cdmultiplier;

@@ -22,12 +22,12 @@ public:
     static Monster parse(const std::string&);
     /// This is the function to attack back at the Hero class.
     void dealDamageTo(Hero&);
-
+    /// This is the overloaded == operator.
     inline bool operator==(const Monster& unit) const { 
 		return lore==unit.lore && getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getFDamage()==unit.getFDamage()  && getMDamage()==unit.getMDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&
 		getUnitPositionX()==unit.getUnitPositionX() && getUnitPositionY()==unit.getUnitPositionY() ; 
     }
-
+    /// This is the overloaded != operator.
     inline bool operator!=(const Monster& unit){
       return !operator==(unit);
     }

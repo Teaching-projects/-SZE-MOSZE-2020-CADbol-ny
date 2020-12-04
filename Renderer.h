@@ -13,12 +13,11 @@ public:
 
 class TextRender:public Renderer{
 public:
-    
     TextRender(){};
 
-    TextRender(std::ostream&);
+    //TextRender(std::streambuf& out);
     
-    void setOutputStream(std::ostream&);
+    //std::ostream& setOutputStream(std::ostream&);
 
 };
 

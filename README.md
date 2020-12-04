@@ -5,7 +5,7 @@
 ### Játék és játékmenet változtatások
 - [x] MarkedMap elkészítése
 - [x] PreparedGame elkészítése
-- [ ] light radius beépítése
+- [x] light radius beépítése
 - [ ] SVG rendering beépítése
 - [ ] dokumentáció kiegészítése
 - [ ] unit tesztek bővítése/átformálása
