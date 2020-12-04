@@ -63,7 +63,9 @@ void PreparedGame::run(){
 				}
 			}
 			while (hero.isAlive() && monstercount!=0) {
-				this->registerRenderer(new HeroTextRender());
+				for(auto render:renderers){
+					render->render(*this);
+				}
 				std::cout << "Set input direction:";
 				std::cin >> input;
 				if (input == "north") {
@@ -76,6 +78,7 @@ void PreparedGame::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) == ' '){
 								gamemap.setMapField('H', hero.getUnitPositionX() - 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() - 1,hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()-1, hero.getUnitPositionY());
@@ -83,6 +86,7 @@ void PreparedGame::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX()-1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() - 1,hero.getUnitPositionY());
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -105,6 +109,7 @@ void PreparedGame::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) == ' '){
 								gamemap.setMapField('H', hero.getUnitPositionX() + 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() + 1,hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()+1, hero.getUnitPositionY());
@@ -112,6 +117,7 @@ void PreparedGame::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX()+1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() + 1,hero.getUnitPositionY());
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -134,6 +140,7 @@ void PreparedGame::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) == ' '){
 							gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 							gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+							hero.setUnitPosition(hero.getUnitPositionX(),hero.getUnitPositionY()-1);
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
@@ -141,6 +148,7 @@ void PreparedGame::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX(),hero.getUnitPositionY()-1);
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -164,6 +172,7 @@ void PreparedGame::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) == ' ') {
 								gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() ,hero.getUnitPositionY()+1);
 							}
 							else {
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
@@ -171,6 +180,7 @@ void PreparedGame::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() ,hero.getUnitPositionY()+1);
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -189,6 +199,9 @@ void PreparedGame::run(){
 			}
 			if(hero.isAlive())
 			{
+				for(auto render:renderers){
+					render->render(*this);
+				}
 				std::cout<<hero.getName()<<" cleared the map."<<std::endl;
 			}
 	}

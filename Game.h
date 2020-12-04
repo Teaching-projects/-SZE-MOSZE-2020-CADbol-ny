@@ -33,7 +33,10 @@ protected:
 
 	
 public:
+	int getGameMapSize() const { return gamemap.getMapSize();}
 
+	int getGameMapRowSize(int x) const { return gamemap.getRowSize(x);}
+	
 	Map& getMap() const { return const_cast<Map&>(gamemap);}
 
 	Hero& getHero() const { return const_cast<Hero&>(hero);}

@@ -15,7 +15,6 @@ void TextRender::render(const Game& game)const{
 			switch (game.getMap().getMapField(i, j)) {
 			case 'H':
 				std::cout << "┣┫";
-				game.getHero().setUnitPosition(i,j);
 				break;
 			case '#':
 				std::cout << "██";
@@ -63,18 +62,17 @@ void TextRender::render(const Game& game)const{
 void HeroTextRender::render(const Game& game)const{
 	int mult=0;
 	std::cout << "╔";
-	for (int i = 0; i <game.getHero().getLightRadius()*2+1; i++)
+	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0) ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
 	{
 		std::cout << "══";
 	}
 	std::cout << "╗" << std::endl;
-	for (int i = 0;i<=game.getHero().getUnitPositionX()+game.getHero().getLightRadius(); i++) {
+	for (int i =(game.getHero().getUnitPositionX()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionX()-game.getHero().getLightRadius());i<=(game.getHero().getUnitPositionX()+game.getHero().getLightRadius()>=game.getGameMapSize()? game.getGameMapSize()-1:game.getHero().getUnitPositionX()+game.getHero().getLightRadius()); i++) {
 		std::cout << "║";
-		for (int j = 0; j <= game.getHero().getUnitPositionY()+game.getHero().getLightRadius(); j++) {
+		for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(i) ? game.getGameMapRowSize(i)-1:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++){
 			switch (game.getMap().getMapField(i, j)) {
 			case 'H':
 				std::cout << "┣┫";
-				game.getHero().setUnitPosition(i,j);
 				break;
 			case '#':
 				std::cout << "██";
@@ -112,7 +110,7 @@ void HeroTextRender::render(const Game& game)const{
 		std::cout << "║\n";
 	}
 	std::cout << "╚";
-	for (int i = 0; i < game.getHero().getLightRadius()*2+1; i++)
+	for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(0) ? game.getGameMapRowSize(0)-2:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++)
 	{
 		std::cout << "══";
 	}

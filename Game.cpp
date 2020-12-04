@@ -147,6 +147,7 @@ void Game::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX() - 1, hero.getUnitPositionY()) == ' '){
 								gamemap.setMapField('H', hero.getUnitPositionX() - 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() - 1,hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()-1, hero.getUnitPositionY());
@@ -154,6 +155,7 @@ void Game::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX()-1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() - 1,hero.getUnitPositionY());
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -176,6 +178,7 @@ void Game::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX() + 1, hero.getUnitPositionY()) == ' '){
 								gamemap.setMapField('H', hero.getUnitPositionX() + 1, hero.getUnitPositionY());
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() + 1,hero.getUnitPositionY());
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX()+1, hero.getUnitPositionY());
@@ -183,6 +186,7 @@ void Game::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX()+1, hero.getUnitPositionY());
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() + 1,hero.getUnitPositionY());
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -205,6 +209,7 @@ void Game::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() - 1) == ' '){
 							gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 							gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+							hero.setUnitPosition(hero.getUnitPositionX(),hero.getUnitPositionY()-1);
 							}
 							else{
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
@@ -212,6 +217,7 @@ void Game::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() - 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() ,hero.getUnitPositionY()-1);
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -235,6 +241,7 @@ void Game::run(){
 							if (gamemap.getMapField(hero.getUnitPositionX(), hero.getUnitPositionY() + 1) == ' ') {
 								gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 								gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+								hero.setUnitPosition(hero.getUnitPositionX() ,hero.getUnitPositionY()+1);
 							}
 							else {
 								gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
@@ -242,6 +249,7 @@ void Game::run(){
 									std::cout << "The hero won the fights on that field." << std::endl;
 									gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY() + 1);
 									gamemap.setMapField(' ', hero.getUnitPositionX(), hero.getUnitPositionY());
+									hero.setUnitPosition(hero.getUnitPositionX() ,hero.getUnitPositionY()+1);
 								}
 								else{
 									std::cout << "The hero died during the fight(s) on that field." << std::endl;

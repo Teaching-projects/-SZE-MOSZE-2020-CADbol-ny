@@ -7,14 +7,20 @@
 class PreparedGame: public Game,MarkedMap{
 private:
     JSON scenario;
-
+    std::list<Renderer*> renderers={};
     void init();
 public:
     PreparedGame(const std::string&);
 
     void registerRenderer(Renderer* rend){
-		rend->render(*this);
+		renderers.push_back(rend);
 	}
 
     void run();
+
+    ~PreparedGame(){
+        while(!renderers.empty()){
+            renderers.pop_front();
+        }
+    }
 };
