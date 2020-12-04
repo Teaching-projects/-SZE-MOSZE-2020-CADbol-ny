@@ -23,8 +23,7 @@ void Game::putHero(Hero& hero, int x, int y) {
 			}
 		}
 	}
-	if(gamemap.get(x,y)==Wall)
-	{
+	if(gamemap.get(x,y)==Wall){
 		throw OccupiedException("The given field is not free.");
 	}
 	else
