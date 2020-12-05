@@ -1,5 +1,4 @@
 #include "Renderer.h"
-#include <iostream>
 
 void ObserverTextRender::render(const Game& game)const{
 	int mult=0;
@@ -116,5 +115,47 @@ void HeroTextRender::render(const Game& game)const{
 	}
 	std::cout << "╝" << std::endl;
 }
-
-//std::ostream& TextRender::setOutputStream(std::ostream& output){}
+template<typename T>
+TextRender::TextRender(T output){
+		if(output){
+			current_stream_buf=output.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+		else{
+			current_stream_buf=std::cout.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+}
+template<typename T>
+HeroTextRender::HeroTextRender(T output){
+		if(output){
+			current_stream_buf=output.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+		else{
+			current_stream_buf=std::cout.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+}
+template<typename T>
+ObserverTextRender::ObserverTextRender(T output){
+		if(output){
+			current_stream_buf=output.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+		else{
+			current_stream_buf=std::cout.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+}
+template<typename T>
+void TextRender::setOutputStream(T output){
+		if(output){
+			current_stream_buf=output.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+		else{
+			current_stream_buf=std::cout.rdbuf();
+			std::cout.rdbuf(current_stream_buf);
+		}
+}

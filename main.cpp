@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iterator>
 #include <list>
+#include <iostream>
  
 #include "JSON.h"
 #include "Hero.h"
@@ -14,6 +15,7 @@
 #include "MarkedMap.h"
 #include "PreparedGame.h"
 #include "Renderer.h"
+#include "SVGRenderer.h"
 
  
  

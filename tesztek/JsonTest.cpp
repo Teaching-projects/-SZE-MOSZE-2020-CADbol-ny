@@ -2,6 +2,11 @@
 #include "../units.h"
 #include "../Hero.h"
 #include "../Monster.h"
+#include "../Game.h"
+#include "../PreparedGame.h"
+#include "../MarkedMap.h"
+#include "../Map.h"
+#include "../Renderer.h"
 #include <sstream>
 #include <gtest/gtest.h>
 
