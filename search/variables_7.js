@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_201',['y',['../structposition.html#ab7163210f8aa5e8dc68ef434a315792c',1,'position']]]
+  ['renderers_205',['renderers',['../class_game.html#a31ae712e27347072b664c2c522f163a2',1,'Game']]]
 ];
