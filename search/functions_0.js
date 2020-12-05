@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['count_52',['count',['../class_j_s_o_n.html#ae22df5aa0a6f852cc9073de6c04fd9e2',1,'JSON']]]
+  ['alreadyhasheroexception_115',['AlreadyHasHeroException',['../class_game_1_1_already_has_hero_exception.html#a278bb0c424bd175d7db54709061da152',1,'Game::AlreadyHasHeroException']]],
+  ['alreadyhasunitexception_116',['AlreadyHasUnitException',['../class_game_1_1_already_has_unit_exception.html#a5fa27506bc8b3c385a3d98dd535c2733',1,'Game::AlreadyHasUnitException']]]
 ];

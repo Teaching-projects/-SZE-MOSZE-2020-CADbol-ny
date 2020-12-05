@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['json_65',['JSON',['../class_j_s_o_n.html#aee92c9fb80a5f271efa261e5b307d673',1,'JSON']]]
+  ['init_148',['init',['../class_game.html#a9bebfef906fd676be98b4f67da92de65',1,'Game']]],
+  ['isalive_149',['isAlive',['../class_unit.html#ad9245732ec5afbdb44b9942ae8ea98cc',1,'Unit']]]
 ];

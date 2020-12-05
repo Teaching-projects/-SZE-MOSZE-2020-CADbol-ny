@@ -1,9 +1,10 @@
 <map id="Hero::fightTilDeath" name="Hero::fightTilDeath">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,151,108"/>
-<area shape="rect" id="node2" href="$class_monster.html#a0ca0d6b7585e023d2153817f73df8096" title="This is the function to attack back at the Hero class." alt="" coords="202,5,382,32"/>
-<area shape="rect" id="node4" href="$class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba" title=" " alt="" coords="433,107,595,133"/>
-<area shape="rect" id="node6" href="$class_hero.html#a726b38e32ba562d891e89924c61db536" title="This is the function to deal damage to the Monster class." alt="" coords="213,56,371,83"/>
-<area shape="rect" id="node7" href="$class_unit.html#a6c81a6d95853dd444895d9c93a3569f8" title=" " alt="" coords="199,157,385,184"/>
-<area shape="rect" id="node3" href="$class_unit.html#a89acec8af7704d3eaaf9a133f03b0de4" title=" " alt="" coords="443,56,585,83"/>
-<area shape="rect" id="node5" href="$class_unit.html#a9031a08c41c95b9f283a965812c45a8f" title="This is a simple setter for the unit&#39;s healt." alt="" coords="467,5,561,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,151,159"/>
+<area shape="rect" id="node2" href="$class_monster.html#a0ca0d6b7585e023d2153817f73df8096" title="This is the function to attack back at the Hero class." alt="" coords="202,56,382,83"/>
+<area shape="rect" id="node5" href="$class_unit.html#ad5296f2ce5cb21eb323d5eb0bc104eba" title=" " alt="" coords="433,157,595,184"/>
+<area shape="rect" id="node7" href="$class_hero.html#a726b38e32ba562d891e89924c61db536" title="This is the function to deal damage to the Monster class." alt="" coords="213,107,371,133"/>
+<area shape="rect" id="node8" href="$class_unit.html#a6c81a6d95853dd444895d9c93a3569f8" title=" " alt="" coords="199,208,385,235"/>
+<area shape="rect" id="node3" href="$class_unit.html#aaf09131352e419af78ff0807fa8ddda3" title=" " alt="" coords="448,5,580,32"/>
+<area shape="rect" id="node4" href="$class_unit.html#a89acec8af7704d3eaaf9a133f03b0de4" title=" " alt="" coords="443,56,585,83"/>
+<area shape="rect" id="node6" href="$class_unit.html#a9031a08c41c95b9f283a965812c45a8f" title="This is a simple setter for the unit&#39;s healt." alt="" coords="467,107,561,133"/>
 </map>

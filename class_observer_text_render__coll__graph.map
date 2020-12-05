@@ -1,0 +1,5 @@
+<map id="ObserverTextRender" name="ObserverTextRender">
+<area shape="rect" id="node1" title="This is the class for the textrendering with the observer&#39;s vision." alt="" coords="5,155,160,181"/>
+<area shape="rect" id="node2" href="$class_text_render.html" title="This is the class for the textrendering." alt="" coords="35,80,130,107"/>
+<area shape="rect" id="node3" href="$class_renderer.html" title="This is the abstract class for rendering." alt="" coords="42,5,123,32"/>
+</map>

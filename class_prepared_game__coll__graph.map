@@ -1,0 +1,10 @@
+<map id="PreparedGame" name="PreparedGame">
+<area shape="rect" id="node1" title="This is the class for the PreparedGame." alt="" coords="46,336,165,363"/>
+<area shape="rect" id="node2" href="$class_game.html" title="This is the class for the Gameplay." alt="" coords="136,260,197,287"/>
+<area shape="rect" id="node3" href="$class_map.html" title="This is the class for the map." alt="" coords="59,171,109,197"/>
+<area shape="rect" id="node8" href="$class_marked_map.html" title="This is the class for the MarkedMap." alt="" coords="5,260,104,287"/>
+<area shape="rect" id="node4" href="$class_hero.html" title="This is the class for the Hero unit." alt="" coords="192,171,245,197"/>
+<area shape="rect" id="node5" href="$class_unit.html" title=" " alt="" coords="194,95,243,121"/>
+<area shape="rect" id="node6" href="$structposition.html" title=" " alt="" coords="133,5,208,32"/>
+<area shape="rect" id="node7" href="$struct_damage.html" title=" " alt="" coords="232,5,309,32"/>
+</map>

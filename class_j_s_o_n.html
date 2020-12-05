@@ -87,20 +87,20 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:acbca37770cb7e34421e45d76b7332a9a"><td class="memItemLeft" align="right" valign="top"><a id="acbca37770cb7e34421e45d76b7332a9a"></a>
-typedef std::list&lt; std::variant&lt; std::string, int, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>list</b></td></tr>
+<tr class="memitem:acbca37770cb7e34421e45d76b7332a9a"><td class="memItemLeft" align="right" valign="top">typedef std::list&lt; std::variant&lt; std::string, int, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#acbca37770cb7e34421e45d76b7332a9a">list</a></td></tr>
 <tr class="separator:acbca37770cb7e34421e45d76b7332a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="memTemplParams" colspan="2"><a id="a437b5cd773c3ad6c5761ff29ebd76a8c"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a437b5cd773c3ad6c5761ff29ebd76a8c">get</a> (const std::string &amp;key)</td></tr>
-<tr class="memdesc:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the key. <br /></td></tr>
+<tr class="memitem:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, <a class="el" href="class_j_s_o_n.html#acbca37770cb7e34421e45d76b7332a9a">JSON::list</a> &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a437b5cd773c3ad6c5761ff29ebd76a8c">get</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the list paired with the key. <br /></td></tr>
 <tr class="separator:a437b5cd773c3ad6c5761ff29ebd76a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3d7b3d03297c4b09ce1f64ad4187d7"><td class="memTemplParams" colspan="2"><a id="a2e3d7b3d03297c4b09ce1f64ad4187d7"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2e3d7b3d03297c4b09ce1f64ad4187d7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;key)</td></tr>
+<tr class="memitem:a2e3d7b3d03297c4b09ce1f64ad4187d7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, <a class="el" href="class_j_s_o_n.html#acbca37770cb7e34421e45d76b7332a9a">JSON::list</a> &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a2e3d7b3d03297c4b09ce1f64ad4187d7">get</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a2e3d7b3d03297c4b09ce1f64ad4187d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the value paired with the key. <br /></td></tr>
 <tr class="separator:a2e3d7b3d03297c4b09ce1f64ad4187d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae22df5aa0a6f852cc9073de6c04fd9e2"><td class="memItemLeft" align="right" valign="top"><a id="ae22df5aa0a6f852cc9073de6c04fd9e2"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#ae22df5aa0a6f852cc9073de6c04fd9e2">count</a> (const std::string &amp;key)</td></tr>
@@ -110,6 +110,10 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#aee92c9fb80a5f271efa261e5b307d673">JSON</a> (std::map&lt; std::string, std::variant&lt; std::string, int, float &gt;&gt;cont)</td></tr>
 <tr class="memdesc:aee92c9fb80a5f271efa261e5b307d673"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the constructor for the <a class="el" href="class_j_s_o_n.html" title="This is the class for the inputs.">JSON</a> class. <br /></td></tr>
 <tr class="separator:aee92c9fb80a5f271efa261e5b307d673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf359a0f5efc57e6e844ad58abbd6480"><td class="memItemLeft" align="right" valign="top"><a id="acf359a0f5efc57e6e844ad58abbd6480"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#acf359a0f5efc57e6e844ad58abbd6480">JSON</a> ()</td></tr>
+<tr class="memdesc:acf359a0f5efc57e6e844ad58abbd6480"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the desstructor for the <a class="el" href="class_j_s_o_n.html" title="This is the class for the inputs.">JSON</a> class. <br /></td></tr>
+<tr class="separator:acf359a0f5efc57e6e844ad58abbd6480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -134,7 +138,23 @@ template&lt;typename T &gt; </td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the class for the inputs. </p>
 <p>This class handles all the inputs. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="acbca37770cb7e34421e45d76b7332a9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbca37770cb7e34421e45d76b7332a9a">&#9670;&nbsp;</a></span>list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::list&lt;std::variant&lt;std::string,int,float&gt; &gt; <a class="el" href="class_j_s_o_n.html#acbca37770cb7e34421e45d76b7332a9a">JSON::list</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This typedefinition for convenience. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,0 +1,6 @@
+<map id="PreparedGame" name="PreparedGame">
+<area shape="rect" id="node1" title="This is the class for the PreparedGame." alt="" coords="29,155,147,181"/>
+<area shape="rect" id="node2" href="$class_game.html" title="This is the class for the Gameplay." alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" href="$class_map.html" title="This is the class for the map." alt="" coords="63,5,113,32"/>
+<area shape="rect" id="node4" href="$class_marked_map.html" title="This is the class for the MarkedMap." alt="" coords="91,80,189,107"/>
+</map>

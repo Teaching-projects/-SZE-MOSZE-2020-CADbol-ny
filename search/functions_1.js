@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dealdamageto_53',['dealDamageTo',['../class_hero.html#a726b38e32ba562d891e89924c61db536',1,'Hero::dealDamageTo()'],['../class_monster.html#a0ca0d6b7585e023d2153817f73df8096',1,'Monster::dealDamageTo()']]]
+  ['count_117',['count',['../class_j_s_o_n.html#ae22df5aa0a6f852cc9073de6c04fd9e2',1,'JSON']]]
 ];

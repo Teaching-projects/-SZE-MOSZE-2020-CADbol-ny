@@ -1,0 +1,5 @@
+<map id="HeroTextRender" name="HeroTextRender">
+<area shape="rect" id="node1" title="This is the class for the textrendering with the hero&#39;s vision." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node2" href="$class_text_render.html" title="This is the class for the textrendering." alt="" coords="21,80,116,107"/>
+<area shape="rect" id="node3" href="$class_renderer.html" title="This is the abstract class for rendering." alt="" coords="28,5,109,32"/>
+</map>

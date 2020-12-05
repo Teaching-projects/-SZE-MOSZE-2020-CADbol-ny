@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['damage_40',['Damage',['../struct_damage.html',1,'']]]
+  ['charactersvgrenderer_94',['CharacterSVGRenderer',['../class_character_s_v_g_renderer.html',1,'']]]
 ];
