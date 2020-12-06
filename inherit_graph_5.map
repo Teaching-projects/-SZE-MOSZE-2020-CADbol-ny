@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structposition.html" title=" " alt="" coords="5,31,80,57"/>
-<area shape="rect" id="node2" href="$class_unit.html" title=" " alt="" coords="128,31,177,57"/>
-<area shape="rect" id="node3" href="$class_hero.html" title="This is the class for the Hero unit." alt="" coords="236,5,289,32"/>
-<area shape="rect" id="node4" href="$class_monster.html" title="This is the class for the Monsters." alt="" coords="225,56,300,83"/>
+<area shape="rect" id="node1" href="$class_map.html" title="This is the class for the map." alt="" coords="5,31,56,57"/>
+<area shape="rect" id="node2" href="$class_game.html" title="This is the class for the Gameplay." alt="" coords="123,5,184,32"/>
+<area shape="rect" id="node4" href="$class_marked_map.html" title="This is the class for the MarkedMap." alt="" coords="104,56,203,83"/>
+<area shape="rect" id="node3" href="$class_prepared_game.html" title="This is the class for the PreparedGame." alt="" coords="251,31,369,57"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_renderer.html" title="This is the abstract class for rendering." alt="" coords="5,31,87,57"/>
-<area shape="rect" id="node2" href="$class_text_render.html" title="This is the class for the textrendering." alt="" coords="135,31,229,57"/>
-<area shape="rect" id="node3" href="$class_hero_text_render.html" title="This is the class for the textrendering with the hero&#39;s vision." alt="" coords="291,5,418,32"/>
-<area shape="rect" id="node4" href="$class_observer_text_render.html" title="This is the class for the textrendering with the observer&#39;s vision." alt="" coords="277,56,432,83"/>
+<area shape="rect" id="node1" href="$structposition.html" title=" " alt="" coords="5,31,80,57"/>
+<area shape="rect" id="node2" href="$class_unit.html" title=" " alt="" coords="128,31,177,57"/>
+<area shape="rect" id="node3" href="$class_hero.html" title="This is the class for the Hero unit." alt="" coords="236,5,289,32"/>
+<area shape="rect" id="node4" href="$class_monster.html" title="This is the class for the Monsters." alt="" coords="225,56,300,83"/>
 </map>
