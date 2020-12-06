@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['parse_167',['parse',['../class_hero.html#aac4d67bad651fbeb489905675545bb88',1,'Hero::parse()'],['../class_j_s_o_n.html#a28e0d8663d80c2996cf4840982885ec0',1,'JSON::parse()'],['../class_monster.html#a0b04445ff85b508acd45fa24732e4096',1,'Monster::parse()'],['../class_unit.html#a4f65ab65c0daa87377667e4e8f59e392',1,'Unit::parse()']]],
-  ['parseexception_168',['ParseException',['../class_j_s_o_n_1_1_parse_exception.html#a4d8a49c57b46e93227ebdabc07b4b9a7',1,'JSON::ParseException']]],
-  ['parsefromfile_169',['parseFromFile',['../class_j_s_o_n.html#a1c04537d4deced04d31fd48ae7009c54',1,'JSON']]],
-  ['parsefromistream_170',['parseFromIstream',['../class_j_s_o_n.html#a938421e9a4250b02f0a34f9f1a7d49bc',1,'JSON']]],
-  ['parsefromstring_171',['parseFromString',['../class_j_s_o_n.html#a1b91515a08ec4b1787e7260f0506be5f',1,'JSON']]],
-  ['preparedgame_172',['PreparedGame',['../class_prepared_game.html#a54641fa7b161a8db364f33e2f409bdbc',1,'PreparedGame']]],
-  ['puthero_173',['putHero',['../class_game.html#acc163ff3e8fa93c988b8b9cffe0cf90b',1,'Game']]],
-  ['putmonster_174',['putMonster',['../class_game.html#af868201caa4c884302cee272c20d2ba9',1,'Game']]]
+  ['observersvgrenderer_162',['ObserverSVGRenderer',['../class_observer_s_v_g_renderer.html#a4565132d2bbb91f3409536ae99a66018',1,'ObserverSVGRenderer']]],
+  ['observertextrender_163',['ObserverTextRender',['../class_observer_text_render.html#a97b45c6bd69cd333854f73b2c1df0048',1,'ObserverTextRender::ObserverTextRender()'],['../class_observer_text_render.html#a02a78175f2f7c49c9acd53a3e9d53c77',1,'ObserverTextRender::ObserverTextRender(T)']]],
+  ['occupiedexception_164',['OccupiedException',['../class_game_1_1_occupied_exception.html#acec5953edad42fa99a5cb29901a61967',1,'Game::OccupiedException']]],
+  ['operator_21_3d_165',['operator!=',['../class_monster.html#a8f9340ebf396a4aa36cc4aa3fa42edfb',1,'Monster']]],
+  ['operator_2a_3d_166',['operator*=',['../struct_damage.html#a49c8ec51e8bdb762121cff035953e4e4',1,'Damage']]],
+  ['operator_2b_167',['operator+',['../struct_damage.html#a6e7e1c431e79356b49f7cb10591d5e95',1,'Damage']]],
+  ['operator_2b_3d_168',['operator+=',['../struct_damage.html#a60798c6391fb354a8b4a132de75eeb8b',1,'Damage']]],
+  ['operator_3d_169',['operator=',['../class_hero.html#ae98e75764169d141d923ebe2fd5e6097',1,'Hero::operator=()'],['../class_unit.html#a45f68d213d2c4dd25735874bf827cc31',1,'Unit::operator=()']]],
+  ['operator_3d_3d_170',['operator==',['../class_monster.html#a172169db241328baa11adbcc02450b98',1,'Monster::operator==()'],['../class_unit.html#ad6a87e174d44953862677f880e28d493',1,'Unit::operator==()']]]
 ];
