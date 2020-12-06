@@ -20,8 +20,10 @@ public:
     Monster(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string lore) : Unit( name, hp, fdamage,mdamage, attackCooldown,defense),lore(lore){}
     /// This is the parse function for the Monster class.
     static Monster parse(const std::string&);
-    /// This is the function to attack back at the Hero class.
-    void dealDamageTo(Hero&);
+    /// This is the function to attack back at the Hero class with physical damage.
+    void dealPhysicalDamageTo(Hero&);
+    /// This is the function to attack back at the Hero class with magical damage.
+     void dealMagicalDamageTo(Hero&);
     /// This is the overloaded == operator.
     inline bool operator==(const Monster& unit) const { 
 		return lore==unit.lore && getName()==unit.getName() && getHealthPoints()==unit.getHealthPoints()  && getFDamage()==unit.getFDamage()  && getMDamage()==unit.getMDamage() && getAttackCoolDown()==unit.getAttackCoolDown() &&

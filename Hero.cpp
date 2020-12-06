@@ -4,13 +4,7 @@
 #include "JSON.h"
 #include <exception>
 
-void Hero::dealDamageTo(Monster& damagedUnit)
-{
-	int aktdamage= getFDamage()-damagedUnit.getDefense() >=0 ? getFDamage()-damagedUnit.getDefense() : 0;
-	int damageDone = aktdamage > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): aktdamage;
-	damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
-	m_xp += damageDone;
-
+void Hero::levelUp(){
 	while(m_xp >= m_xplevel){
 		 m_level++;
 		 m_xp -= m_xplevel;
@@ -24,16 +18,35 @@ void Hero::dealDamageTo(Monster& damagedUnit)
 	}
 }
 
+void Hero::dealPhysicalDamageTo(Monster& damagedUnit)
+{
+	int aktdamage= getFDamage()-damagedUnit.getDefense() >=0 ? getFDamage()-damagedUnit.getDefense() : 0;
+	int damageDone = aktdamage > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): aktdamage;
+	damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
+	m_xp += damageDone;
+
+	levelUp();
+}
+
+void Hero::dealMagicalDamageTo(Monster& damagedUnit)
+{
+	int damageDone = getMDamage() > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): getMDamage();
+	damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
+	m_xp += damageDone;
+
+	levelUp();
+}
+
 void Hero::fightTilDeath(Monster& monster) {
 	float nextattackunit1 = this->getAttackCoolDown();
 	float nextattackunit2 = monster.getAttackCoolDown();
 	while (this->getHealthPoints() != 0 && monster.getHealthPoints() != 0) {
 		if (nextattackunit1 <= nextattackunit2) {
-			this->dealDamageTo(monster);
+			this->dealPhysicalDamageTo(monster);
 			nextattackunit1 += this->getAttackCoolDown();
 		}
 		else {
-			monster.dealDamageTo(*this);
+			monster.dealPhysicalDamageTo(*this);
 			nextattackunit2 += monster.getAttackCoolDown();
 		}
 	}

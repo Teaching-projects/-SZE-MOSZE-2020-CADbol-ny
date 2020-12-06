@@ -23,5 +23,5 @@ A hős mozgatása a mappen user input által lehetséges.
 
 ## Dokumentáció link
 
-https://teaching-projects.github.io/-SZE-MOSZE-2020-CADbol-ny/
+https://teaching-projects.github.io/-SZE-MOSZE-2020-CADbol-ny--CLOSED/
 

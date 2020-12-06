@@ -65,8 +65,12 @@ class Hero : public Unit {
  	/// amount in experience point to it. After every 100 xp the Hero levels up. 
  	/// Which means it stats gets stronger by the multiplier bonuses.
 	void fightTilDeath(Monster&);
-	/// This is the function to deal damage to the Monster class.
-	void dealDamageTo(Monster&);
+	/// This is the function for leveling up.
+	void levelUp();
+	/// This is the function to deal physical damage to a monster.
+	void dealPhysicalDamageTo(Monster&);
+	/// This is the function to magical deal damage to a monster.
+	void dealMagicalDamageTo(Monster&);
 	/// This is the overloaded assignment operator.
 	inline void operator=(const Hero& hero){
 		this->m_attackCooldown=hero.m_attackCooldown;

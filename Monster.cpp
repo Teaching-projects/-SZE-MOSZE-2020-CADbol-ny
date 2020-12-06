@@ -4,10 +4,16 @@
 #include "JSON.h"
 #include <exception>
 
-void Monster::dealDamageTo(Hero& damagedUnit)
+void Monster::dealPhysicalDamageTo(Hero& damagedUnit)
 {
 		int aktdamage = getFDamage()-damagedUnit.getDefense() >=0 ? getFDamage()-damagedUnit.getDefense() : 0;
 		int damageDone = aktdamage > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): aktdamage;
+		damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
+}
+
+void Monster::dealMagicalDamageTo(Hero& damagedUnit)
+{
+		int damageDone = getMDamage() > damagedUnit.getHealthPoints() ? damagedUnit.getHealthPoints(): getMDamage();
 		damagedUnit.setHp(damagedUnit.getHealthPoints() - damageDone);
 }
 
