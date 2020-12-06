@@ -1,13 +1,6 @@
 #include "MarkedMap.h"
 
-MarkedMap::MarkedMap(const std::string& filename){
-    std::string line;
-	std::ifstream file(filename);
-	while (std::getline(file, line)){
-		map.push_back(line);
-		line = "";
-	}
-}
+MarkedMap::MarkedMap(const std::string& filename):Map(filename){}
 
 position MarkedMap::getHeroPosition() const{
     position pos;

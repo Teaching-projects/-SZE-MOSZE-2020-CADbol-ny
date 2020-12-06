@@ -7,19 +7,19 @@ Game::Game(const std::string& filename) : gamemap(filename) {}
 void Game::setMap(Map defmap){
 	for(int i=0;i<defmap.getMapSize();i++){
 		for(int j=0;j<defmap.getRowSize(i);j++){
-			if(defmap.getMapField(i,j)=='H' || defmap.getMapField(i,j)=='m'){
-				throw AlreadyHasUnitException("The map already has units, can't change it.");
+			if(gamemap.getMapField(i,j)=='H' || gamemap.getMapField(i,j)=='m'){
+				throw AlreadyHasUnitsException("The map already has units, can't change it.");
 			}		
 		}
 	}
 	gamemap=defmap;
 }
 
-void Game::putHero(Hero& hero, int x, int y) {
+void Game::putHero(Hero& Hero, int x, int y) {
 	for(int i=0;i<gamemap.getMapSize();i++){
 		for(int j=0;j<gamemap.getRowSize(i);j++){
 			if(gamemap.getMapField(i,j)=='H'){
-				throw AlreadyHasHeroException("There is already a hero on the map, can't place an other one.");
+				throw AlreadyHasHeroException("There is already a hero on the map, can't place another one.");
 			}
 		}
 	}
@@ -30,6 +30,7 @@ void Game::putHero(Hero& hero, int x, int y) {
 	{
 		gamemap.setMapField('H',x,y);
 		hero.setUnitPosition(x,y);
+		hero=Hero;
 	}
 	
 }
@@ -43,6 +44,7 @@ void Game::putMonster(Monster& monster, int x, int y) {
 	{
 		gamemap.setMapField('m',x,y);
 		monster.setUnitPosition(x,y);
+		monsters.push_back(monster);
 	}
 }
 

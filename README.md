@@ -7,8 +7,8 @@
 - [x] PreparedGame elkészítése
 - [x] light radius beépítése
 - [ ] SVG rendering beépítése
-- [ ] dokumentáció kiegészítése
-- [ ] unit tesztek bővítése/átformálása
+- [x] dokumentáció kiegészítése
+- [x] unit tesztek bővítése/átformálása
 
 ### Leadás előtti feladatok
 - [ ] Report.md file

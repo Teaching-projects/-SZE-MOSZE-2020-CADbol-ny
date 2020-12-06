@@ -41,6 +41,11 @@ public:
 	/// This is a simple getter function.
 	/// <returns>The character on the given field.
 	char getMapField(int x,int y) const { return map[x][y];}
+	/// Getter for the current map.
+	/// 
+	/// This is a simple getter function.
+	/// <returns>The map.
+	std::vector<std::string> getMap() const { return map;}
 	///This function places a character on the given field.
 	void setMapField(char chr,int x,int y){ map[x][y]=chr;}
 	///This function checks if the map is empty.

@@ -61,4 +61,4 @@ documentation:
 
 clean:
 	rm *.o game tesztek/cmake_install.cmake tesztek/CMakeCache.txt tesztek/Makefile tesztek/runTests
-	rm -r tesztek/CMakeFiles
+	rm -rf tesztek/CMakeFiles

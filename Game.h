@@ -27,6 +27,18 @@ protected:
 	std::list<Monster> monsters={};///<These are the Monsters on the map.
 	int monstercount=0;///<This is the number of monsters on the map.
 	std::list<Renderer*> renderers={};///<These are the assigned renderers.
+	
+	///This is the function for initializing the member variables.
+	void init(const std::string&);
+	///This function prints the current fight result.
+	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
+
+public:
+	///Function for checking the hero's presence on the map.
+	/// 
+	/// 
+	/// <returns>True if the hero is present and false if it is not.
+	bool heroIsPresent();
 	///This is the default constructor for the Game class.
 	Game(){}
 	///This is the constructor for the Game class.
@@ -37,17 +49,6 @@ protected:
 	void putHero(Hero& hero, int, int);
 	///This is the function for putting the monsters on the map.
 	void putMonster(Monster& monster, int, int);
-	///Function for checking the hero's presence on the map.
-	/// 
-	/// 
-	/// <returns>True if the hero is present and false if it is not.
-	bool heroIsPresent();
-	///This is the function for initializing the member variables.
-	void init(const std::string&);
-	///This function prints the current fight result.
-	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
-
-public:
 	/// Getter for the map size.
 	/// 
 	/// This is a simple getter function.
@@ -109,10 +110,10 @@ public:
 	 * 
 	 * This class handles the unit putting errors.
 	*/
-	class AlreadyHasUnitException:public std::logic_error{
+	class AlreadyHasUnitsException:public std::logic_error{
 		public: 
 		///This is the constructor for the class.
-		AlreadyHasUnitException(const char * what): std::logic_error(what){}
+		AlreadyHasUnitsException(const char * what): std::logic_error(what){}
 	};
 	/**
 	 * \class NotInitializedException 
