@@ -96,6 +96,7 @@ Prince Aidan of Khanduras gained 4 XP and leveled up 1 times. (+5 MAX HP, +1 DMG
 Prince Aidan of Khanduras - LVL3 (HP:40/40, DMG:5, CD:0.891000, XP:40)         Fallen (HP:0, DMG:2, CD:1.600000)
 
 
+
 ----------------------------------------------------------------------------------------------------
 Prince Aidan of Khanduras - LVL3 (HP:40/40, DMG:5, CD:0.891000, XP:40) fights Blood Raven (HP:113, DMG:8, CD:1.200000)
 ------------------------------------------------------------------------------------------------------
