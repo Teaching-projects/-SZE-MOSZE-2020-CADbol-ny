@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['current_5fstream_5fbuf_208',['current_stream_buf',['../class_text_render.html#a38a74d351f59ee45cdc9ef9a36c1f563',1,'TextRender']]]
+  ['damage_207',['damage',['../class_unit.html#aedfc783c03a714f6974323bda8e9c9e4',1,'Unit']]]
 ];
