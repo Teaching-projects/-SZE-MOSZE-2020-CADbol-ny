@@ -61,6 +61,7 @@ int main(int argc, char** argv){
         PreparedGame gameplay(argv[1]);
         gameplay.registerRenderer(new HeroTextRender());
         gameplay.registerRenderer(new ObserverTextRender());
+        gameplay.registerRenderer(new ObserverSVGRenderer("svg/pretty.svg"));
         gameplay.run();
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
     return 0;

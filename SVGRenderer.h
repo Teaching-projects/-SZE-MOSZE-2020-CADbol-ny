@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "Renderer.h"
 
 class Game;
 /**
@@ -10,7 +11,7 @@ class Game;
  * 
  * 
 */
-class SVGRenderer{
+class SVGRenderer:public Renderer{
 protected:
     
     const std::string filename;///< This is the destination filename.

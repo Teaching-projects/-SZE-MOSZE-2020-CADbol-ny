@@ -80,7 +80,7 @@ TEST(ParserTest,arrayParse1){
 }
 TEST(ParserTest,arrayParse2){
 	JSON::list expected_list={"Blood_Raven.json"};
-	JSON output=JSON::parseFromFile("../scenario3.json");
+	JSON output=JSON::parseFromFile("../scenario2.json");
 	std::string expected_hero="Dark_Wanderer.json";
 	ASSERT_EQ(output.get<std::string>("hero"),expected_hero);
 	ASSERT_EQ(output.get<JSON::list>("monsters"),expected_list);

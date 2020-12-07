@@ -6,7 +6,7 @@
 - [x] MarkedMap elkészítése
 - [x] PreparedGame elkészítése
 - [x] light radius beépítése
-- [ ] SVG rendering beépítése
+- [x] SVG rendering beépítése
 - [x] dokumentáció kiegészítése
 - [x] unit tesztek bővítése/átformálása
 

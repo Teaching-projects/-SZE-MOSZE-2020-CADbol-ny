@@ -29,5 +29,5 @@ Monster Monster::parse(const std::string& unitfilename){
 	inputunit.close();
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
-	return Monster(values.get<std::string>("name"),values.get<int>("health_points"), values.get<int>("physical_damage"),values.get<int>("magical_damage"),values.get<float>("attack_cooldown"),values.get<int>("defense"),values.get<std::string>("lore"));
+	return Monster(values.get<std::string>("name"),values.get<int>("health_points"), values.get<int>("physical_damage"),values.get<int>("magical_damage"),values.get<float>("attack_cooldown"),values.get<int>("defense"),values.get<std::string>("texture"),values.get<std::string>("lore"));
 }

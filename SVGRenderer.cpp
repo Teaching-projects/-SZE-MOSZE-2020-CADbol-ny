@@ -2,93 +2,63 @@
 #include <fstream>
 
 void ObserverSVGRenderer::render(const Game& game)const{
-    std::fstream file("svg/pretty.svg");
-	int mult=0;
+    std::ofstream file(filename);
+	file<<"<svg xmlns=\"http://www.w3.org/2000/svg\">";
 	for (int i = 0; i < game.getMap().getMapSize(); i++) {
 		for (int j = 0; j < game.getMap().getRowSize(i); j++) {
 			switch (game.getMap().getMapField(i, j)) {
 			case 'H':
-				std::cout << "┣┫";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<game.GetHeroTexture()<<"\"></image>";
 				break;
 			case '#':
-				std::cout << "██";
-				break;
-			case 'm':
-				mult = 0;
-				for (const auto& monster : game.getMonster())
-				{
-					if (monster.getUnitPositionX() == i && monster.getUnitPositionY() == j)
-					{
-						mult++;
-					}
-				}
-				if (mult > 1) {
-					std::cout << "MM";
-				}
-				else {
-					std::cout << "M░";
-				}
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getWallTexture()<<"\"></image>";
 				break;
 			case ' ':
-				std::cout << "░░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getFreeTexture()<<"\"></image>";
 				break;
 			case '1':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('1')<<"\"></image>";
 				break;
 			case '2':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('2')<<"\"></image>";
 				break;
 			case '3':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('3')<<"\"></image>";
 				break;
 			}
 		}
 	}
+	file<<"</svg>";
     file.close();
 }
 
 void CharacterSVGRenderer::render(const Game& game)const{
-	int mult=0;
-    std::fstream file("svg/pretty.svg");
+    std::ofstream file(filename);
+	file<<"<svg xmlns=\"http://www.w3.org/2000/svg\">";
 	for (int i =(game.getHero().getUnitPositionX()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionX()-game.getHero().getLightRadius());i<=(game.getHero().getUnitPositionX()+game.getHero().getLightRadius()>=game.getGameMapSize()? game.getGameMapSize()-1:game.getHero().getUnitPositionX()+game.getHero().getLightRadius()); i++) {
 		for (int j = (game.getHero().getUnitPositionY()-game.getHero().getLightRadius()<0 ? 0: game.getHero().getUnitPositionY()-game.getHero().getLightRadius()); j <= (game.getHero().getUnitPositionY()+game.getHero().getLightRadius()>=game.getGameMapRowSize(i) ? game.getGameMapRowSize(i)-1:game.getHero().getUnitPositionY()+game.getHero().getLightRadius()); j++){
 			switch (game.getMap().getMapField(i, j)) {
 			case 'H':
-				std::cout << "┣┫";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<game.GetHeroTexture()<<"\"></image>";
 				break;
 			case '#':
-				std::cout << "██";
-				break;
-			case 'm':
-				mult = 0;
-				for (const auto& monster : game.getMonster())
-				{
-					if (monster.getUnitPositionX() == i && monster.getUnitPositionY() == j)
-					{
-						mult++;
-					}
-				}
-				if (mult > 1) {
-					std::cout << "MM";
-				}
-				else {
-					std::cout << "M░";
-				}
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getWallTexture()<<"\"></image>";
 				break;
 			case ' ':
-				std::cout << "░░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getFreeTexture()<<"\"></image>";
 				break;
 			case '1':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('1')<<"\"></image>";
 				break;
 			case '2':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('2')<<"\"></image>";
 				break;
 			case '3':
-				std::cout << "M░";
+				file << "<image x=\""<<(j+1)*100<<"\" y=\""<<(i+1)*100<<"\"  width=\"100\" height=\"100\" href=\""<<const_cast<Game&>(game).getMonsterTexture('3')<<"\"></image>";
 				break;
 			}
 		}
 	}
+    file<<"</svg>";
     file.close();
 }

@@ -7,5 +7,6 @@
     "magical_damage" : 5,
     "attack_cooldown" : 1.2,
     "race" : "undead",
-    "defense" : 3
+    "defense" : 3,
+    "texture" : "Blood_Raven.png"
 }

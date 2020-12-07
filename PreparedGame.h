@@ -3,6 +3,7 @@
 #include "JSON.h"
 #include "MarkedMap.h"
 #include "Renderer.h"
+#include "SVGRenderer.h"
 
 /**
  * \class PreparedGame
@@ -15,7 +16,6 @@
 
 class PreparedGame: public Game,MarkedMap{
 private:
-    JSON scenario;///<This is the JSON object for storing the file content.
     ///This function initializes the game
     void init();
 public:

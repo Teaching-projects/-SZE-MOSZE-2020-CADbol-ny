@@ -61,12 +61,13 @@ protected:
 	float m_attackCooldown;///<This is the unit's attackcooldown.
 	int m_defense;///<This is the unit's defense.
 	position pos;///<This is the unit's position.
+	std::string m_texture;///<This is the unit's texture.
 	
 public:
 	/// This is the default constructor for the units.
 	Unit(){}
 	/// This is the constructor for the units.
-	Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense);
+	Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string texture);
 	///	Getter for the unit's name.
 	/// 
 	/// This is a simple getter function.
@@ -84,6 +85,11 @@ public:
 	/// This is a simple getter function.
 	/// <returns>The unit's current physical damage.
 	int getFDamage() const { return damage.physical; }
+	/// Getter for the unit's texture.
+	/// 
+	/// This is a simple getter function.
+	/// <returns>The unit's texture.
+	std::string getTexture() const { return m_texture;}
 	/// Getter for the unit's magical damage.
 	/// 
 	/// This is a simple getter function.
@@ -135,6 +141,7 @@ public:
 		this->damage.physical=unit.damage.physical;
 		this->m_attackCooldown=unit.m_attackCooldown;
 		this->m_defense=unit.m_defense;
+		this->m_texture=unit.m_texture;
 	}
 	///This is the destructor
 	/// 

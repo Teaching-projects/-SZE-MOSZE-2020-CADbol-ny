@@ -12,5 +12,6 @@
     "base_defense" : 1,
     "defense_bonus_per_level" : 2,
     "light_radius" : 2,
-    "light_radius_bonus_per_level" : 1
+    "light_radius_bonus_per_level" : 1,
+    "texture" : "Dark_Wanderer.png"
 }

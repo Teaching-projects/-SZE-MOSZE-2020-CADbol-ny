@@ -27,13 +27,26 @@ protected:
 	std::list<Monster> monsters={};///<These are the Monsters on the map.
 	int monstercount=0;///<This is the number of monsters on the map.
 	std::list<Renderer*> renderers={};///<These are the assigned renderers.
-	
+	JSON scenario;///<This is the JSON object for storing the file content.
 	///This is the function for initializing the member variables.
 	void init(const std::string&);
 	///This function prints the current fight result.
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
 
 public:
+	///This is a simple getter function which returns the walltexture.
+	std::string getWallTexture(){return scenario.get<std::string>("wall_texture");}
+	///This is a simple getter function which returns the freetexture.
+	std::string getFreeTexture(){return scenario.get<std::string>("free_texture");}
+	///This is a simple getter function which returns the herotexture.
+	std::string GetHeroTexture()const{return hero.getTexture();}
+	///This is a simple getter function which returns the monstertexture.
+	std::string getMonsterTexture(char x){
+		std::string monster="monster-";
+		monster+=x;
+		Monster mon(Monster::parse(scenario.get<std::string>(monster)));
+		return mon.getTexture();
+	}
 	///Function for checking the hero's presence on the map.
 	/// 
 	/// 

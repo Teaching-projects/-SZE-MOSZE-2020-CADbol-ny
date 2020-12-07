@@ -65,7 +65,7 @@ Hero Hero::parse(const std::string& unitfilename){
 	//File
 	//std::map<std::string,std::string> values=JsonParser::ParseFile(unitfilename);
 	return Hero(values.get<std::string>("name"),values.get<int>("base_health_points"), values.get<int>("base_physical_damage"),values.get<int>("base_magical_damage"),
-	values.get<float>("base_attack_cooldown"),values.get<int>("base_defense"),values.get<int>("experience_per_level"),values.get<int>("health_point_bonus_per_level"),
+	values.get<float>("base_attack_cooldown"),values.get<int>("base_defense"),values.get<std::string>("texture"),values.get<int>("experience_per_level"),values.get<int>("health_point_bonus_per_level"),
 	values.get<int>("physical_damage_bonus_per_level"),values.get<int>("magical_damage_bonus_per_level"),values.get<int>("defense_bonus_per_level"),
 	values.get<float>("cooldown_multiplier_per_level"),values.get<int>("light_radius"),values.get<int>("light_radius_bonus_per_level"));
 }

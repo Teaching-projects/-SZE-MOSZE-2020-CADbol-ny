@@ -66,7 +66,7 @@ void Game::init(const std::string& arg) {
 	std::string hero_file="";
 	std::list<std::string> monster_files = {};
 	try {
-		JSON scenario = JSON::parseFromFile(arg);
+		scenario = JSON::parseFromFile(arg);
 		if (!(scenario.count("hero") && scenario.count("monsters"))) std::cerr << "JSON parsing error";
 		else {
 			hero_file = scenario.get<std::string>("hero");
