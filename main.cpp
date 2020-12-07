@@ -60,7 +60,8 @@ int main(int argc, char** argv){
     try{
         PreparedGame gameplay(argv[1]);
         gameplay.registerRenderer(new HeroTextRender());
-        gameplay.registerRenderer(new ObserverTextRender());
+        auto out=std::ofstream("log.txt");
+        gameplay.registerRenderer(new ObserverTextRender(out));
         gameplay.registerRenderer(new ObserverSVGRenderer("svg/pretty.svg"));
         gameplay.run();
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }

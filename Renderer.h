@@ -29,17 +29,14 @@ public:
 */
 class TextRender:public Renderer{
 protected:
-    std::streambuf* current_stream_buf=std::cout.rdbuf();///<This is the current streambuffer.
+    std::ostream* output=&std::cout;
 public:
     /// This is the default constructor for the class.
-    TextRender(){};
+    TextRender(){}
     /// This is a constructor for the class.
-    template<typename T>
-    TextRender(T);
+    TextRender(std::ostream&);
     /// This function is for setting the output stream
-    template<typename T>
-    void setOutputStream(T);
-
+    void setOutputStream(std::ostream&);
 };
 /**
  * \class HeroTextRender
@@ -52,10 +49,9 @@ public:
 class HeroTextRender:public TextRender{
 public:
     /// This is the default constructor for the class.
-    HeroTextRender(){};
+    HeroTextRender(){}
     /// This is a constructor for the class.
-    template<class T>
-    HeroTextRender(T);
+    HeroTextRender(std::ostream& out):TextRender(out) {}
     /// This function is for the actual rendering.
     void render(const Game&) const;
 };
@@ -70,10 +66,9 @@ public:
 class ObserverTextRender:public TextRender{
 public:
      /// This is the default constructor for the class.
-    ObserverTextRender(){};
+    ObserverTextRender(){}
      /// This is a constructor for the class.
-    template<typename T>
-    ObserverTextRender(T);
+    ObserverTextRender(std::ostream& out):TextRender(out) {}
     /// This function is for the actual rendering.
     void render(const Game&) const;
 };
