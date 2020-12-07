@@ -1,4 +1,4 @@
-OBJECTS := main.o JSON.o units.o Hero.o Monster.o Map.o Game.o
+OBJECTS := main.o JSON.o units.o Hero.o Monster.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o SVGRenderer.o
 COMP := clang++ -Wall -std=c++17
 
 build-game: $(OBJECTS)
@@ -22,7 +22,19 @@ Hero.o: Hero.cpp Hero.h units.h JSON.h
 Map.o: Map.cpp Map.h
 	$(COMP) -c Map.cpp
 
-Game.o: Game.cpp Game.h Map.h JSON.h units.h Monster.h Hero.h
+MarkedMap.o: MarkedMap.cpp MarkedMap.h units.h
+	$(COMP) -c MarkedMap.cpp
+
+PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h JSON.h MarkedMap.h Renderer.h SVGRenderer.h
+	$(COMP) -c PreparedGame.cpp
+
+Renderer.o: Renderer.cpp Renderer.h Game.h
+	$(COMP) -c Renderer.cpp
+
+SVGRenderer.o: SVGRenderer.cpp SVGRenderer.h Game.h
+	$(COMP) -c SVGRenderer.cpp
+
+Game.o: Game.cpp Game.h Map.h JSON.h units.h Monster.h Hero.h Renderer.h SVGRenderer.h
 	$(COMP) -c Game.cpp
 
 output-tests:
@@ -30,7 +42,6 @@ output-tests:
 
 io-diff-tests:
 	diff output1.txt good_output1.txt
-	diff output2.txt good_output2.txt
 
 Unit-tests:
 	cd tesztek && cmake CMakeLists.txt
@@ -43,11 +54,11 @@ static-code-analysis:
 	cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
 	
 memory-leak-check:
-	valgrind --leak-check=full --error-exitcode=1 ./game scenario1.json
+	valgrind --leak-check=full --error-exitcode=1 ./game preparedgame.json<input.txt
 
 documentation:
 	doxygen doxyconfig
 
 clean:
 	rm *.o game tesztek/cmake_install.cmake tesztek/CMakeCache.txt tesztek/Makefile tesztek/runTests
-	rm -r tesztek/CMakeFiles
+	rm -rf tesztek/CMakeFiles

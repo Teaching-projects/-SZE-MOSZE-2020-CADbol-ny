@@ -17,22 +17,27 @@ class Hero : public Unit {
  private:
 	int m_xplevel; ///<This is the Hero's xp level.
 	int m_hpbonuslevel; ///<This is the Hero's healt points bonus per level.
-	int m_physicaldamagebonusperlevel; ///<This is the Hero's damage bonus per level.
-	int m_magicaldamagebonusperlevel;
-	int m_defense_bonus_per_level;
+	int m_physicaldamagebonusperlevel; ///<This is the Hero's physicaldamage bonus per level.
+	int m_magicaldamagebonusperlevel;///<This is the Hero's magicaldamage bonus per level.
+	int m_defense_bonus_per_level;///<This is the Hero's defense bonus per level.
 	float m_cdmultiplier; ///<This is the Hero's attack cooldown multiplier.
 	int m_xp; ///<This is the Hero's experience points.
 	int m_maxhp; ///<This is the Hero's maximum healt points.
 	int m_level; ///<This is the Hero's level.
+	int m_light_radius;///<This is the Hero's vision on the map.
+	int m_light_radius_bonus_per_level=1;///<This is the Hero's vision bonus per level.
  public:
  Hero(){}
  	///This is the constructor for the Hero class.
-	Hero(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,int defensebonus,float multiplier) : 
-	Unit( name, hp, fdamage,mdamage, attackCooldown,defense),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1)
+	Hero(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string texture,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,
+	int defensebonus,float multiplier,int lightrad,int lightradbonus) : 
+	Unit( name, hp, fdamage,mdamage, attackCooldown,defense,texture),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),
+	m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1),
+	m_light_radius(lightrad),m_light_radius_bonus_per_level(lightradbonus)
 	{}
 	/// This is the parse function for the Hero class.
  	static Hero parse(const std::string&);
-	/// Getter for the Hero maximum healt points.
+	/// Getter for the Hero's maximum healt points.
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The Hero's current max hp.
@@ -42,11 +47,16 @@ class Hero : public Unit {
 	/// This is a simple getter function.
 	/// <returns>The Hero's current level.
 	int getLevel() const { return m_level;}
-	/// Getter for the Hero experience points.
+	/// Getter for the Hero's experience points.
 	/// 
 	/// This is a simple getter function.
 	/// <returns>The Hero's current xp.
 	int getXp() const {return m_xp;}
+	/// Getter for the Hero's light radius.
+	/// 
+	/// This is a simple getter function.
+	/// <returns>The Hero's current light radius.
+	int getLightRadius() const { return m_light_radius;}
 	/// This function is the fight mechanics.
 	/// 
 	/// 
@@ -55,9 +65,13 @@ class Hero : public Unit {
  	/// amount in experience point to it. After every 100 xp the Hero levels up. 
  	/// Which means it stats gets stronger by the multiplier bonuses.
 	void fightTilDeath(Monster&);
-	/// This is the function to deal damage to the Monster class.
-	void dealDamageTo(Monster&);
-
+	/// This is the function for leveling up.
+	void levelUp();
+	/// This is the function to deal physical damage to a monster.
+	void dealPhysicalDamageTo(Monster&);
+	/// This is the function to magical deal damage to a monster.
+	void dealMagicalDamageTo(Monster&);
+	/// This is the overloaded assignment operator.
 	inline void operator=(const Hero& hero){
 		this->m_attackCooldown=hero.m_attackCooldown;
 		this->m_cdmultiplier=hero.m_cdmultiplier;
@@ -76,5 +90,7 @@ class Hero : public Unit {
 		this->m_maxhp=hero.m_maxhp;
 		this->pos.x=hero.pos.x;
 		this->pos.y=hero.pos.y;
+		this->m_light_radius=hero.m_light_radius;
+		this->m_texture=hero.m_texture;
 	}
 };

@@ -1,13 +1,154 @@
+╔══════════╗
+║██████████║
+║██░░┣┫░░██║
+║██░░██████║
+║██░░M░M░██║
+╚══════════╝
+Set input direction:
+╔════════╗
+║████████║
+║██┣┫░░░░║
+║██░░████║
+║██░░M░M░║
+╚════════╝
+Set input direction:
+╔════════╗
+║████████║
+║██░░░░░░║
+║██┣┫████║
+║██░░M░M░║
+║██████M░║
+╚════════╝
+Set input direction:
+╔════════╗
+║██░░░░░░║
+║██░░████║
+║██┣┫M░M░║
+║██████M░║
+║██░░░░░░║
+╚════════╝
+Set input direction:
 Prince Aidan of Khanduras(1) vs Fallen
-Prince Aidan of Khanduras(1) vs Fallen
+The hero won the fights on that field.
+╔══════════╗
+║██░░░░░░██║
+║██░░██████║
+║██░░┣┫M░██║
+║██████M░██║
+║██░░░░░░░░║
+╚══════════╝
+Set input direction:
 Prince Aidan of Khanduras(1) vs Zombie
+The hero won the fights on that field.
+╔══════════╗
+║░░░░░░██░░║
+║░░████████║
+║░░░░┣┫██░░║
+║████M░██░░║
+║░░░░░░░░░░║
+╚══════════╝
+Set input direction:
 Prince Aidan of Khanduras(1) vs Fallen
-Prince Aidan of Khanduras(2) vs Fallen
+The hero won the fights on that field.
+╔══════════╗
+║░░████████║
+║░░░░░░██░░║
+║████┣┫██░░║
+║░░░░░░░░░░║
+║██████████║
+╚══════════╝
+Set input direction:
+╔══════════╗
+║░░░░░░██░░║
+║████░░██░░║
+║░░░░┣┫░░░░║
+║██████████║
+╚══════════╝
+Set input direction:
+╔══════════╗
+║░░░░██░░M░║
+║██░░██░░██║
+║░░░░┣┫░░M░║
+║██████████║
+╚══════════╝
+Set input direction:
+╔══════════╗
+║░░██░░M░██║
+║░░██░░████║
+║░░░░┣┫M░░░║
+║██████████║
+╚══════════╝
+Set input direction:
+Prince Aidan of Khanduras(1) vs Fallen
+The hero won the fights on that field.
+╔══════════════╗
+║██████M░M░████║
+║░░██░░M░████░░║
+║░░██░░████░░░░║
+║░░░░░░┣┫░░░░░░║
+║████████████░░║
+╚══════════════╝
+Set input direction:
+╔══════════════╗
+║████████M░M░██║
+║░░░░██░░M░████║
+║██░░██░░████░░║
+║░░░░░░┣┫░░░░░░║
+║██████████████║
+╚══════════════╝
+Set input direction:
+╔══════════════╗
+║░░░░██░░░░████║
+║████████M░M░██║
+║░░░░██░░M░████║
+║██░░██┣┫████░░║
+║░░░░░░░░░░░░░░║
+║██████████████║
+╚══════════════╝
+Set input direction:
+╔══════════════╗
+║██████████████║
+║░░░░██░░░░████║
+║████████M░M░██║
+║░░░░██┣┫M░████║
+║██░░██░░████░░║
+║░░░░░░░░░░░░░░║
+║██████████████║
+╚══════════════╝
+Set input direction:
 Prince Aidan of Khanduras(2) vs Zombie
-Prince Aidan of Khanduras(2) vs Fallen
-Prince Aidan of Khanduras(3) vs Blood Raven
-The hero won.
-Prince Aidan of Khanduras: LVL8
-   HP: 57/65
-  DMG: 10
-  ACD: 0.526127
+The hero won the fights on that field.
+╔══════════════╗
+║██████████████║
+║░░██░░░░██████║
+║██████M░M░████║
+║░░██░░┣┫████░░║
+║░░██░░████░░░░║
+║░░░░░░░░░░░░░░║
+║████████████░░║
+╚══════════════╝
+Set input direction:
+Prince Aidan of Khanduras(2) vs Blood Raven
+The hero won the fights on that field.
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████┣┫M░████░░░░██░░║
+║██░░░░░░██░░░░████░░░░██░░░░║
+║██████░░██░░████░░░░██░░░░░░║
+║██░░░░░░░░░░░░░░░░░░██░░░░░░║
+║██████████████████░░░░░░░░░░║
+╚════════════════════════════╝
+Set input direction:
+Prince Aidan of Khanduras(8) vs Zombie
+The hero won the fights on that field.
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░┣┫████░░░░██░░║
+║██░░░░░░██░░░░████░░░░██░░░░║
+║██████░░██░░████░░░░██░░░░░░║
+║██░░░░░░░░░░░░░░░░░░██░░░░░░║
+║██████████████████░░░░░░░░░░║
+╚════════════════════════════╝
+Prince Aidan of Khanduras cleared the map.

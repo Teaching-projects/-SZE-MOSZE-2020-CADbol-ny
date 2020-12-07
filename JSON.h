@@ -18,7 +18,7 @@ class JSON{
 private:
 	std::map<std::string,std::variant<std::string,int,float>> cont;///<This is the std::map for the class.
 public:
-	typedef std::list<std::variant<std::string,int,float>> list;
+	typedef std::list<std::variant<std::string,int,float>> list;///<This typedefinition for convenience.
 	///This function handles the input file.
 	static JSON parseFromFile(const std::string&);
 	///This function handles the input ifstream.
@@ -28,18 +28,19 @@ public:
 	/// This is the parse function.
 	template<typename T>
 	static JSON parse(T&);
-	/// This function returns the key.
+	/// This function returns the list paired with the key.
 	template <typename T>
 	typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type
-    	get(const std::string& key)
-    	{
-			list jlist;
-			std::istringstream values(std::get<std::string>(cont[key]));
-			std::copy(std::istream_iterator<std::string>(values),
-			std::istream_iterator<std::string>(),
-			std::back_inserter(jlist));
-			return jlist;
-    	}
+	get(const std::string& key)
+	{
+		list jlist;
+		std::istringstream values(std::get<std::string>(cont[key]));
+		std::copy(std::istream_iterator<std::string>(values),
+		std::istream_iterator<std::string>(),
+		std::back_inserter(jlist));
+		return jlist;
+	}
+	/// This function returns the value paired with the key.
 	template <typename T> 
 	typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type
 	get(const std::string& key)
@@ -72,4 +73,6 @@ public:
 	/// This is the constructor for the JSON class.
 	JSON(std::map<std::string, std::variant<std::string,int,float>>cont): cont(cont)
 	{}
+	/// This is the desstructor for the JSON class.
+	JSON(){}
 };
