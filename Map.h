@@ -19,7 +19,7 @@ public:
 	///This is the default constructor for the class.
 	Map(){}
 	///This is a constructor for the class.
-	Map(const std::string&);
+	explicit Map(const std::string&);
 	///This function checks if the given field is empty or not.
 	type get(int, int) const;
 	/**
@@ -34,7 +34,7 @@ public:
 	{
 		public:	
 		///This is the constructor for the class.
-		WrongIndexException(const char* e) : std::logic_error(e) {}
+		explicit WrongIndexException(const char* e) : std::logic_error(e) {}
 	};
 	/// Getter for the current map field.
 	/// 

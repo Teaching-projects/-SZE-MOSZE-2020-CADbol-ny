@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include <algorithm>
 
 void ObserverTextRender::render(const Game& game)const{
 	int mult=0;
@@ -19,14 +20,7 @@ void ObserverTextRender::render(const Game& game)const{
 				*output << "██";
 				break;
 			case 'm':
-				mult = 0;
-				for (const auto& monster : game.getMonster())
-				{
-					if (monster.getUnitPositionX() == i && monster.getUnitPositionY() == j)
-					{
-						mult++;
-					}
-				}
+				mult = std::count_if(game.getMonster().begin(),game.getMonster().end(),[&](const Monster& monster){ return monster.getUnitPositionX()==i && monster.getUnitPositionY()==j;});
 				if (mult > 1) {
 					*output << "MM";
 				}
@@ -77,14 +71,7 @@ void HeroTextRender::render(const Game& game)const{
 				*output << "██";
 				break;
 			case 'm':
-				mult = 0;
-				for (const auto& monster : game.getMonster())
-				{
-					if (monster.getUnitPositionX() == i && monster.getUnitPositionY() == j)
-					{
-						mult++;
-					}
-				}
+				mult = std::count_if(game.getMonster().begin(),game.getMonster().end(),[&](const Monster& monster){ return monster.getUnitPositionX()==i && monster.getUnitPositionY()==j;});
 				if (mult > 1) {
 					*output << "MM";
 				}

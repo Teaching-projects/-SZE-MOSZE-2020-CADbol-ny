@@ -18,9 +18,9 @@ protected:
 
 public:
     /// This is the constructor for the class.
-    SVGRenderer(const std::string& file):filename(file){}
+    explicit SVGRenderer(const std::string& file):filename(file){}
     /// This is a pure virtual function for rendering.
-    virtual void render(const Game&) const=0;
+    void render(const Game&) const override{}
 };
 /**
  * \class CharacterSVGRenderer
@@ -34,9 +34,9 @@ class CharacterSVGRenderer:public SVGRenderer{
 
 public:
     /// This is the constructor for the class.
-    CharacterSVGRenderer(const std::string& file):SVGRenderer(file){}
+    explicit CharacterSVGRenderer(const std::string& file):SVGRenderer(file){}
     /// This function is for SVG rendering.
-    void render(const Game&)const;
+    void render(const Game&)const override;
 };
 /**
  * \class ObserverSVGRenderer
@@ -50,7 +50,7 @@ class ObserverSVGRenderer:public SVGRenderer{
 
 public:
     /// This is the constructor for the class.
-    ObserverSVGRenderer(const std::string& file):SVGRenderer(file){}
+    explicit ObserverSVGRenderer(const std::string& file):SVGRenderer(file){}
     /// This function is for SVG rendering.
-    void render(const Game&)const;
+    void render(const Game&)const override;
 };

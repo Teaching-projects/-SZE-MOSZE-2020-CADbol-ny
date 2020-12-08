@@ -28,8 +28,6 @@ protected:
 	int monstercount=0;///<This is the number of monsters on the map.
 	std::list<Renderer*> renderers={};///<These are the assigned renderers.
 	JSON scenario;///<This is the JSON object for storing the file content.
-	///This is the function for initializing the member variables.
-	void init(const std::string&);
 	///This function prints the current fight result.
 	void gameLogAndFight(Hero&, std::list<Monster>&,int,int);
 
@@ -47,6 +45,10 @@ public:
 		Monster mon(Monster::parse(scenario.get<std::string>(monster)));
 		return mon.getTexture();
 	}
+	///This function registers renderers.
+    void registerRenderer(Renderer* rend){
+		renderers.push_back(rend);
+	}
 	///Function for checking the hero's presence on the map.
 	/// 
 	/// 
@@ -55,9 +57,9 @@ public:
 	///This is the default constructor for the Game class.
 	Game(){}
 	///This is the constructor for the Game class.
-	Game(const std::string&);
+	explicit Game(const std::string&);
 	///This is a simple setter function which sets the map.
-	void setMap(Map);
+	void setMap(const Map&);
 	///This is the function for putting the hero on the map.
 	void putHero(Hero& hero, int, int);
 	///This is the function for putting the monsters on the map.
@@ -100,7 +102,7 @@ public:
 	class OccupiedException:public std::logic_error{
 		public: 
 		///This is the constructor for the class.
-		OccupiedException(const char * what): std::logic_error(what){}
+		explicit OccupiedException(const char * what): std::logic_error(what){}
 	};
 	/**
 	 * \class AlreadyHasHeroException
@@ -113,7 +115,7 @@ public:
 	class AlreadyHasHeroException:public std::logic_error{
 		public: 
 		///This is the constructor for the class.
-		AlreadyHasHeroException(const char * what): std::logic_error(what){}
+		explicit AlreadyHasHeroException(const char * what): std::logic_error(what){}
 	};
 	/**
 	 * \class AlreadyHasUnitException
@@ -126,7 +128,7 @@ public:
 	class AlreadyHasUnitsException:public std::logic_error{
 		public: 
 		///This is the constructor for the class.
-		AlreadyHasUnitsException(const char * what): std::logic_error(what){}
+		explicit AlreadyHasUnitsException(const char * what): std::logic_error(what){}
 	};
 	/**
 	 * \class NotInitializedException 
@@ -139,7 +141,7 @@ public:
 	class NotInitializedException:public std::logic_error{
 		public: 
 		///This is the constructor for the class.
-		NotInitializedException(const char * what): std::logic_error(what){}
+		explicit NotInitializedException(const char * what): std::logic_error(what){}
 	};
 
 };

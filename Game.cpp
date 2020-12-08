@@ -1,10 +1,10 @@
 #include "Game.h"
 #include <iostream>
-
+#include <algorithm>
 
 Game::Game(const std::string& filename) : gamemap(filename) {}
 
-void Game::setMap(Map defmap){
+void Game::setMap(const Map& defmap){
 	for(int i=0;i<defmap.getMapSize();i++){
 		for(int j=0;j<defmap.getRowSize(i);j++){
 			if(gamemap.getMapField(i,j)=='H' || gamemap.getMapField(i,j)=='m'){
@@ -29,7 +29,7 @@ void Game::putHero(Hero& Hero, int x, int y) {
 	else
 	{
 		gamemap.setMapField('H',x,y);
-		hero.setUnitPosition(x,y);
+		Hero.setUnitPosition(x,y);
 		hero=Hero;
 	}
 	
@@ -45,41 +45,16 @@ void Game::putMonster(Monster& monster, int x, int y) {
 		gamemap.setMapField('m',x,y);
 		monster.setUnitPosition(x,y);
 		monsters.push_back(monster);
+		monstercount++;
 	}
 }
 
 bool Game::heroIsPresent() {
 	bool present=false;
-	for(int i=0;i<gamemap.getMapSize();i++){
-		for(int j=0;j<gamemap.getRowSize(i);j++){
-			if(gamemap.getMapField(i,j)=='H')
-			{
+	if(hero.getUnitPositionY()!=-1 && hero.getUnitPositionX()!=-1){
 				present=true;
-				break;
-			}	
-		}
 	}
 	return present;
-}
-
-void Game::init(const std::string& arg) {
-	std::string hero_file="";
-	std::list<std::string> monster_files = {};
-	try {
-		scenario = JSON::parseFromFile(arg);
-		if (!(scenario.count("hero") && scenario.count("monsters"))) std::cerr << "JSON parsing error";
-		else {
-			hero_file = scenario.get<std::string>("hero");
-			JSON::list monster_file_list = scenario.get<JSON::list>("monsters");
-			for (auto monster_file : monster_file_list)
-				monster_files.push_back(std::get<std::string>(monster_file));
-		}
-		hero=Hero::parse(hero_file);
-		for (const auto& monster_file : monster_files)
-			monsters.push_back(Monster::parse(monster_file));
-		monstercount=monsters.size();
-	}
-	catch (const JSON::ParseException& e) { std::cerr <<e.what()<<std::endl ; exit(0);}
 }
 
 void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y) {
@@ -110,25 +85,16 @@ void Game::gameLogAndFight(Hero& hero, std::list<Monster>& monsters,int x,int y)
 }
 
 void Game::run(){
-	std::string input="";
 	if(gamemap.mapIsEmpty() || !Game::heroIsPresent()){
 		throw NotInitializedException("The map is not initialized or there is no hero on it.");
 	}
 	else {
-		std::string input = "";
-		bool samefield=false;
-		for(auto& monster:monsters){
-			if(monster.getUnitPositionX()==hero.getUnitPositionX() && monster.getUnitPositionY()==hero.getUnitPositionY())
-			{
-				samefield=true;
-				break;
-			}
-		}
-		if(samefield){
+		if(std::any_of(monsters.begin(),monsters.end(),[&](Monster& monster){ return monster.getUnitPositionX()==hero.getUnitPositionX() &&
+		monster.getUnitPositionY()==hero.getUnitPositionY();})){
 		gameLogAndFight(hero, monsters, hero.getUnitPositionX(), hero.getUnitPositionY());
 			if(hero.isAlive()){
 				std::cout << "The hero won the fights on that field." << std::endl;
-				gamemap.setMapField('h', hero.getUnitPositionX(), hero.getUnitPositionY());
+				gamemap.setMapField('H', hero.getUnitPositionX(), hero.getUnitPositionY());
 			}
 			else{
 				std::cout << "The hero died during the fight(s) on that field." << std::endl;
@@ -136,6 +102,7 @@ void Game::run(){
 			}
 		}
 		while (hero.isAlive() && monstercount!=0) {
+			std::string input = "";
 			for(auto render:renderers){
 				render->render(*this);
 			}

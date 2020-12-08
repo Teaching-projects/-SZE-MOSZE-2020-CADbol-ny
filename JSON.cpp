@@ -26,9 +26,9 @@ JSON JSON::parse(T& parsed)
 	bool floate;
 	unsigned int i;
 	while (parsed) {
-		i = 0;
 		std::getline(parsed, line);
 		if (line.size() > 2) {
+			i = 0;
 			if (line.find('[') != std::string::npos && line.find(']') != std::string::npos)
 			{
 				key = "", value = "";
@@ -122,7 +122,7 @@ JSON JSON::parse(T& parsed)
 						}
 					}
 					if (line.find(',') != std::string::npos) {
-						while (line[i] != ',' && i < line.size()) {
+						while (i < line.size() && line[i] != ',') {
 							i++;
 						}
 						i++;

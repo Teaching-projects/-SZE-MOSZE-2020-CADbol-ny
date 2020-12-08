@@ -1,14 +1,6 @@
-# Feladat#8
+# Leadáshoz szükséges feladatok
 
 ## Elvárás
-
-### Játék és játékmenet változtatások
-- [x] MarkedMap elkészítése
-- [x] PreparedGame elkészítése
-- [x] light radius beépítése
-- [x] SVG rendering beépítése
-- [x] dokumentáció kiegészítése
-- [x] unit tesztek bővítése/átformálása
 
 ### Leadás előtti feladatok
 - [ ] Report.md file
@@ -18,7 +10,8 @@
 
 ## Működés
 
-Egy adott pályára rakott hős megküzd az azon lévő szörnyekkel. 
+Egy adott pályára rakott hős megküzd az azon lévő szörnyekkel. Ha sikerrel jár és legyőzi az összeset akkor nyer,
+ellenkező esetben veszít. A játék előre beállított paraméterekkel is működik. 
 A hős mozgatása a mappen user input által lehetséges.
 
 ## Dokumentáció link
