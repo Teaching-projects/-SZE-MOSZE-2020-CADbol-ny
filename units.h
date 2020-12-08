@@ -67,7 +67,7 @@ public:
 	/// This is the default constructor for the units.
 	Unit(){}
 	/// This is the constructor for the units.
-	Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string texture);
+	explicit Unit(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,const std::string& texture);
 	///	Getter for the unit's name.
 	/// 
 	/// This is a simple getter function.
@@ -134,7 +134,7 @@ public:
 	/// <returns>The unit's current defense
 	int getDefense() const { return m_defense; }
 	/// This is the overloaded = operator.
-	inline void operator=(const Unit& unit){
+	inline Unit& operator=(const Unit& unit){
 		this->m_name=unit.m_name;
 		this->m_hp=unit.m_hp;
 		this->damage.magical=unit.damage.magical;
@@ -142,6 +142,7 @@ public:
 		this->m_attackCooldown=unit.m_attackCooldown;
 		this->m_defense=unit.m_defense;
 		this->m_texture=unit.m_texture;
+		return *this;
 	}
 	///This is the destructor
 	/// 

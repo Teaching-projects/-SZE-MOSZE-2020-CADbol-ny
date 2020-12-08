@@ -37,17 +37,30 @@ int main(int argc, char** argv){
 
     /*try {
         Game gameplay("map.txt");
-        gameplay.init(argv[1]);
+        std::string hero_file="";
+	    std::list<std::string> monster_files = {};
+        try{
+            JSON scenario= JSON::parseFromFile(argv[1]);
+            if (!(scenario.count("hero") && scenario.count("monsters"))) std::cerr << "JSON parsing error";
+		    else {
+			hero_file = scenario.get<std::string>("hero");
+			JSON::list monster_file_list = scenario.get<JSON::list>("monsters");
+			for (auto monster_file : monster_file_list)
+				monster_files.push_back(std::get<std::string>(monster_file));
+            }
+        }catch (const JSON::ParseException& e) { std::cerr <<e.what()<<std::endl ; exit(0);}
         try {
-            gameplay.putHero(gameplay.getHero(),5, 5);
+            Hero hero(Hero::parse(hero_file));
+            gameplay.putHero(hero,4, 3);
         }
         catch (Game::AlreadyHasHeroException& e) { std::cerr << e.what()<<std::endl;exit(0); }
         catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
         try {
             int k=0;
-            for (auto& monster : gameplay.getMonster()) {
+            for (const auto& monster_file : monster_files) {
+                Monster monster(Monster::parse(monster_file));
                 if(k>=3){
-                gameplay.putMonster(monster, 5, 3);
+                    gameplay.putMonster(monster, 5, 3);
                 }
                 else{
                     gameplay.putMonster(monster, 2, 1);
@@ -55,6 +68,7 @@ int main(int argc, char** argv){
                 k++;
             }
         }catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
+        gameplay.registerRenderer(new ObserverTextRender());
         gameplay.run();
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }*/
     try{

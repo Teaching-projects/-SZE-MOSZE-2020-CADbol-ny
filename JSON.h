@@ -68,10 +68,10 @@ public:
 	{
 	public:
 	///This is the constructor for the class.
-		ParseException(const char* what) : runtime_error(what) {}
+		explicit ParseException(const char* what) : runtime_error(what) {}
 	};
 	/// This is the constructor for the JSON class.
-	JSON(std::map<std::string, std::variant<std::string,int,float>>cont): cont(cont)
+	explicit JSON(const std::map<std::string, std::variant<std::string,int,float>>&cont): cont(cont)
 	{}
 	/// This is the desstructor for the JSON class.
 	JSON(){}

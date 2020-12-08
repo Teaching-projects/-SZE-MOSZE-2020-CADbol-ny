@@ -34,7 +34,7 @@ public:
     /// This is the default constructor for the class.
     TextRender(){}
     /// This is a constructor for the class.
-    TextRender(std::ostream&);
+    explicit TextRender(std::ostream&);
     /// This function is for setting the output stream
     void setOutputStream(std::ostream&);
 };
@@ -51,9 +51,9 @@ public:
     /// This is the default constructor for the class.
     HeroTextRender(){}
     /// This is a constructor for the class.
-    HeroTextRender(std::ostream& out):TextRender(out) {}
+    explicit HeroTextRender(std::ostream& out):TextRender(out) {}
     /// This function is for the actual rendering.
-    void render(const Game&) const;
+    void render(const Game&) const override;
 };
 /**
  * \class ObserverTextRender
@@ -68,7 +68,7 @@ public:
      /// This is the default constructor for the class.
     ObserverTextRender(){}
      /// This is a constructor for the class.
-    ObserverTextRender(std::ostream& out):TextRender(out) {}
+    explicit ObserverTextRender(std::ostream& out):TextRender(out) {}
     /// This function is for the actual rendering.
-    void render(const Game&) const;
+    void render(const Game&) const override;
 };

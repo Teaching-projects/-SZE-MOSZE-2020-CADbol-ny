@@ -5,7 +5,7 @@
 #include <exception>
 
 
-Unit::Unit(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string texture) :m_name(name), m_hp(hp), m_attackCooldown(attackCooldown),m_defense(defense),m_texture(texture) {
+Unit::Unit(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,const std::string& texture) :m_name(name), m_hp(hp), m_attackCooldown(attackCooldown),m_defense(defense),m_texture(texture) {
 	damage.physical=fdamage;
 	damage.magical=mdamage;
 }

@@ -2,7 +2,9 @@
 #include <iostream>
 
 PreparedGame::PreparedGame(const std::string& filename){
-    scenario=JSON::parseFromFile(filename);
+    try{
+        scenario=JSON::parseFromFile(filename);
+    }catch (const JSON::ParseException& e) { std::cerr <<e.what()<<std::endl ; exit(0);}
 }
 
 void PreparedGame::init(){

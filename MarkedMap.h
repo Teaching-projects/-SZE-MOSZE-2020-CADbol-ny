@@ -18,7 +18,7 @@ public:
     ///This is the default constructor for the class.
     MarkedMap(){}
     ///This is a constructor for the class.
-    MarkedMap(const std::string&);
+    explicit MarkedMap(const std::string&);
 protected:
     ///This function returns the hero's position.
     position getHeroPosition() const;

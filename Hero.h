@@ -29,7 +29,7 @@ class Hero : public Unit {
  public:
  Hero(){}
  	///This is the constructor for the Hero class.
-	Hero(std::string name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,std::string texture,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,
+	Hero(const std::string& name, int hp, int fdamage,int mdamage, float attackCooldown,int defense,const std::string& texture,int xplevel,int hpbonuslevel,int fdamagebonus,int mdamagebonus,
 	int defensebonus,float multiplier,int lightrad,int lightradbonus) : 
 	Unit( name, hp, fdamage,mdamage, attackCooldown,defense,texture),m_xplevel(xplevel),m_hpbonuslevel(hpbonuslevel),m_physicaldamagebonusperlevel(fdamagebonus),
 	m_magicaldamagebonusperlevel(mdamagebonus),m_defense_bonus_per_level(defensebonus),m_cdmultiplier(multiplier),m_xp(0),m_maxhp(hp),m_level(1),
@@ -72,7 +72,7 @@ class Hero : public Unit {
 	/// This is the function to magical deal damage to a monster.
 	void dealMagicalDamageTo(Monster&);
 	/// This is the overloaded assignment operator.
-	inline void operator=(const Hero& hero){
+	inline Hero& operator=(const Hero& hero){
 		this->m_attackCooldown=hero.m_attackCooldown;
 		this->m_cdmultiplier=hero.m_cdmultiplier;
 		this->m_defense=hero.m_defense;
@@ -92,5 +92,6 @@ class Hero : public Unit {
 		this->pos.y=hero.pos.y;
 		this->m_light_radius=hero.m_light_radius;
 		this->m_texture=hero.m_texture;
+		return *this;
 	}
 };
