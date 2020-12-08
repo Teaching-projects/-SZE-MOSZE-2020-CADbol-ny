@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - finaltask
+      - minorfix
       - gh-pages
 
 jobs:
