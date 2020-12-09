@@ -15,13 +15,14 @@ TEST(ParserTest,defaultfileparse)
 	std::string expected_name="Fallen";
 	int expected_hp=4;
 	int expected_dmg=2;
+	int expected_defense=1;
 	float expected_attackcooldown=1.6f;
 	JSON output=JSON::parseFromFile("../Fallen.json");
     ASSERT_EQ(output.get<std::string>("name"),expected_name);
 	ASSERT_EQ(output.get<int>("health_points"),expected_hp);
 	ASSERT_EQ(output.get<int>("physical_damage"),expected_dmg);
 	ASSERT_EQ(output.get<float>("attack_cooldown"),expected_attackcooldown);
-
+	ASSERT_EQ(output.get<int>("defense"),expected_defense);
 }
 TEST(ParserTest,istreamparse)
 {
@@ -91,6 +92,9 @@ TEST(UnitTest,getterAndMonsterparserTest)
 	EXPECT_EQ(unit.getName(),"Zombie");
 	EXPECT_EQ(unit.getHealthPoints(),10);
 	EXPECT_EQ(unit.getFDamage(),1);
+	EXPECT_EQ(unit.getMDamage(),1);
+	EXPECT_EQ(unit.getTexture(),"zombie.png");
+	EXPECT_EQ(unit.getDefense(),2);
 	EXPECT_FLOAT_EQ(unit.getAttackCoolDown(),2.8f);
 }
 TEST(UnitTest,getterAndHeroparserTest)
@@ -166,7 +170,7 @@ TEST(UnitTest,dealMagicalDamageToTest2)
 	EXPECT_EQ(unit2.getHealthPoints(),8);
 	EXPECT_EQ(unit1.getHealthPoints(),29);
 }
-TEST(MapTests,MapInitTest)
+TEST(MapTests,MapInitAndGetMapTest)
 {
 	std::vector<std::string> expected_map={"##############\r","#   #  ####  #\r","# ####  ##  # \r","#   #  ##  #  \r","### # ##  #   \r","#        #    \r","#### ####     "};
 	Map output_map("../map.txt");
@@ -184,23 +188,33 @@ TEST(MapTests,MapGetTestFree)
 	Map output("../map.txt");
 	EXPECT_EQ(output.get(1,1),expected);
 }
-TEST(MapTests,MarkedMapInitTest)
+TEST(MapTests,MapIsEmptyTest1)
+{
+	Map output("../map.txt");
+	EXPECT_EQ(output.mapIsEmpty(),false);
+}
+TEST(MapTests,MapIsEmptyTest2)
+{
+	Map output;
+	EXPECT_EQ(output.mapIsEmpty(),true);
+}
+TEST(MapTests,MarkedMapInitAndGetMapTest)
 {
 	MarkedMap output_map("../markedmap.txt");
 	std::vector<std::string> expected_map={"##############\r","# H #  ####  #\r","# ####32##  # \r","# 12# 2##  #  \r","###1# ##  #   \r","#     1   #   \r","#########     "};
 	EXPECT_EQ(expected_map,output_map.getMap());
 }
-TEST(MapTests,MapGetTestHero)
+TEST(MapTests,MarkedMapGetTestHero)
 {
 	MarkedMap output("../markedmap.txt");
 	EXPECT_EQ('H',output.getMapField(1,2));
 }
-TEST(MapTests,MapGetTestMonster)
+TEST(MapTests,MarkedMapGetTestMonster)
 {
 	MarkedMap output("../markedmap.txt");
 	EXPECT_EQ('1',output.getMapField(3,2));
 }
-TEST(GameTests,heroIsPresent1){
+TEST(GameTests,heroIsPresentAndPutHero){
 	Game gameplay("../map.txt");
 	Hero hero(Hero::parse("../Dark_Wanderer.json"));
 	gameplay.putHero(hero,1,2);
