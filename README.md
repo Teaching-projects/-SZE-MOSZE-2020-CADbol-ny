@@ -3,10 +3,10 @@
 ## Elvárás
 
 ### Leadás előtti feladatok
-- [ ] Report.md file
-- [ ] <1 perces gameplay video
-- [ ] <2 perces meggyözés a kód jó minőségével kapcsolatban
-- [ ] Saját magunk értékelése
+- [x] Report.md file
+- [x] <1 perces gameplay video
+- [x] <2 perces meggyözés a kód jó minőségével kapcsolatban
+- [x] Saját magunk értékelése
 
 ## Működés
 
