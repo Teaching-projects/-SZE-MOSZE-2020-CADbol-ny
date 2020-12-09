@@ -51,7 +51,7 @@ Unit-tests:
 static-code-analysis:
 	cppcheck *.cpp --enable=warning --output-file=errors.txt
 	./static_check.sh
-	cppcheck *.cpp --enable=style --enable=performance --output-file=artifact.txt
+	cppcheck *.cpp --enable=style --enable=performance --enable=unusedFunction --output-file=artifact.txt 
 	
 memory-leak-check:
 	valgrind --leak-check=full --error-exitcode=1 ./game preparedgame.json<input.txt

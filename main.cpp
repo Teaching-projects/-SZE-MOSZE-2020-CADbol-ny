@@ -51,7 +51,7 @@ int main(int argc, char** argv){
         }catch (const JSON::ParseException& e) { std::cerr <<e.what()<<std::endl ; exit(0);}
         try {
             Hero hero(Hero::parse(hero_file));
-            gameplay.putHero(hero,4, 3);
+            gameplay.putHero(hero,5, 5);
         }
         catch (Game::AlreadyHasHeroException& e) { std::cerr << e.what()<<std::endl;exit(0); }
         catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
@@ -68,7 +68,7 @@ int main(int argc, char** argv){
                 k++;
             }
         }catch (Game::OccupiedException& e) { std::cerr << e.what()<<std::endl;exit(0); }
-        gameplay.registerRenderer(new ObserverTextRender());
+        gameplay.registerRenderer(new HeroTextRender());
         gameplay.run();
     }catch (const Game::NotInitializedException& e) { std::cerr << e.what()<<std::endl;exit(0); }*/
     try{
