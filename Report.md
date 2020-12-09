@@ -9,8 +9,8 @@
 
 # Videók
 
- - [Gameplay](https://drive.google.com/file/d/1h8RzXwVIOFkRATe2Tpyl9jFle4w5YPh9/view?fbclid=IwAR2E2pJN2f76lCqOzbnWMJbK20QaPOrFpGXpnEq8jul2lURRzzBemWpy7M8)
- - [CodeBaseDefense](https://drive.google.com/file/d/1MK2F8eivWuWhfb9aazNIgL8q5MWqVo1k/view?fbclid=IwAR03v-nWwc_nmAh4kwpAl-ili33R2b-13wOP4ktLM0RwGPDHhIwZeXvKDcY)
+ - [Gameplay](/videos/gameplay.mp4)
+ - [CodeBaseDefense](/videos/codebasedefense.mp4)
 
 # Befejezett feladatok
 
