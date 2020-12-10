@@ -48,8 +48,13 @@
 | `MarkedMap` | 2 | 2 | 2 |  
 | `Game` | 16 | 16 | 5 |  
 | `PreparedGame` | 1 | 1 | 1 | 
-| `Renderer` | 2 | 2 | 1 |  
-| `SVGRenderer` | 1 | 1 | 1 |  
+| `Renderer` | 2 | 2 | 1 |
+| `TextRender` | 2 | 2 | 1 |
+| `HeroTextRender` | 2 | 2 | 2 |
+| `ObserverTextRender` | 2 | 2 | 2 |  
+| `SVGRenderer` | 2 | 2 | 1 | 
+| `CharacterSVGRenderer` | 2 | 2 | 2 | 
+| `ObserverSVGRenderer` | 2 | 2 | 2 |
 | `Exceptions` | 8 | 8 | 8 | 
 
 # Kód dokumentáció
@@ -65,7 +70,14 @@
 | `Map` | --- | --- |
 | `MarkedMap` | --- | --- |
 | `Renderer` | --- | --- |
+| `TextRender` | --- | --- |
+| `HeroTextRender` | --- | --- |
+| `ObserverTextRender` | --- | --- |
 | `SVGRenderer` | --- | --- |
+| `CharacterSVGRenderer` | --- | --- |
+| `ObserverSVGRenderer` | --- | --- |
+| `SVGRenderer` | --- | --- |
+| `Exceptions` | --- | --- |
 
 
 # Mindenféle számok
